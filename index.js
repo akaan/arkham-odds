@@ -31,5 +31,71 @@ $(function() {
   }
 
   // START YOUR OWN SCRIPT BELOW
-
+  
+  // Bag setup
+  var bag = ArkhamOdds.Bags.ThePathToCarcosa.Standard;
+  Object.assign(ArkhamOdds.Tokens.Values, {
+    "Elder sign": 1,
+    "Skull": -1, // Jim
+    "Cultist": -1,
+    "Tablet": -1
+  });
+  
+  function chooseFromOlive (diff) {
+    return function (threeTokens) {
+      var twoBest = threeTokens.sort(ArkhamOdds.byTokenValueDesc).slice(0,2);
+      if ( twoBest.some (t => ArkhamOdds.isTokenAutoFailure(t)) ) {
+        return false;
+      }
+      if ( twoBest.some (t => ArkhamOdds.isTokenAutoSuccess(t)) ) {
+        return true;
+      }
+      return twoBest.reduce ( (sum, t) => sum + ArkhamOdds.valueForToken(t), 0) >= -diff;
+    }
+  }
+  
+  appendResult("<div id='container' />");
+  var skillMinusDiff = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+  Highcharts.chart('container', {
+    title: { text: 'Odds of success depending on skill vs. difficulty' },
+    subtitle: { text: 'Night of the Zealot' },
+    yAxis: {
+        title: { text: 'Odds of success' },
+        labels: { format: '{value:.2f}%'}
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: -4
+        }
+    },
+    series: [{
+        name: 'Without Olive',
+        data: skillMinusDiff.map(e => 100 * ArkhamOdds.oddsOfOutcome(bag, ArkhamOdds.isSuccess(e)))
+    }, {
+        name: 'With Olive',
+        data: skillMinusDiff.map(e => 100 * ArkhamOdds.oddsOfOutcome(ArkhamOdds.combinations(3, bag), chooseFromOlive(e)))
+    }],
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+  });
 });
