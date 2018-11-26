@@ -1,0 +1,12 @@
+{
+  "name": "arkham-odds",
+  "version": "0.0.1",
+  "description": "Javascript library for computing odds of outcome in Arkham Horror : The Card Game",
+  "main": "arkham-odds.js",
+  "author": "Akaan Qualrus <akaan.qualrus@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akaan/arkham-odds.git"
+  },
+  "license": "GPL-3.0-or-later"
+}
