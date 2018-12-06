@@ -1,0 +1,5 @@
+dist
+doc
+node_modules
+.out
+.rpt2_cache
