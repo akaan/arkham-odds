@@ -166,3 +166,26 @@ export function recallTheFuture(skillMinusDifficulty: number): OutcomeFunction {
 
   };
 }
+
+/**
+ * Determine success using Dark Prophecy.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
+export function darkProphecy(skillMinusDifficulty: number): OutcomeFunction {
+  return (tokensPulled, tokenEffects, bag) => {
+    let chosenToken: Token;
+
+    if (tokensPulled.some((t) => BadTokens.includes(t))) {
+      const onlyBad = tokensPulled.filter((t) => BadTokens.includes(t));
+      chosenToken = tokenEffects.sortByBestOutcomeDesc(onlyBad)[0];
+    } else {
+      chosenToken = tokenEffects.sortByBestOutcomeDesc(tokensPulled)[0];
+    }
+
+    return tokenEffects.isSuccess([chosenToken], skillMinusDifficulty);
+  };
+}
