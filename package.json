@@ -18,7 +18,7 @@
     "clean:doc": "rm -Rf ./docs/*",
     "compile": "npm run clean:compile && tsc",
     "doc": "npm run clean:doc && npm-run-all doc:*",
-    "doc:generate": "typedoc --options ./typedocconfig.js",
+    "doc:generate": "typedoc",
     "doc:add-theme": "printf 'theme: jekyll-theme-cayman' > ./docs/_config.yml",
     "lint": "tslint -c tslint.json \"src/**/*.ts\"",
     "lint:fix": "tslint --fix -c tslint.json \"src/**/*.ts\""
