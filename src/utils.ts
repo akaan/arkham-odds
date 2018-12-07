@@ -37,6 +37,16 @@ function flatten<T>(elems: T[][]): T[] {
   return [].concat.apply([], elems);
 }
 
+/**
+ * Return combinations of elements from an array.
+ *
+ * @param {number} k
+ *   The number of elements in each combination.
+ * @param {T[]} elems
+ *   The array of elements to pull from.
+ * @return {T[][]}
+ *   All possible combinations of `k` elements among `elems`.
+ */
 export function combinations<T>(k: number, elems: T[]): T[][] {
   if ( k <= 0 ) { return [ [] ]; }
 
