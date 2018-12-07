@@ -9,15 +9,22 @@
     "url": "https://github.com/akaan/arkham-odds.git"
   },
   "scripts": {
-    "build": "npm run clean && npm run lint && rollup --config && npm run doc",
-    "clean": "rm -Rf ./dist && rm -Rf ./docs && rm -Rf ./.out && rm -Rf ./.rpt2_cache",
-    "compile": "tsc",
-    "doc": "typedoc --options ./typedocconfig.js",
+    "all": "npm-run-all lint dist doc:*",
+    "dist": "npm run clean:dist && rollup --config",
+    "clean": "npm-run-all clean:*",
+    "clean:compile": "rm -Rf ./.out",
+    "clean:dist": "rm -Rf ./dist",
+    "clean:doc": "rm -Rf ./docs/*",
+    "compile": "npm run clean:compile && tsc",
+    "doc": "npm run clean:doc && npm-run-all doc:*",
+    "doc:generate": "typedoc --options ./typedocconfig.js",
+    "doc:add-theme": "printf 'theme: jekyll-theme-cayman' > ./docs/_config.yml",
     "lint": "tslint -c tslint.json \"src/**/*.ts\"",
     "lint:fix": "tslint --fix -c tslint.json \"src/**/*.ts\""
   },
   "license": "GPL-3.0-or-later",
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "rollup": "^0.67.4",
     "rollup-plugin-typescript2": "^0.18.0",
     "tslint": "^5.11.0",
