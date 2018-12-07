@@ -9,6 +9,7 @@
     "url": "https://github.com/akaan/arkham-odds.git"
   },
   "scripts": {
+    "precommit": "npm run all",
     "all": "npm-run-all lint dist doc:*",
     "dist": "npm run clean:dist && rollup --config",
     "clean": "npm-run-all clean:*",
@@ -22,8 +23,14 @@
     "lint": "tslint -c tslint.json \"src/**/*.ts\"",
     "lint:fix": "tslint --fix -c tslint.json \"src/**/*.ts\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
   "license": "GPL-3.0-or-later",
   "devDependencies": {
+    "husky": "^1.2.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^0.67.4",
     "rollup-plugin-typescript2": "^0.18.0",
