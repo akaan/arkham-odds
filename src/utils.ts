@@ -33,6 +33,10 @@ function tails<T>(elems: T[]): T[][] {
   return a;
 }
 
+function flatten<T>(elems: T[]): T[] {
+  return [].concat.apply([], elems);
+}
+
 export function combinations<T>(k: number, elems: T[]): T[][] {
   if ( k <= 0 ) { return [ [] ]; }
 
@@ -53,4 +57,14 @@ export function combinations<T>(k: number, elems: T[]): T[][] {
     // Add to result
     return acc.concat(comb);
   }, [] as T[][]);
+}
+
+export function cartesianProduct<T>(...sets: T[][]): T[][] {
+  return sets.reduce((acc, set) => {
+    return flatten(acc.map((x) => {
+      return set.map((y) => {
+        return [ ...x, y ];
+      });
+    }));
+  }, [[]]);
 }

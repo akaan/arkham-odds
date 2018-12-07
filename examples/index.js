@@ -50,25 +50,31 @@ $(function() {
       {
         name: 'Odds',
         data: skillMinusDiff.map((d) => {
-          return ArkhamOdds.odds(1, theBag, theEffects, ArkhamOdds.success(d));
+          return 100 * ArkhamOdds.odds(1, theBag, theEffects, ArkhamOdds.success(d));
         })
       },
       {
         name: 'Odds with Cultist removed',
         data: skillMinusDiff.map((d) => {
-          return ArkhamOdds.odds(1, theBag.removeToken(ArkhamOdds.Token.CULTIST), theEffects, ArkhamOdds.success(d));
+          return 100 * ArkhamOdds.odds(1, theBag.removeToken(ArkhamOdds.Token.CULTIST), theEffects, ArkhamOdds.success(d));
         })
       },
       {
         name: 'Odds with Ritual Candles',
         data: skillMinusDiff.map((d) => {
-          return ArkhamOdds.odds(1, theBag, theEffects, ArkhamOdds.ritualCandles(d));
+          return 100 * ArkhamOdds.odds(1, theBag, theEffects, ArkhamOdds.ritualCandles(d));
         })
       },
       {
         name: 'Odds with Recall the Future',
         data: skillMinusDiff.map((d) => {
-          return ArkhamOdds.odds(1, theBag, theEffects, ArkhamOdds.recallTheFuture(d));
+          return 100 * ArkhamOdds.odds(1, theBag, theEffects, ArkhamOdds.recallTheFuture(d));
+        })
+      },
+      {
+        name: 'Odds with Olive McBride',
+        data: skillMinusDiff.map((d) => {
+          return 100 * ArkhamOdds.odds(3, theBag, theEffects, ArkhamOdds.oliveMcBride(d));
         })
       }
     ],

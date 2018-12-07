@@ -16,6 +16,31 @@ export function success(skillMinusDifficulty: number): OutcomeFunction {
   };
 }
 
+/**
+ * Determine success when pulling several tokens and choosing the best to
+ * resolve and ignore to others.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
+export function successChoosingBest(skillMinusDifficulty: number): OutcomeFunction {
+  return (tokensPulled, tokenEffects) => {
+    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+    const chosen: Token[] = sorted.slice(0, 1);
+    return tokenEffects.isSuccess(chosen, skillMinusDifficulty);
+  };
+}
+
+/*
+ * Determine success when using a single copy of Ritual Candles.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
 export function ritualCandles(skillMinusDifficulty: number): OutcomeFunction {
   return (tokensPulled, tokenEffects) => {
     const candleBonus = tokensPulled.reduce((bonus, token) => {
