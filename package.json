@@ -9,7 +9,7 @@
     "url": "https://github.com/akaan/arkham-odds.git"
   },
   "scripts": {
-    "precommit": "npm run all",
+    "precommit": "npm run all && git add ./docs",
     "all": "npm-run-all lint dist doc:*",
     "dist": "npm run clean:dist && rollup --config",
     "clean": "npm-run-all clean:*",
