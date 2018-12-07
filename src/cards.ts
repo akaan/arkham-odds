@@ -1,5 +1,6 @@
+import { Bag } from './bag';
 import { OutcomeFunction } from './OutcomeFunction';
-import { BadTokens, Token } from './tokens';
+import { BadTokens, Token, TokenEffects } from './tokens';
 
 /**
  * Basically determine success based on difference between skill value and
@@ -90,6 +91,53 @@ export function oliveMcBrideWithSkull(skillMinusDifficulty: number): OutcomeFunc
 }
 
 /**
+ * Choose the right token to call with Recall the Future which is, among tokens
+ * that can be turned to success using the +2 bonus, the one which has the most
+ * occurrences in the bag.
+ *
+ * @param {number} skillMinusDifficulty
+ *   value and the difficulty.
+ * @param {Bag} bag
+ *   The Chaos bag
+ * @param {TokenEffects} tokenEffects
+ *   The token effects mapping.
+ * @return {Token | null}
+ *   The best token to call or `null` if there is none.
+ */
+function chooseTokenForRecallTheFuture(skillMinusDifficulty: number,
+                                       bag: Bag,
+                                       tokenEffects: TokenEffects): Token | null {
+
+  // Get tokens that can be turned to successes
+  const canBeTurnedToSuccesses = bag.getTokens().filter((t) => {
+    return !tokenEffects.isSuccess([t], skillMinusDifficulty)
+      && tokenEffects.isSuccess([t], skillMinusDifficulty + 2);
+  });
+
+  // Counting them
+  const countByToken = canBeTurnedToSuccesses.reduce((acc: Map<Token, number>, t: Token) => {
+    if (acc.has(t)) {
+      acc.set(t, acc.get(t) + 1);
+    } else {
+      acc.set(t, 1);
+    }
+    return acc;
+  }, new Map<Token, number>());
+
+  // Choosing the one with the most occurrences
+  const chosenToken: Token | null = Array.from(countByToken.entries())
+    .reduce(([previousToken, previousCount], [token, count]) => {
+      if (count > previousCount) {
+        return [token, count];
+      } else {
+        return [previousToken, previousCount];
+      }
+    }, [null, 0])[0];
+
+  return chosenToken;
+}
+
+/**
  * Determine success using Recall the Future.
  * The strategy applied for Recall the Future is the following :
  * - determine which tokens can be turned from failure to success using the
@@ -102,36 +150,13 @@ export function oliveMcBrideWithSkull(skillMinusDifficulty: number): OutcomeFunc
  *    An outcome function determining success.
  */
 export function recallTheFuture(skillMinusDifficulty: number): OutcomeFunction {
+  let chosenToken: Token | null | undefined;
+
   return (tokensPulled, tokenEffects, bag) => {
 
-    // TODO Move this out of the outcome function by adding the bag and the
-    // effects as argument to the recallTheFuture function.
-
-    // Get tokens that can be turned to successes
-    const canBeTurnedToSuccesses = bag.getTokens().filter((t) => {
-      return !tokenEffects.isSuccess([t], skillMinusDifficulty)
-        && tokenEffects.isSuccess([t], skillMinusDifficulty + 2);
-    });
-
-    // Counting them
-    const countByToken = canBeTurnedToSuccesses.reduce((acc: Map<Token, number>, t: Token) => {
-      if (acc.has(t)) {
-        acc.set(t, acc.get(t) + 1);
-      } else {
-        acc.set(t, 1);
-      }
-      return acc;
-    }, new Map<Token, number>());
-
-    // Choosing the one with the most occurrences
-    const chosenToken: Token | null = Array.from(countByToken.entries())
-      .reduce(([previousToken, previousCount], [token, count]) => {
-        if (count > previousCount) {
-          return [token, count];
-        } else {
-          return [previousToken, previousCount];
-        }
-      }, [null, 0])[0];
+    if (chosenToken === undefined) {
+      chosenToken = chooseTokenForRecallTheFuture(skillMinusDifficulty, bag, tokenEffects);
+    }
 
     if (chosenToken !== null && tokensPulled.includes(chosenToken)) {
       return tokenEffects.isSuccess(tokensPulled, skillMinusDifficulty + 2);
