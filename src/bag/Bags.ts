@@ -1,5 +1,13 @@
 import { Token } from '../tokens';
 
+/**
+ * @internal A function to facilitate the declaration of bag composition.
+ *
+ * @param {string} tokenList
+ *   The comma-separated list of tokens.
+ * @return {Token[]}
+ *   The array of tokens parsed from the string.
+ */
 function toTokens(tokenList: string): Token[] {
   return tokenList.split(',').map((s) => {
     switch (s.trim()) {
@@ -40,25 +48,40 @@ function toTokens(tokenList: string): Token[] {
 }
 
 // tslint:disable:object-literal-sort-keys max-line-length
+/**
+ * Bag compositions for the different campaigns.
+ */
 export const Bags = {
+    /**
+     * Night of the Zealot
+     */
     NightOfTheZealot: {
       Easy: toTokens('+1, +1, 0, 0, 0, -1, -1, -1, -2, -2, Skull, Skull, Cultist, Tablet, Autofail, Elder sign'),
       Standard: toTokens('+1, 0, 0, -1, -1, -1, -2, -2, -3, -4, Skull, Skull, Cultist, Tablet, Autofail, Elder sign'),
       Hard: toTokens('0, 0, 0, -1, -1, -2, -2, -3, -3, -4, -5, Skull, Skull, Cultist, Tablet, Autofail, Elder sign'),
       Expert: toTokens('0, -1, -1, -2, -2, -3, -3, -4, -4, -5, -6, -8, Skull, Skull, Cultist, Tablet, Autofail, Elder sign'),
     },
+    /**
+     * The Dunwich Legacy
+     */
     TheDunwichLegacy: {
       Easy: toTokens('+1, +1, 0, 0, 0, -1, -1, -1, -2, -2, Skull, Skull, Cultist, Autofail, Elder sign'),
       Standard: toTokens('+1, 0, 0, -1, -1, -1, -2, -2, -3, -4, Skull, Skull, Cultist, Autofail, Elder sign'),
       Hard: toTokens('0, 0, 0, -1, -1, -2, -2, -3, -3, -4, -5, Skull, Skull, Cultist, Autofail, Elder sign'),
       Expert: toTokens('0, -1, -1, -2, -2, -3, -3, -4, -4, -5, -6, -8, Skull, Skull, Cultist, Autofail, Elder sign'),
     },
+    /**
+     * The Path to Carcosa
+     */
     ThePathToCarcosa: {
       Easy: toTokens('+1, +1, 0, 0, 0, -1, -1, -1, -2, -2, Skull, Skull, Skull, Autofail, Elder sign'),
       Standard: toTokens('+1, 0, 0, -1, -1, -1, -2, -2, -3, -4, Skull, Skull, Skull, Autofail, Elder sign'),
       Hard: toTokens('0, 0, 0, -1, -1, -2, -2, -3, -3, -4, -5, Skull, Skull, Skull, Autofail, Elder sign'),
       Expert: toTokens('0, -1, -1, -2, -2, -3, -3, -4, -4, -5, -6, -8, Skull, Skull, Skull, Autofail, Elder sign'),
     },
+    /**
+     * The Forgotten Age
+     */
     TheForgottenAge: {
       Easy: toTokens('+1, +1, 0, 0, 0, -1, -1, -2, -3, Skull, Skull, Elder thing, Autofail, Elder sign'),
       Standard: toTokens('+1, 0, 0, 0, -1, -2, -2, -3, -5, Skull, Skull, Elder thing, Autofail, Elder sign'),
