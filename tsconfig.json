@@ -15,8 +15,11 @@
     "lib": [
       "es7"
     ],
-    "baseUrl": "./src",
-    "sourceRoot": "./src"
+    "baseUrl": ".",
+    "sourceRoot": "./src",
+    "paths": {
+      "arkham-odds": ["./src"]
+    }
   },
   "formatCodeOptions": {
     "indentSize": 2,
