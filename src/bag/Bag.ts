@@ -35,14 +35,12 @@ export class Bag {
 
   /**
    * Get tokens in the bag.
-   * @warning They should not be directly modified to avoid breaking
-   *   immutability of the bag.
    *
    * @return {Token[]}
-   *   Tokens in the bag.
+   *   A copy of tokens in the bag (modification to it will not affect the bag).
    */
   public getTokens(): Token[] {
-    return this._tokens;
+    return [...this._tokens];
   }
 
   /**
