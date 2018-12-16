@@ -140,9 +140,46 @@
 					<div class="tsd-signature tsd-kind-icon">Outcome<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in OutcomeFunction.ts:4</li>
+							<li>Defined in OutcomeFunction.ts:43</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An outcome function determine success based of the tokens pulled. The
+								function is passed the mapping of token effects and the bag in case they are
+							needed to determine success.</p>
+						</div>
+						<p>The simplest example just check whether a particular token was pulled:</p>
+						<pre><code class="language-javascript"><span class="hljs-keyword">const</span> elderSignPulled = <span class="hljs-function">(<span class="hljs-params">tokensPulled</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> tokensPulled[<span class="hljs-number">0</span>] === ArkhamOdds.Token.ELDER_SIGN;
+}</code></pre>
+						<p>You can return an outcome function from another function :</p>
+						<pre><code class="language-javascript"><span class="hljs-keyword">const</span> pulledAToken = <span class="hljs-function">(<span class="hljs-params">token</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">tokensPulled</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> tokensPulled[<span class="hljs-number">0</span>] === token;
+  }
+}</code></pre>
+						<p>A more complex example includes the token effects:</p>
+						<pre><code class="language-javascript"><span class="hljs-keyword">const</span> isSuccessWhenOverByTwo = <span class="hljs-function">(<span class="hljs-params">tokensPulled, tokenEffects</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> tokenEffects.isSuccess(tokensPulled, <span class="hljs-number">2</span>);
+}</code></pre>
+						<p>See <a href="classes/tokeneffects.html">TokenEffects</a>.</p>
+						<p>Finally, some complex cases may require access to the bag. For example an
+							outcome function for <a href="https://arkhamdb.com/card/04158">Recall the Future</a> may
+							use the bag composition to determine which token to name based on bag
+						composition (see <a href="globals.html#recallthefuture">recallTheFuture</a>).</p>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>  The tokens pulled from the bag.</p>
+							</dd>
+							<dt>param</dt>
+							<dd><p>  Mapping of token effects</p>
+							</dd>
+							<dt>param</dt>
+							<dd><p>  The bag from which the tokens were pulled.</p>
+							</dd>
+						</dl>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
