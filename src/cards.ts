@@ -176,7 +176,7 @@ export function recallTheFuture(skillMinusDifficulty: number): OutcomeFunction {
  *    An outcome function determining success.
  */
 export function darkProphecy(skillMinusDifficulty: number): OutcomeFunction {
-  return (tokensPulled, tokenEffects, bag) => {
+  return (tokensPulled, tokenEffects) => {
     let chosenToken: Token;
 
     if (tokensPulled.some((t) => BadTokens.includes(t))) {
