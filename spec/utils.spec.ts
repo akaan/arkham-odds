@@ -35,4 +35,26 @@ describe('utils', () => {
 
   });
 
+  describe('combinations', () => {
+
+    it('should return an empty array if K > N', () => {
+      const arr = [1, 2, 3];
+      const comb = utils.combinations<number>(4, arr);
+      expect(comb).to.deep.equals([]);
+    });
+
+    it('should return [[]] if K <= 0', () => {
+      const arr = [1, 2, 3];
+      expect(utils.combinations(0, arr)).to.deep.equals([[]]);
+      expect(utils.combinations(-5, arr)).to.deep.equals([[]]);
+    });
+
+    it('should return the combinations', () => {
+      const arr = [1, 2, 3];
+      const expected = [[1, 2], [1, 3], [2, 3]];
+      expect(utils.combinations(2, arr)).to.deep.equals(expected);
+    });
+
+  });
+
 });
