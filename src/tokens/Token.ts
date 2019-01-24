@@ -1,3 +1,6 @@
+/**
+ * Enumeration representing all available tokens faces.
+ */
 export enum Token {
   ELDER_SIGN = 'Elder sign',
   PLUS_ONE = '+1',
@@ -16,6 +19,9 @@ export enum Token {
   AUTOFAIL = 'Autofail',
 }
 
+/**
+ * List of 'bad' tokens, tokens generally triggering bad effects.
+ */
 export const BadTokens = [
   Token.SKULL, Token.CULTIST, Token.TABLET,
   Token.ELDER_THING, Token.AUTOFAIL,
