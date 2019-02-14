@@ -89,6 +89,15 @@ export const Bags = {
       Expert: toTokens('0, -1, -2, -2, -3, -3, -4, -4, -6, -8, Skull, Skull, Elder thing, Autofail, Elder sign'),
     },
     /**
+     * The Circle Undone
+     */
+    TheCircleUndone: {
+      Easy: toTokens('+1, +1, 0, 0, 0, -1, -1, -2, -3, Skull, Skull, Autofail, Elder sign'),
+      Standard: toTokens('+1, 0, 0, -1, -1, -2, -2, -3, -4, Skull, Skull, Autofail, Elder sign'),
+      Hard: toTokens('0, 0, -1, -1, -2, -2, -3, -4, -5, Skull, Skull, Autofail, Elder sign'),
+      Expert: toTokens('0, -1, -1, -2, -2, -3, -4, -6, -8, Skull, Skull, Autofail, Elder sign'),
+    },
+    /**
      * Curse of the Rougarou
      */
     CurseOfTheRougarou: {
