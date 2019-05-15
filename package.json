@@ -1,9 +1,9 @@
 {
   "name": "arkham-odds",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Javascript library for computing odds of outcome in Arkham Horror : The Card Game",
   "main": "dist/arkham-odds.js",
-  "types": "types/src/index.d.ts",
+  "types": "types/index.d.ts",
   "author": "Akaan Qualrus <akaan.qualrus@gmail.com>",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "clean:types": "rm -Rf ./types",
     "clean:doc": "rm -Rf ./docs/*",
     "compile": "npm run clean:compile && tsc",
-    "compile:types": "npm run clean:types && tsc --declaration --outDir ./types --emitDeclarationOnly",
+    "compile:types": "npm run clean:types && tsc --declaration --outDir ./types --emitDeclarationOnly && rm -Rf ./types/spec && mv ./types/src/* ./types && rm -Rf ./types/src",
     "doc": "npm run clean:doc && npm-run-all doc:*",
     "doc:generate": "typedoc",
     "doc:add-theme": "printf 'theme: jekyll-theme-cayman' > ./docs/_config.yml",
@@ -28,6 +28,10 @@
     "test": "mocha --opts spec/support/default.opts \"spec/**/*.spec.ts\""
   },
   "files": [
+    "doc",
+    "examples",
+    "spec",
+    "src",
     "types"
   ],
   "husky": {
