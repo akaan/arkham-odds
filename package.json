@@ -1,6 +1,6 @@
 {
   "name": "arkham-odds",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Javascript library for computing odds of outcome in Arkham Horror : The Card Game",
   "main": "dist/arkham-odds.js",
   "types": "types/src/index.d.ts",
@@ -27,6 +27,9 @@
     "lint:fix": "tslint --fix -c tslint.json \"src/**/*.ts\"",
     "test": "mocha --opts spec/support/default.opts \"spec/**/*.spec.ts\""
   },
+  "files": [
+    "types"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "npm run precommit"
