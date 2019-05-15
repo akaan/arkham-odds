@@ -1,8 +1,8 @@
 // tslint:disable:no-unused-expression
+import { Bag } from 'bag';
 import { expect } from 'chai';
 import 'mocha';
-import { Bag } from 'src/bag';
-import { Token } from 'src/tokens';
+import { Token } from 'tokens';
 
 describe('Bag', () => {
 

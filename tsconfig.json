@@ -1,28 +1,22 @@
 {
   "compilerOptions": {
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
     "strictFunctionTypes": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "suppressImplicitAnyIndexErrors": true,
-    "moduleResolution": "node",
-    "stripInternal": false,
-    "target": "es5",
-    "outDir": "./.out",
     "lib": [
       "es7"
     ],
-    "baseUrl": ".",
-    "sourceRoot": "./src",
+    "baseUrl": "./src",
     "paths": {
-      "arkham-odds": ["./src"]
+      "arkham-odds": ["."]
     }
   },
-  "formatCodeOptions": {
-    "indentSize": 2,
-    "tabSize": 2
-  }
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

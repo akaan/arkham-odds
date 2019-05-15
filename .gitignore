@@ -1,5 +1,2 @@
-dist
 node_modules
-.out
-.rpt2_cache
-types
+lib
