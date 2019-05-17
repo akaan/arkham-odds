@@ -1,5 +1,5 @@
-import { Bag } from './bag';
-import { Token, TokenEffects } from './tokens';
+import { Bag } from "./bag";
+import { Token, TokenEffects } from "./tokens";
 
 /**
  * An outcome function determine success based of the tokens pulled. The
@@ -40,4 +40,8 @@ import { Token, TokenEffects } from './tokens';
  * @param {Bag} bag
  *   The bag from which the tokens were pulled.
  */
-export type OutcomeFunction = (tokensPulled: Token[], tokenEffects?: TokenEffects, bag?: Bag) => boolean;
+export type OutcomeFunction = (
+  tokensPulled: Token[],
+  tokenEffects?: TokenEffects,
+  bag?: Bag
+) => boolean;

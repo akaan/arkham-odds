@@ -1,7 +1,7 @@
-import { Bag } from './bag';
-import { OutcomeFunction } from './OutcomeFunction';
-import { Token, TokenEffects } from './tokens';
-import { cartesianProduct, combinations } from './utils';
+import { Bag } from "./bag";
+import { OutcomeFunction } from "./OutcomeFunction";
+import { Token, TokenEffects } from "./tokens";
+import { cartesianProduct, combinations } from "./utils";
 
 /**
  * Compute the odds of a particular outcome when pulling tokens from the bag.
@@ -43,11 +43,11 @@ import { cartesianProduct, combinations } from './utils';
  *   The odds of the desired outcome.
  */
 export function odds(
-      numTokensPulled: number,
-      bag: Bag,
-      outcomes: TokenEffects,
-      outcomeFunction: OutcomeFunction): number {
-
+  numTokensPulled: number,
+  bag: Bag,
+  outcomes: TokenEffects,
+  outcomeFunction: OutcomeFunction
+): number {
   const comb: Token[][] = combinations(numTokensPulled, bag.getTokens());
   const filterCondition = (tokensPulled: Token[]) => {
     return outcomeFunction(tokensPulled, outcomes, bag);
@@ -81,18 +81,20 @@ export function odds(
  *   The odds of the desired outcome.
  */
 export function oddsWithRedraw(
-      numTokensPulled: number,
-      bag: Bag,
-      outcomes: TokenEffects,
-      outcomeFunction: OutcomeFunction): number {
-
-  const comb: Token[][] = cartesianProduct(...Array(numTokensPulled).fill(bag.getTokens()));
+  numTokensPulled: number,
+  bag: Bag,
+  outcomes: TokenEffects,
+  outcomeFunction: OutcomeFunction
+): number {
+  const comb: Token[][] = cartesianProduct(
+    ...Array(numTokensPulled).fill(bag.getTokens())
+  );
   const filterCondition = (tokensPulled: Token[]) => {
     return outcomeFunction(tokensPulled, outcomes, bag);
   };
   return comb.filter(filterCondition).length / comb.length;
 }
 
-export * from './bag';
-export * from './cards';
-export * from './tokens';
+export * from "./bag";
+export * from "./cards";
+export * from "./tokens";

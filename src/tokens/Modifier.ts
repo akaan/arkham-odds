@@ -1,11 +1,10 @@
-import { TokenEffect } from './TokenEffect';
-import { TokenEffectType } from './TokenEffectType';
+import { TokenEffect } from "./TokenEffect";
+import { TokenEffectType } from "./TokenEffectType";
 
 /**
  * A token effect that modify the skill value for the test.
  */
 export class Modifier implements TokenEffect {
-
   private _value: number;
 
   /**
@@ -28,5 +27,4 @@ export class Modifier implements TokenEffect {
   public getValue(): number {
     return this._value;
   }
-
 }

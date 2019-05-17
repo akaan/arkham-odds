@@ -1,5 +1,5 @@
-import { Token } from '../tokens';
-import { removeFirst } from '../utils';
+import { Token } from "../tokens";
+import { removeFirst } from "../utils";
 
 /**
  * A representation of a Chaos Bag with its tokens. A bag is immutable, each
@@ -21,7 +21,6 @@ import { removeFirst } from '../utils';
  * ```
  */
 export class Bag {
-
   private _tokens: Token[];
 
   /**
@@ -99,5 +98,4 @@ export class Bag {
   public removeToken(token: Token): Bag {
     return new Bag(removeFirst(this._tokens, token));
   }
-
 }

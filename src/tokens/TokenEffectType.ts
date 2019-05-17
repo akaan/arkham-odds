@@ -3,5 +3,7 @@
  * to the skill value.
  */
 export enum TokenEffectType {
-  AUTOFAIL, MODIFIER, AUTOSUCCESS,
+  AUTOFAIL,
+  MODIFIER,
+  AUTOSUCCESS
 }

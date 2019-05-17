@@ -1,8 +1,8 @@
-import { Autofail } from './Autofail';
-import { Modifier } from './Modifier';
-import { Token } from './Token';
-import { TokenEffect } from './TokenEffect';
-import { TokenEffectType } from './TokenEffectType';
+import { Autofail } from "./Autofail";
+import { Modifier } from "./Modifier";
+import { Token } from "./Token";
+import { TokenEffect } from "./TokenEffect";
+import { TokenEffectType } from "./TokenEffectType";
 
 type TokenEffectMapping = [Token, TokenEffect];
 
@@ -10,7 +10,6 @@ type TokenEffectMapping = [Token, TokenEffect];
  * A immutable mapping of token effects.
  */
 export class TokenEffects {
-
   private _map: Map<Token, TokenEffect>;
 
   constructor(mappings?: TokenEffectMapping[]) {
@@ -144,11 +143,21 @@ export class TokenEffects {
    */
   public sortByBestOutcomeDesc(tokens: Token[]): Token[] {
     return tokens.sort((tokenA: Token, tokenB: Token) => {
-      if (tokenA === tokenB) { return 0; }
-      if (this.isTokenAutoSuccess(tokenA) && !this.isTokenAutoSuccess(tokenB)) { return -1; }
-      if (this.isTokenAutoSuccess(tokenB) && !this.isTokenAutoSuccess(tokenA)) { return 1; }
-      if (this.isTokenAutoFail(tokenA) && !this.isTokenAutoFail(tokenB)) { return 1; }
-      if (this.isTokenAutoFail (tokenB) && !this.isTokenAutoFail (tokenA)) { return -1; }
+      if (tokenA === tokenB) {
+        return 0;
+      }
+      if (this.isTokenAutoSuccess(tokenA) && !this.isTokenAutoSuccess(tokenB)) {
+        return -1;
+      }
+      if (this.isTokenAutoSuccess(tokenB) && !this.isTokenAutoSuccess(tokenA)) {
+        return 1;
+      }
+      if (this.isTokenAutoFail(tokenA) && !this.isTokenAutoFail(tokenB)) {
+        return 1;
+      }
+      if (this.isTokenAutoFail(tokenB) && !this.isTokenAutoFail(tokenA)) {
+        return -1;
+      }
       return this.getTokenModifier(tokenB) - this.getTokenModifier(tokenA);
     });
   }
@@ -168,15 +177,18 @@ export class TokenEffects {
    */
   public isSuccess(tokens: Token[], skillMinusDifficulty: number): boolean {
     // Autofail prevails
-    if (tokens.some((t) => this.isTokenAutoFail(t))) {
+    if (tokens.some(t => this.isTokenAutoFail(t))) {
       return false;
     }
-    if (tokens.some((t) => this.isTokenAutoSuccess(t))) {
+    if (tokens.some(t => this.isTokenAutoSuccess(t))) {
       return true;
     }
-    return tokens.reduce((sum, t) => sum + this.getTokenModifier(t), 0) + skillMinusDifficulty >= 0;
+    return (
+      tokens.reduce((sum, t) => sum + this.getTokenModifier(t), 0) +
+        skillMinusDifficulty >=
+      0
+    );
   }
-
 }
 
 export const DefaultTokenEffects: TokenEffects = new TokenEffects([
@@ -190,5 +202,5 @@ export const DefaultTokenEffects: TokenEffects = new TokenEffects([
   [Token.MINUS_FIVE, new Modifier(-5)],
   [Token.MINUS_SIX, new Modifier(-6)],
   [Token.MINUS_EIGHT, new Modifier(-8)],
-  [Token.AUTOFAIL, new Autofail()],
+  [Token.AUTOFAIL, new Autofail()]
 ]);
