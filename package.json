@@ -11,11 +11,12 @@
   },
   "scripts": {
     "precommit": "npm run all && git add ./docs",
-    "all": "npm-run-all lint build doc:*",
+    "all": "npm-run-all prettier lint build doc:*",
     "clean": "npm-run-all clean:*",
     "clean:build": "rm -Rf lib",
     "clean:doc": "rm -Rf ./docs/*",
     "build": "npm run clean:build && tsc",
+    "bundle": "webpack",
     "doc": "npm run clean:doc && npm-run-all doc:*",
     "doc:generate": "typedoc",
     "doc:add-theme": "printf 'theme: jekyll-theme-cayman' > ./docs/_config.yml",
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
+    "awesome-typescript-loader": "^5.2.1",
     "chai": "^4.2.0",
     "husky": "^1.2.0",
     "mocha": "^5.2.0",
@@ -55,7 +57,9 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "typedoc": "^0.13.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
   },
   "dependencies": {}
 }
