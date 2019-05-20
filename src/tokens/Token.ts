@@ -11,6 +11,7 @@ export enum Token {
   MINUS_FOUR = "-4",
   MINUS_FIVE = "-5",
   MINUS_SIX = "-6",
+  MINUS_SEVEN = "-7",
   MINUS_EIGHT = "-8",
   SKULL = "Skull",
   CULTIST = "Cultist",
