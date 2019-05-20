@@ -45,6 +45,7 @@
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
+    "@types/webpack": "^4.4.31",
     "awesome-typescript-loader": "^5.2.1",
     "chai": "^4.2.0",
     "husky": "^1.2.0",

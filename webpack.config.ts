@@ -1,5 +1,13 @@
 // tslint:disable:object-literal-sort-keys
 import path = require("path");
+import * as webpack from "webpack";
+import * as pkg from "./package.json";
+
+const banner = `/**
+ * ArkhamOdds v${pkg.version}
+ * ${pkg.description}
+ * Author: ${pkg.author}
+ */`;
 
 module.exports = {
   mode: "production",
@@ -17,5 +25,7 @@ module.exports = {
 
   module: {
     rules: [{ test: /\.tsx?$/, loader: "awesome-typescript-loader" }]
-  }
+  },
+
+  plugins: [new webpack.BannerPlugin(banner)]
 };

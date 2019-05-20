@@ -9,9 +9,8 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": [
-      "es7"
-    ],
+    "resolveJsonModule": true,
+    "lib": ["es7"],
     "baseUrl": "./src",
     "paths": {
       "arkham-odds": ["."]
