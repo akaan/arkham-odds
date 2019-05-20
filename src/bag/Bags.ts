@@ -29,6 +29,8 @@ function toTokens(tokenList: string): Token[] {
         return Token.MINUS_FIVE;
       case "-6":
         return Token.MINUS_SIX;
+      case "-7":
+        return Token.MINUS_SEVEN;
       case "-8":
         return Token.MINUS_EIGHT;
       case "Skull":
