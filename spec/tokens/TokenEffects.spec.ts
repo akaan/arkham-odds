@@ -123,12 +123,6 @@ describe("TokenEffects", () => {
     });
 
     it("should merge effects", () => {
-      const [e1, e2, e3, e4] = [
-        new Modifier(1),
-        new Modifier(-2),
-        new Modifier(-3),
-        new Modifier(-4)
-      ];
       const effects1 = new TokenEffects([
         [Token.ELDER_SIGN, new Modifier(1)],
         [Token.CULTIST, new Modifier(-2)]
