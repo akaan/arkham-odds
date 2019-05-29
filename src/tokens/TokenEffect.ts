@@ -11,4 +11,14 @@ export interface TokenEffect {
    *   Token effect type.
    */
   getOutcome(): TokenEffectType;
+
+  /**
+   * Asserts if the other supplied effect represent the same effect.
+   *
+   * @param {T} other
+   *   The other effect
+   * @return {boolean}
+   *   True if same, false otherwise.
+   */
+  sameAs(other: TokenEffect): boolean;
 }

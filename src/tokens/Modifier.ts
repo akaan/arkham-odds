@@ -27,4 +27,12 @@ export class Modifier implements TokenEffect {
   public getValue(): number {
     return this._value;
   }
+
+  public sameAs(other: TokenEffect): boolean {
+    if (other instanceof Modifier) {
+      return this.getValue() === (other as Modifier).getValue();
+    } else {
+      return false;
+    }
+  }
 }

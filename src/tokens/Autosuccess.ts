@@ -8,4 +8,8 @@ export class Autosuccess implements TokenEffect {
   public getOutcome() {
     return TokenEffectType.AUTOSUCCESS;
   }
+
+  public sameAs(other: TokenEffect): boolean {
+    return other instanceof Autosuccess;
+  }
 }

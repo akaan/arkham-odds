@@ -8,4 +8,8 @@ export class Autofail implements TokenEffect {
   public getOutcome() {
     return TokenEffectType.AUTOFAIL;
   }
+
+  public sameAs(other: TokenEffect): boolean {
+    return other instanceof Autofail;
+  }
 }

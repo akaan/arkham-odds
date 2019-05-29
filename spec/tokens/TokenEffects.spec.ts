@@ -49,19 +49,19 @@ describe("TokenEffects", () => {
         [Token.ELDER_SIGN, new Modifier(1)],
         [Token.CULTIST, new Modifier(-2)]
       ]);
-      const newEffect = new Autofail();
-      const modifiedEffects = effects.setEffect(Token.CULTIST, newEffect);
-      expect(modifiedEffects.getEffect(Token.CULTIST)).to.equal(newEffect);
+      const modifiedEffects = effects.setEffect(Token.CULTIST, new Autofail());
+      expect(modifiedEffects.getEffect(Token.CULTIST).sameAs(new Autofail())).to
+        .be.true;
     });
 
     it("should leave the original effects untouched", () => {
-      const originalEffect = new Modifier(-2);
       const effects = new TokenEffects([
         [Token.ELDER_SIGN, new Modifier(1)],
-        [Token.CULTIST, originalEffect]
+        [Token.CULTIST, new Modifier(-2)]
       ]);
       effects.setEffect(Token.CULTIST, new Autofail());
-      expect(effects.getEffect(Token.CULTIST)).to.equal(originalEffect);
+      expect(effects.getEffect(Token.CULTIST).sameAs(new Modifier(-2))).to.be
+        .true;
     });
   });
 
@@ -82,26 +82,28 @@ describe("TokenEffects", () => {
         [Token.ELDER_SIGN, new Modifier(1)],
         [Token.CULTIST, new Modifier(-2)]
       ]);
-      const [newEffect1, newEffect2] = [new Modifier(-3), new Modifier(-4)];
       const modifiedEffects = effects.setEffects([
-        [Token.TABLET, newEffect1],
-        [Token.ELDER_THING, newEffect2]
+        [Token.TABLET, new Modifier(-3)],
+        [Token.ELDER_THING, new Modifier(-4)]
       ]);
-      expect(modifiedEffects.getEffect(Token.TABLET)).to.equal(newEffect1);
-      expect(modifiedEffects.getEffect(Token.ELDER_THING)).to.equal(newEffect2);
+      expect(modifiedEffects.getEffect(Token.TABLET).sameAs(new Modifier(-3)))
+        .to.be.true;
+      expect(
+        modifiedEffects.getEffect(Token.ELDER_THING).sameAs(new Modifier(-4))
+      ).to.be.true;
     });
 
     it("should leave the original effects untouched", () => {
-      const originalEffect = new Modifier(-2);
       const effects = new TokenEffects([
         [Token.ELDER_SIGN, new Modifier(1)],
-        [Token.CULTIST, originalEffect]
+        [Token.CULTIST, new Modifier(-2)]
       ]);
       effects.setEffects([
         [Token.CULTIST, new Modifier(-3)],
         [Token.TABLET, new Modifier(-4)]
       ]);
-      expect(effects.getEffect(Token.CULTIST)).to.equal(originalEffect);
+      expect(effects.getEffect(Token.CULTIST).sameAs(new Modifier(-2))).to.be
+        .true;
     });
   });
 
@@ -128,17 +130,20 @@ describe("TokenEffects", () => {
         new Modifier(-4)
       ];
       const effects1 = new TokenEffects([
-        [Token.ELDER_SIGN, e1],
-        [Token.CULTIST, e2]
+        [Token.ELDER_SIGN, new Modifier(1)],
+        [Token.CULTIST, new Modifier(-2)]
       ]);
       const effects2 = new TokenEffects([
-        [Token.CULTIST, e3],
-        [Token.TABLET, e4]
+        [Token.CULTIST, new Modifier(-3)],
+        [Token.TABLET, new Modifier(-4)]
       ]);
       const merged = effects1.merge(effects2);
-      expect(merged.getEffect(Token.ELDER_SIGN)).to.equal(e1);
-      expect(merged.getEffect(Token.CULTIST)).to.equal(e3);
-      expect(merged.getEffect(Token.TABLET)).to.equal(e4);
+      expect(merged.getEffect(Token.ELDER_SIGN).sameAs(new Modifier(1))).to.be
+        .true;
+      expect(merged.getEffect(Token.CULTIST).sameAs(new Modifier(-3))).to.be
+        .true;
+      expect(merged.getEffect(Token.TABLET).sameAs(new Modifier(-4))).to.be
+        .true;
     });
   });
 });
