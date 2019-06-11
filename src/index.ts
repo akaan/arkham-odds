@@ -3,6 +3,13 @@ import { OutcomeFunction } from "./OutcomeFunction";
 import { Token, TokenEffects } from "./tokens";
 import { cartesianProduct, combinations } from "./utils";
 
+export type OddsFn = (
+  numTokensPulled: number,
+  bag: Bag,
+  outcomes: TokenEffects,
+  outcomeFunction: OutcomeFunction
+) => number;
+
 /**
  * Compute the odds of a particular outcome when pulling tokens from the bag.
  *
@@ -34,6 +41,8 @@ import { cartesianProduct, combinations } from "./utils";
  *   The number of tokens simultaneously pulled from the bag.
  * @param {Bag} bag
  *   The bag from which the tokens are pulled.
+ * @param {TokenEffects} outcomes
+ *   The token effects.
  * @param {OutcomeFunction} outcomeFunction
  *   The outcome function returning `true` if the pulled tokens represent a
  *   desired outcome and `false` otherwise.
@@ -42,18 +51,18 @@ import { cartesianProduct, combinations } from "./utils";
  * @return {number}
  *   The odds of the desired outcome.
  */
-export function odds(
+export const odds: OddsFn = (
   numTokensPulled: number,
   bag: Bag,
   outcomes: TokenEffects,
   outcomeFunction: OutcomeFunction
-): number {
+): number => {
   const comb: Token[][] = combinations(numTokensPulled, bag.getTokens());
   const filterCondition = (tokensPulled: Token[]) => {
     return outcomeFunction(tokensPulled, outcomes, bag);
   };
   return comb.filter(filterCondition).length / comb.length;
-}
+};
 
 /**
  * Similar to `odds` but this time putting tokens back into the bag between
@@ -80,12 +89,12 @@ export function odds(
  * @return {number}
  *   The odds of the desired outcome.
  */
-export function oddsWithRedraw(
+export const oddsWithRedraw: OddsFn = (
   numTokensPulled: number,
   bag: Bag,
   outcomes: TokenEffects,
   outcomeFunction: OutcomeFunction
-): number {
+): number => {
   const comb: Token[][] = cartesianProduct(
     ...Array(numTokensPulled).fill(bag.getTokens())
   );
@@ -93,8 +102,9 @@ export function oddsWithRedraw(
     return outcomeFunction(tokensPulled, outcomes, bag);
   };
   return comb.filter(filterCondition).length / comb.length;
-}
+};
 
 export * from "./bag";
 export * from "./cards";
 export * from "./tokens";
+export * from "./OutcomeFunction";
