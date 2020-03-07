@@ -216,3 +216,121 @@ export function darkProphecy(skillMinusDifficulty: number): OutcomeFunction {
     return tokenEffects.isSuccess([chosenToken], skillMinusDifficulty);
   };
 }
+
+/**
+ * Check if a list of elements contains at least one of the elements provided as
+ * second argument.
+ *
+ * @param {T[]} elements The list of elements to check.
+ * @param {T[]} elementsSearched The list of elements to look for.
+ * @return {boolean} True if the list provided as first argument contains at
+ *  least one of the elements provided as second argument.
+ */
+function containsAtLeastOneAmong<T>(
+  elements: T[],
+  elementsSearched: T[]
+): boolean {
+  return elements.some(elem => elementsSearched.includes(elem));
+}
+
+/**
+ * Check if a list of elements does not contains any of the elements provided as
+ * second argument.
+ *
+ * @param {T[]} elements The list of elements to check.
+ * @param {T[]} elementsSearched The list of elements to look for.
+ * @return {boolean} True if the list provided as first argument does contains
+ *  not contain any of the elements provided as second argument.
+ */
+function containsNoneOf<T>(elements: T[], elementsSearched: T[]): boolean {
+  return elements.every(elem => !elementsSearched.includes(elem));
+}
+
+/**
+ * Determine success and doing exactly 1 damage using .35 Winchester.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
+export function winchesterDoing1Damage(
+  skillMinusDifficulty: number
+): OutcomeFunction {
+  return (tokensPulled, tokenEffects) => {
+    return (
+      containsNoneOf(tokensPulled, [
+        Token.ELDER_SIGN,
+        Token.PLUS_ONE,
+        Token.ZERO
+      ]) && tokenEffects.isSuccess(tokensPulled, skillMinusDifficulty)
+    );
+  };
+}
+
+/**
+ * Determine success and doing exactly 3 damage using .35 Winchester.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
+export function winchesterDoing3Damage(
+  skillMinusDifficulty: number
+): OutcomeFunction {
+  return (tokensPulled, tokenEffects) => {
+    return (
+      containsAtLeastOneAmong(tokensPulled, [
+        Token.ELDER_SIGN,
+        Token.PLUS_ONE,
+        Token.ZERO
+      ]) && tokenEffects.isSuccess(tokensPulled, skillMinusDifficulty)
+    );
+  };
+}
+
+/**
+ * Determine success and doing exactly 3 damage using .35 Winchester and Olive McBride.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
+export function oliveMcBrideAndWinchesterDoing1Damage(
+  skillMinusDifficulty: number
+): OutcomeFunction {
+  return (tokensPulled, tokenEffects) => {
+    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+    const chosen: Token[] = sorted.slice(0, 2);
+    return (
+      containsNoneOf(chosen, [Token.ELDER_SIGN, Token.PLUS_ONE, Token.ZERO]) &&
+      tokenEffects.isSuccess(chosen, skillMinusDifficulty)
+    );
+  };
+}
+
+/**
+ * Determine success and doing exactly 3 damage using .35 Winchester and Olive McBride.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
+export function oliveMcBrideAndWinchesterDoing3Damage(
+  skillMinusDifficulty: number
+): OutcomeFunction {
+  return (tokensPulled, tokenEffects) => {
+    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+    const chosen: Token[] = sorted.slice(0, 2);
+    return (
+      containsAtLeastOneAmong(chosen, [
+        Token.ELDER_SIGN,
+        Token.PLUS_ONE,
+        Token.ZERO
+      ]) && tokenEffects.isSuccess(chosen, skillMinusDifficulty)
+    );
+  };
+}
