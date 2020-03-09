@@ -316,7 +316,7 @@ $(function() {
           return (
             100 *
             ArkhamOdds.odds(
-              3,
+              1,
               theBag,
               theEffects.merge(jim),
               ArkhamOdds.success(d)
