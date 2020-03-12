@@ -182,5 +182,16 @@ export const Bags = {
     Hard: toTokens(
       "+1, 0, 0, -1, -1, -1, -2, -2, -2, -3, -3, -4, -4, -5, -7, Skull, Skull, Skull, Cultist, Tablet, Elder thing, Autofail, Elder sign"
     )
+  },
+  /**
+   * Guardians of the Abyss
+   */
+  MurderAtTheExcelsiorHotel: {
+    Standard: toTokens(
+      "+1, 0, -1, -1, -2, -3, -3, -4, Skull, Skull, Cultist, Tablet, Elder thing, Autofail, Elder sign"
+    ),
+    Hard: toTokens(
+      "0, -1, -2, -3, -4, -4, -5, -6, Skull, Skull, Cultist, Tablet, Elder thing, Autofail, Elder sign"
+    )
   }
 };
