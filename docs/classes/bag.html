@@ -64,24 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>A representation of a Chaos Bag with its tokens. A bag is immutable, each
-							modification (adding or removing tokens) creates a new bag and leave the
-						original bag unchanged.</p>
-					</div>
-					<h2 id="examples">Examples</h2>
-					<h3 id="creating-a-bag-from-scratch">Creating a bag from scratch</h3>
-					<pre><code class="language-javascript"><span class="hljs-keyword">const</span> T = ArkhamOdds.Token;
-<span class="hljs-keyword">const</span> myBag = <span class="hljs-keyword">new</span> ArkhamOdds.Bag([
-  T.ELDER_SIGN, T.PLUS_ONE, T.ZERO, T.MINUS_ONE, T.AUTOFAIL
-]);</code></pre>
-					<h3 id="creating-a-bag-from-predefined-bags">Creating a bag from predefined bags</h3>
-					<p>See <a href="../globals.html#bags">Bags</a>.</p>
-					<pre><code class="language-javascript"><span class="hljs-keyword">const</span> myBag = <span class="hljs-keyword">new</span> ArkhamOdds.Bag(ArkhamOdds.Bags.ThePathToCarcosa.Standard);</code></pre>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -126,18 +108,10 @@
 									<li>Defined in bag/Bag.ts:24</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tokens: <a href="../enums/token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>  The tokens to put in the bag. The bag will hold a copy of these tokens
-											so that changes to the original array of tokens does not affect the bag.</p>
-										</div>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="bag.html" class="tsd-signature-type">Bag</a></h4>
@@ -160,37 +134,10 @@
 									<li>Defined in bag/Bag.ts:75</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create a new bag with the specified tokens added to it. The original bag is
-									unchanged which makes it handy to compare odds based on bag composition.</p>
-								</div>
-								<h2 id="example">Example</h2>
-								<p>Comparing odds of success when a token is added to the bag.</p>
-								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> bag = <span class="hljs-keyword">new</span> ArkhamOdds.Bag(ArkhamOdds.Bags.ThePathToCarcosa.Standard);
-<span class="hljs-keyword">const</span> bagWithTabletAdded = bag.addTokens([ArkhamOdds.Token.TABLET]);
-
-<span class="hljs-keyword">const</span> effects = ArkhamOdds.DefaultTokenEffects
-  .merge(<span class="hljs-keyword">new</span> ArkhamOdds.TokenEffects([
-    [ArkhamOdds.Token.SKULL, <span class="hljs-keyword">new</span> ArkhamOdds.Modifier(<span class="hljs-number">-1</span>)],
-    [ArkhamOdds.Token.CULTIST, <span class="hljs-keyword">new</span> ArkhamOdds.Modifier(<span class="hljs-number">-2</span>)],
-    [ArkhamOdds.Token.TABLET, <span class="hljs-keyword">new</span> ArkhamOdds.Modifier(<span class="hljs-number">-2</span>)],
-    [ArkhamOdds.Token.ELDER_THING, <span class="hljs-keyword">new</span> ArkhamOdds.Modifier(<span class="hljs-number">-2</span>)],
-    [ArkhamOdds.Token.ELDER_SIGN, <span class="hljs-keyword">new</span> ArkhamOdds.Modifier(<span class="hljs-number">2</span>)]
-]));
-
-<span class="hljs-keyword">const</span> [odds, success] = [ArkhamOdds.odds, ArkhamOdds.success];
-<span class="hljs-built_in">console</span>.log(
-  odds(<span class="hljs-number">1</span>, bag, effects, success(<span class="hljs-number">2</span>))
-  - odds(<span class="hljs-number">1</span>, bagWithTabletAdded, effects, success(<span class="hljs-number">2</span>)));</code></pre>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tokens: <a href="../enums/token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  The tokens to add to the bag.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="bag.html" class="tsd-signature-type">Bag</a></h4>
@@ -211,11 +158,6 @@
 									<li>Defined in bag/Bag.ts:41</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get tokens in the bag.</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">[]</span></h4>
 							<p>  A copy of tokens in the bag (modification to it will not affect the bag).</p>
 						</li>
@@ -234,24 +176,10 @@
 									<li>Defined in bag/Bag.ts:98</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a new bag with the specified token removed. The original bag is
-										unchanged which makes it handy to compare odds based on bag composition.
-										This is the method to use for seal effects like
-									<a href="https://arkhamdb.com/card/04030">The Chthonian Stone</a></p>
-								</div>
-								<h2 id="example">Example</h2>
-								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> bag = <span class="hljs-keyword">new</span> ArkhamOdds.Bag(ArkhamOdds.Bags.ThePathToCarcosa.Standard);
-<span class="hljs-keyword">const</span> theChthonianStone = bag.removeToken(ArkhamOdds.Token.CULTIST);</code></pre>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>token: <a href="../enums/token.html" class="tsd-signature-type">Token</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  The token to remove.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="bag.html" class="tsd-signature-type">Bag</a></h4>
