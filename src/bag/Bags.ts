@@ -140,6 +140,40 @@ export const Bags = {
     )
   },
   /**
+   * The Dream-Eaters : The Dream-Quest
+   */
+  TheDreamEatersTheDreamQuest: {
+    Easy: toTokens(
+      "+1, +1, 0, 0, 0, –1, –1, –2, –2, Cultist, Tablet, Tablet, Autofail, Elder sign"
+    ),
+    Standard: toTokens(
+      "+1, 0, 0, –1, –1, –2, –2, –3, –4, Cultist, Tablet, Tablet, Autofail, Elder sign"
+    ),
+    Hard: toTokens(
+      "0, 0, –1, –1, –2, –2, –3, –3, –4, –5, Cultist, Tablet, Tablet, Autofail, Elder sign"
+    ),
+    Expert: toTokens(
+      "0, –1, –1, –2, –2, –3, –4, –4, –5, –6, –8, Cultist, Tablet, Tablet, Autofail, Elder sign"
+    )
+  },
+  /**
+   * The Dream-Eaters : The Web of Dreams
+   */
+  TheDreamEatersTheWebOfDreams: {
+    Easy: toTokens(
+      "+1, +1, 0, 0, 0, –1, –1, –1, –2, –2, Skull, Skull, Cultist, Elder thing, Elder thing, Autofail, Elder sign"
+    ),
+    Standard: toTokens(
+      "+1, 0, 0, –1, –1, –1, –2, –2, –3, –4, Skull, Skull, Cultist, Elder thing, Elder thing, Autofail, Elder sign"
+    ),
+    Hard: toTokens(
+      "0, 0, 0, –1, –1, –2, –2, –3, –3, –4, –5, Skull, Skull, Cultist, Elder thing, Elder thing, Autofail, Elder sign"
+    ),
+    Expert: toTokens(
+      "0, –1, –1, –2, –2, –3, –3, –4, –4, –5, –6, –8, Skull, Skull, Cultist, Elder thing, Elder thing, Autofail, Elder sign"
+    )
+  },
+  /**
    * Curse of the Rougarou
    */
   CurseOfTheRougarou: {
