@@ -7,6 +7,7 @@ import {
   oliveMcBrideAndWinchesterDoing1Damage,
   oliveMcBrideAndWinchesterDoing3Damage,
   success,
+  successChoosingBest,
   Token,
   TokenEffects,
   winchesterDoing1Damage,
@@ -38,6 +39,25 @@ describe("cards", () => {
         .false;
       expect(success(3)([Token.MINUS_ONE, Token.MINUS_TWO], effects)).to.be
         .true;
+    });
+  });
+
+  describe("successChoosingBest", () => {
+    it("returns a function", () => {
+      const returnValue = successChoosingBest(0);
+      expect(returnValue).to.be.instanceof(Function);
+    });
+
+    it("returns true if greater than difficulty when applying the best token", () => {
+      expect(
+        successChoosingBest(1)([Token.MINUS_ONE, Token.MINUS_TWO], effects)
+      ).to.be.true;
+    });
+
+    it("returns false if lesser than difficulty when applying the best token", () => {
+      expect(
+        successChoosingBest(0)([Token.MINUS_ONE, Token.MINUS_TWO], effects)
+      ).to.be.false;
     });
   });
 
