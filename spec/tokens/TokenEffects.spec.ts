@@ -291,7 +291,7 @@ describe("TokenEffects", () => {
           .to.be.false;
       });
 
-      it("false when there are both an autosuccess and an autofail among the tokens", () => {
+      it("returns false when there are both an autosuccess and an autofail among the tokens", () => {
         expect(
           sharedEffects.isSuccess(
             [Token.ELDER_SIGN, Token.MINUS_TWO, Token.AUTOFAIL],
