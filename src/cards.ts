@@ -334,3 +334,26 @@ export function oliveMcBrideAndWinchesterDoing3Damage(
     );
   };
 }
+
+/**
+ * Determine success using Jacqueline Fine's ability to draw 3 tokens and cancel
+ * 2 non-tentacle tokens or a tentacle token.
+ *
+ * @param {number} skillMinusDifficulty The difference between the total skill
+ *  value and the difficulty.
+ * @return {OutcomeFunction}
+ *    An outcome function determining success.
+ */
+export function jacqueline(skillMinusDifficulty: number): OutcomeFunction {
+  return (tokensPulled, tokenEffects) => {
+    if (tokensPulled.includes(Token.AUTOFAIL)) {
+      return tokenEffects.isSuccess(
+        tokensPulled.filter(t => t !== Token.AUTOFAIL),
+        skillMinusDifficulty
+      );
+    } else {
+      const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+      return tokenEffects.isSuccess(sorted.slice(0, -2), skillMinusDifficulty);
+    }
+  };
+}
