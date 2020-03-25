@@ -3,6 +3,7 @@ import { expect } from "chai";
 import "mocha";
 import {
   Autofail,
+  jacqueline,
   Modifier,
   oliveMcBrideAndWinchesterDoing1Damage,
   oliveMcBrideAndWinchesterDoing3Damage,
@@ -217,6 +218,49 @@ describe("cards", () => {
       expect(
         oliveMcBrideAndWinchesterDoing3Damage(2)(
           [Token.MINUS_ONE, Token.MINUS_ONE, Token.MINUS_ONE],
+          effects
+        )
+      ).to.be.false;
+    });
+  });
+
+  describe("jacqueline", () => {
+    it("returns a function", () => {
+      const returnValue = jacqueline(0);
+      expect(returnValue).to.be.instanceof(Function);
+    });
+
+    it("returns true if greater than difficulty when cancelling 2 non-tentacle tokens", () => {
+      expect(
+        jacqueline(1)(
+          [Token.MINUS_ONE, Token.MINUS_ONE, Token.MINUS_ONE],
+          effects
+        )
+      ).to.be.true;
+    });
+
+    it("returns true if greater than difficulty when cancelling tentacle", () => {
+      expect(
+        jacqueline(2)(
+          [Token.MINUS_ONE, Token.MINUS_ONE, Token.AUTOFAIL],
+          effects
+        )
+      ).to.be.true;
+    });
+
+    it("returns false if lesser than difficulty when cancelling 2 non-tentacle tokens", () => {
+      expect(
+        jacqueline(0)(
+          [Token.MINUS_ONE, Token.MINUS_ONE, Token.MINUS_ONE],
+          effects
+        )
+      ).to.be.false;
+    });
+
+    it("returns false if lesser than difficulty when cancelling tentacle", () => {
+      expect(
+        jacqueline(1)(
+          [Token.MINUS_ONE, Token.MINUS_ONE, Token.AUTOFAIL],
           effects
         )
       ).to.be.false;
