@@ -55,27 +55,24 @@ export function combinations<T>(k: number, elems: T[]): T[][] {
   }
 
   // Get all tails
-  return tails(elems).reduce(
-    (acc, tailOfElems) => {
-      // For each tail ...
-      if (tailOfElems.length === 0) {
-        return acc;
-      }
+  return tails(elems).reduce((acc, tailOfElems) => {
+    // For each tail ...
+    if (tailOfElems.length === 0) {
+      return acc;
+    }
 
-      // Recursion : get all combinations of (k-1) elements with end elements
-      const tailCombinations = combinations(k - 1, tailOfElems.slice(1));
+    // Recursion : get all combinations of (k-1) elements with end elements
+    const tailCombinations = combinations(k - 1, tailOfElems.slice(1));
 
-      // Prepend first element to all combinations
-      const comb = tailCombinations.map(tailCombination => {
-        tailCombination.unshift(tailOfElems[0]);
-        return tailCombination;
-      });
+    // Prepend first element to all combinations
+    const comb = tailCombinations.map(tailCombination => {
+      tailCombination.unshift(tailOfElems[0]);
+      return tailCombination;
+    });
 
-      // Add to result
-      return acc.concat(comb);
-    },
-    [] as T[][]
-  );
+    // Add to result
+    return acc.concat(comb);
+  }, [] as T[][]);
 }
 
 export function cartesianProduct<T>(...sets: T[][]): T[][] {

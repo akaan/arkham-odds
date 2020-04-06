@@ -47,7 +47,11 @@ describe("utils", () => {
 
     it("should return the combinations", () => {
       const arr = [1, 2, 3];
-      const expected = [[1, 2], [1, 3], [2, 3]];
+      const expected = [
+        [1, 2],
+        [1, 3],
+        [2, 3]
+      ];
       expect(utils.combinations(2, arr)).to.deep.equals(expected);
     });
   });
@@ -56,7 +60,12 @@ describe("utils", () => {
     it("should compute cartesian product of 2 arrays", () => {
       const arr1 = [1, 2];
       const arr2 = [3, 4];
-      const expected = [[1, 3], [1, 4], [2, 3], [2, 4]];
+      const expected = [
+        [1, 3],
+        [1, 4],
+        [2, 3],
+        [2, 4]
+      ];
       expect(utils.cartesianProduct(arr1, arr2)).to.deep.equals(expected);
     });
   });
