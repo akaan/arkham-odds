@@ -18,8 +18,8 @@ export enum Token {
   TABLET = "Tablet",
   ELDER_THING = "Elder thing",
   AUTOFAIL = "Autofail",
-  BLESS = "BLESS",
-  CURSE = "CURSE"
+  BLESS = "Bless",
+  CURSE = "Curse"
 }
 
 /**
