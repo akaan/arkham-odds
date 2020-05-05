@@ -75,6 +75,14 @@ export function combinations<T>(k: number, elems: T[]): T[][] {
   }, [] as T[][]);
 }
 
+export function allCombinations<T>(elems: T[]): T[][] {
+  let allComb: T[][] = [];
+  for (let i = 0; i <= elems.length; i++) {
+    allComb = allComb.concat(combinations(i, elems));
+  }
+  return allComb;
+}
+
 export function cartesianProduct<T>(...sets: T[][]): T[][] {
   return sets.reduce(
     (acc: T[][], set: T[]) => {

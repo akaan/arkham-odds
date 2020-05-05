@@ -56,6 +56,20 @@ describe("utils", () => {
     });
   });
 
+  describe("allCombinations", () => {
+    it("should return [[]] if provided an empty array of elements", () => {
+      const allComb = utils.allCombinations<number>([]);
+      expect(allComb).to.deep.equals([[]]);
+    });
+
+    it("should return all combinations of provided elements including empty and full sets", () => {
+      const arr = [1, 2, 3];
+      const expected = [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]];
+      const allComb = utils.allCombinations<number>(arr);
+      expect(allComb).to.deep.equals(expected);
+    });
+  });
+
   describe("cartesianProduct", () => {
     it("should compute cartesian product of 2 arrays", () => {
       const arr1 = [1, 2];
