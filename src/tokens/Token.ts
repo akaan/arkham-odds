@@ -17,7 +17,9 @@ export enum Token {
   CULTIST = "Cultist",
   TABLET = "Tablet",
   ELDER_THING = "Elder thing",
-  AUTOFAIL = "Autofail"
+  AUTOFAIL = "Autofail",
+  BLESS = "BLESS",
+  CURSE = "CURSE"
 }
 
 /**

@@ -60,6 +60,92 @@ $(function() {
   // Odds
   const skillMinusDiff = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
 
+  // Bless and curse tokens
+  makeChart(
+    "blessAndCurse",
+    "Odds of success",
+    "The Forgotten Age / Standard / A Culist and a Tablet added to the bag \
+    / Threads of Fate with Skull = -1 and Elder sign = +2",
+    [
+      {
+        name: "Odds",
+        data: skillMinusDiff.map(d => {
+          return (
+            100 * ArkhamOdds.odds(1, theBag, theEffects, ArkhamOdds.success(d))
+          );
+        })
+      },
+      {
+        name: "Odds with an added Bless token",
+        data: skillMinusDiff.map(d => {
+          return (
+            100 *
+            ArkhamOdds.odds(
+              1,
+              theBag.addTokens([ArkhamOdds.Token.BLESS]),
+              theEffects,
+              ArkhamOdds.success(d)
+            )
+          );
+        })
+      },
+      {
+        name: "Odds with 5 Bless tokens",
+        data: skillMinusDiff.map(d => {
+          return (
+            100 *
+            ArkhamOdds.odds(
+              1,
+              theBag.addTokens([
+                ArkhamOdds.Token.BLESS,
+                ArkhamOdds.Token.BLESS,
+                ArkhamOdds.Token.BLESS,
+                ArkhamOdds.Token.BLESS,
+                ArkhamOdds.Token.BLESS
+              ]),
+              theEffects,
+              ArkhamOdds.success(d)
+            )
+          );
+        })
+      },
+      {
+        name: "Odds with an added Curse token",
+        data: skillMinusDiff.map(d => {
+          return (
+            100 *
+            ArkhamOdds.odds(
+              1,
+              theBag.addTokens([ArkhamOdds.Token.CURSE]),
+              theEffects,
+              ArkhamOdds.ritualCandles(d)
+            )
+          );
+        })
+      },
+      {
+        name: "Odds with 5 Curse tokens",
+        data: skillMinusDiff.map(d => {
+          return (
+            100 *
+            ArkhamOdds.odds(
+              1,
+              theBag.addTokens([
+                ArkhamOdds.Token.CURSE,
+                ArkhamOdds.Token.CURSE,
+                ArkhamOdds.Token.CURSE,
+                ArkhamOdds.Token.CURSE,
+                ArkhamOdds.Token.CURSE
+              ]),
+              theEffects,
+              ArkhamOdds.ritualCandles(d)
+            )
+          );
+        })
+      }
+    ]
+  );
+
   // Chart
   makeChart(
     "variousCards",

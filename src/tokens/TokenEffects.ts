@@ -203,5 +203,7 @@ export const DefaultTokenEffects: TokenEffects = new TokenEffects([
   [Token.MINUS_SIX, new Modifier(-6)],
   [Token.MINUS_SEVEN, new Modifier(-7)],
   [Token.MINUS_EIGHT, new Modifier(-8)],
-  [Token.AUTOFAIL, new Autofail()]
+  [Token.AUTOFAIL, new Autofail()],
+  [Token.BLESS, new Modifier(2, true)],
+  [Token.CURSE, new Modifier(-2, true)]
 ]);
