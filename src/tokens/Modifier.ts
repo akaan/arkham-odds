@@ -6,16 +6,22 @@ import { TokenEffectType } from "./TokenEffectType";
  */
 export class Modifier implements TokenEffect {
   private _value: number;
+  private _isRedraw: boolean;
 
   /**
    * Create a new modifier given the modifier value.
    */
-  constructor(value: number) {
+  constructor(value: number, isRedraw = false) {
     this._value = value;
+    this._isRedraw = isRedraw;
   }
 
   public getOutcome(): TokenEffectType {
     return TokenEffectType.MODIFIER;
+  }
+
+  public isRedraw() {
+    return this._isRedraw;
   }
 
   /**
@@ -30,7 +36,10 @@ export class Modifier implements TokenEffect {
 
   public sameAs(other: TokenEffect): boolean {
     if (other instanceof Modifier) {
-      return this.getValue() === (other as Modifier).getValue();
+      return (
+        this.getValue() === (other as Modifier).getValue() &&
+        this.isRedraw() === (other as Modifier).isRedraw()
+      );
     } else {
       return false;
     }

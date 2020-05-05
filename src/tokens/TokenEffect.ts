@@ -13,6 +13,14 @@ export interface TokenEffect {
   getOutcome(): TokenEffectType;
 
   /**
+   * Tells if this token effect asks for a redraw..
+   *
+   * @return {boolean}
+   *   True if this token effect asks for a redraw.
+   */
+  isRedraw(): boolean;
+
+  /**
    * Asserts if the other supplied effect represent the same effect.
    *
    * @param {T} other

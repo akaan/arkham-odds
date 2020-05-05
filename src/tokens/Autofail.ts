@@ -9,6 +9,10 @@ export class Autofail implements TokenEffect {
     return TokenEffectType.AUTOFAIL;
   }
 
+  public isRedraw() {
+    return false;
+  }
+
   public sameAs(other: TokenEffect): boolean {
     return other instanceof Autofail;
   }

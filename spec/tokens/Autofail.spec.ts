@@ -16,6 +16,12 @@ describe("Autofail", () => {
     });
   });
 
+  describe("isRedraw", () => {
+    it("is not a redraw token", () => {
+      expect(new Autofail().isRedraw()).to.equal(false);
+    });
+  });
+
   describe("sameAs", () => {
     it("is true when compared to another Auofail", () => {
       const [fail1, fail2] = [new Autofail(), new Autofail()];

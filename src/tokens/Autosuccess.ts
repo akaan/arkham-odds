@@ -9,6 +9,10 @@ export class Autosuccess implements TokenEffect {
     return TokenEffectType.AUTOSUCCESS;
   }
 
+  public isRedraw() {
+    return false;
+  }
+
   public sameAs(other: TokenEffect): boolean {
     return other instanceof Autosuccess;
   }
