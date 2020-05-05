@@ -1,7 +1,12 @@
 import { Bag } from "./bag";
 import { OutcomeFunction } from "./OutcomeFunction";
 import { Token, TokenEffects } from "./tokens";
-import { cartesianProduct, combinations } from "./utils";
+import {
+  allCombinations,
+  cartesianProduct,
+  combinations,
+  flatten
+} from "./utils";
 
 export type OddsFn = (
   numTokensPulled: number,
@@ -57,7 +62,24 @@ export const odds: OddsFn = (
   outcomes: TokenEffects,
   outcomeFunction: OutcomeFunction
 ): number => {
-  const comb: Token[][] = combinations(numTokensPulled, bag.getTokens());
+  const tokensWithRedraw = bag
+    .getTokens()
+    .filter(t => outcomes.getEffect(t).isRedraw());
+  const tokensWithoutRedraw = bag
+    .getTokens()
+    .filter(t => !outcomes.getEffect(t).isRedraw());
+
+  const combinationsOfRedrawTokens = allCombinations(tokensWithRedraw);
+  const combinationsOfNonRedrawTokens = combinations(
+    numTokensPulled,
+    tokensWithoutRedraw
+  );
+
+  const comb: Token[][] = cartesianProduct(
+    combinationsOfRedrawTokens,
+    combinationsOfNonRedrawTokens
+  ).map(c => flatten(c));
+
   const filterCondition = (tokensPulled: Token[]) => {
     return outcomeFunction(tokensPulled, outcomes, bag);
   };

@@ -32,6 +32,12 @@ describe("utils", () => {
     });
   });
 
+  describe("flatten", () => {
+    it("flattens an array", () => {
+      expect(utils.flatten([[], [1], [2]])).to.deep.equal([1, 2]);
+    });
+  });
+
   describe("combinations", () => {
     it("should return an empty array if K > N", () => {
       const arr = [1, 2, 3];

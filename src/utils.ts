@@ -35,7 +35,7 @@ function tails<T>(elems: T[]): T[][] {
   return a;
 }
 
-function flatten<T>(elems: T[][]): T[] {
+export function flatten<T>(elems: T[][]): T[] {
   return [].concat.apply([], elems);
 }
 
