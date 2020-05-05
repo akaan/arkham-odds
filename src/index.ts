@@ -98,6 +98,8 @@ export const odds: OddsFn = (
  *   ArkhamOdds.successChoosingBest(0));
  * ```
  *
+ * TODO Update this function to account for tokens with a redraw effect.
+ *
  * @param {number} numTokensPulled
  *   The number of tokens sequentially pulled from the bag while putting them
  *   back in between each pull..

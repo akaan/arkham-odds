@@ -1,7 +1,16 @@
 // tslint:disable:no-unused-expression
 import { expect } from "chai";
 import "mocha";
-import { Bag, Modifier, odds, success, Token, TokenEffects } from "../src";
+import {
+  Bag,
+  Modifier,
+  odds,
+  oddsWithRedraw,
+  success,
+  successChoosingBest,
+  Token,
+  TokenEffects
+} from "../src";
 
 let effects: TokenEffects;
 
@@ -32,6 +41,25 @@ describe("Odds functions", () => {
        * If testing at -1, only +1 result in a success.
        */
       expect(oddsOfSuccess).to.equal(0.25);
+    });
+  });
+
+  describe("oddsWithRedraw", () => {
+    it("returns 0.5 when pulling 1 token if half the tokens results in a success", () => {
+      const bag = new Bag([Token.PLUS_ONE, Token.MINUS_ONE]);
+      const oddsOfSuccess = oddsWithRedraw(1, bag, effects, success(0));
+      expect(oddsOfSuccess).to.equal(0.5);
+    });
+
+    it("returns 0.75 when pulling 2 tokens (putting back first token before second draw) if half the tokens results in a success", () => {
+      const bag = new Bag([Token.PLUS_ONE, Token.MINUS_ONE]);
+      const oddsOfSuccess = oddsWithRedraw(
+        2,
+        bag,
+        effects,
+        successChoosingBest(0)
+      );
+      expect(oddsOfSuccess).to.equal(0.75);
     });
   });
 });
