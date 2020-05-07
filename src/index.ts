@@ -130,7 +130,7 @@ export const odds: OddsFn = (
         );
       })
       // Sum up odds of success for successful combinations
-      .reduce((totalOdds, oddsOfComb) => totalOdds + oddsOfComb)
+      .reduce((totalOdds, oddsOfComb) => totalOdds + oddsOfComb, 0)
   );
 };
 

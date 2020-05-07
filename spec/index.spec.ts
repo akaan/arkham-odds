@@ -31,6 +31,12 @@ describe("Odds functions", () => {
       expect(oddsOfSuccess).to.equal(0.5);
     });
 
+    it("can compute odds even when there are no successful combinations", () => {
+      const bag = new Bag([Token.PLUS_ONE, Token.MINUS_ONE]);
+      const oddsOfSuccess = odds(1, bag, effects, success(-4));
+      expect(oddsOfSuccess).to.equal(0);
+    });
+
     it("takes into account tokens with a redraw effect", () => {
       const bag = new Bag([Token.PLUS_ONE, Token.MINUS_ONE, Token.CULTIST]);
       const oddsOfSuccess = odds(1, bag, effects, success(-1));
