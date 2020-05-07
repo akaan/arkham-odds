@@ -19,6 +19,7 @@ describe("Odds functions", () => {
     effects = new TokenEffects([
       [Token.PLUS_ONE, new Modifier(1)],
       [Token.MINUS_ONE, new Modifier(-1)],
+      [Token.MINUS_TWO, new Modifier(-2)],
       [Token.CULTIST, new Modifier(-1, true)]
     ]);
   });
@@ -34,13 +35,78 @@ describe("Odds functions", () => {
       const bag = new Bag([Token.PLUS_ONE, Token.MINUS_ONE, Token.CULTIST]);
       const oddsOfSuccess = odds(1, bag, effects, success(-1));
       /* Possible draws are :
-       * - +1
-       * - -1
-       * - Cultist and +1
-       * - Cultist and -1
+       * - +1 with a probability of 1/3
+       * - -1 with a probability of 1/3
+       * - Cultist and +1 with a probability of 1/6 (1/3 x 1/2)
+       * - Cultist and -1 with a probability of 1/6 (1/3 x 1/2)
        * If testing at -1, only +1 result in a success.
        */
-      expect(oddsOfSuccess).to.equal(0.25);
+      expect(oddsOfSuccess).to.be.closeTo(0.33, 0.1);
+    });
+
+    it("takes into account tokens with a redraw effect when pulling multiple tokens", () => {
+      const bag = new Bag([
+        Token.PLUS_ONE,
+        Token.MINUS_ONE,
+        Token.MINUS_TWO,
+        Token.CULTIST
+      ]);
+
+      /* Possible draws are in the table below
+       *
+       * | 1st pull | 2nd pull | 3rd pull | Result | Probability |
+       * | +1       | -1       |          | +0     | 1/12        |
+       * | +1       | -2       |          | -1     | 1/12        |
+       * | +1       | Cultist  | -1       | -1     | 1/24        |
+       * | +1       | Cultist  | -2       | -2     | 1/24        |
+       * | -1       | +1       |          | +0     | 1/12        |
+       * | -1       | -2       |          | -3     | 1/12        |
+       * | -1       | Cultist  | +1       | -1     | 1/24        |
+       * | -1       | Cultist  | -2       | -4     | 1/24        |
+       * | -2       | +1       |          | -1     | 1/12        |
+       * | -2       | -1       |          | -3     | 1/12        |
+       * | -2       | Cultist  | +1       | -2     | 1/24        |
+       * | -2       | Cultist  | -1       | -4     | 1/24        |
+       * | Cultist  | +1       | -1       | -1     | 1/24        |
+       * | Cultist  | +1       | -2       | -2     | 1/24        |
+       * | Cultist  | -1       | +1       | -1     | 1/24        |
+       * | Cultist  | -1       | -2       | -4     | 1/24        |
+       * | Cultist  | -2       | +1       | -2     | 1/24        |
+       * | Cultist  | -2       | -1       | -4     | 1/24        |
+       *
+       * Odds of success depending on difficulty is then :
+       *
+       * | Result | Probability |
+       * | -4     | 4/24        |
+       * | -3     | 4/24        |
+       * | -2     | 4/24        |
+       * | -1     | 8/24        |
+       * | 0      | 4/24        |
+       */
+      expect(odds(2, bag, effects, success(0))).to.be.closeTo(
+        4 / 24,
+        0.01,
+        "when equal"
+      );
+      expect(odds(2, bag, effects, success(1))).to.be.closeTo(
+        4 / 24 + 8 / 24,
+        0.01,
+        "when over by 1"
+      );
+      expect(odds(2, bag, effects, success(2))).to.be.closeTo(
+        4 / 24 + 8 / 24 + 4 / 24,
+        0.01,
+        "when over by 2"
+      );
+      expect(odds(2, bag, effects, success(3))).to.equal(
+        4 / 24 + 8 / 24 + 4 / 24 + 4 / 24,
+        "when over by 3"
+      );
+      expect(odds(2, bag, effects, success(4))).to.be.closeTo(
+        1,
+        0.01,
+        "when over by 4"
+      );
     });
   });
 

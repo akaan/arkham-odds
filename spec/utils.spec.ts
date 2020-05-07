@@ -1,7 +1,7 @@
 // tslint:disable:no-unused-expression
 import { expect } from "chai";
 import "mocha";
-import * as utils from "utils";
+import * as utils from "../src/utils";
 
 describe("utils", () => {
   describe("removeFirst", () => {
@@ -87,6 +87,16 @@ describe("utils", () => {
         [2, 4]
       ];
       expect(utils.cartesianProduct(arr1, arr2)).to.deep.equals(expected);
+    });
+  });
+
+  describe("factorial", () => {
+    it("returns 1 for 0!", () => {
+      expect(utils.factorial(0)).to.equal(1);
+    });
+
+    it("returns 6 for 3!", () => {
+      expect(utils.factorial(3)).to.equal(6);
     });
   });
 });

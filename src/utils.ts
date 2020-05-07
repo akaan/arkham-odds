@@ -40,7 +40,7 @@ export function flatten<T>(elems: T[][]): T[] {
 }
 
 /**
- * Return combinations of elements from an array.
+ * Returns combinations of elements from an array.
  *
  * @param {number} k
  *   The number of elements in each combination.
@@ -96,4 +96,23 @@ export function cartesianProduct<T>(...sets: T[][]): T[][] {
     },
     [[]] as T[][]
   );
+}
+
+/**
+ * Compute the fractional n!
+ *
+ * Here we are using an iterative version of this function for better
+ * performance over a recursive version.
+ *
+ * @param {number} n
+ *   The number to compute the factorial from
+ * @return {number}
+ *   The result of n!
+ */
+export function factorial(n: number): number {
+  let returnValue = 1;
+  for (let i = 2; i <= n; i++) {
+    returnValue = returnValue * i;
+  }
+  return returnValue;
 }

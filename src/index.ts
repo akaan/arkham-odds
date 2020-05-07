@@ -5,6 +5,7 @@ import {
   allCombinations,
   cartesianProduct,
   combinations,
+  factorial,
   flatten
 } from "./utils";
 
@@ -14,6 +15,35 @@ export type OddsFn = (
   outcomes: TokenEffects,
   outcomeFunction: OutcomeFunction
 ) => number;
+
+/**
+ * Compute the odds of a particular combination of tokens based on how many
+ * tokens are not "redraw" tokens.
+ * It took me a lot of time to get this formula right. Many thanks to those who
+ * helped me get it.
+ * TODO: Use fraction.js for precise calculations
+ *
+ * @param {number} totalNumberOfTokens
+ *   The total number of tokens in the bag
+ * @param {number} numberOfTokensInCombination
+ *   The number of tokens in the combination
+ * @param {number} numberOfNonRedrawTokensInCombination
+ *   The number of tokens in this combination that are not "redraw" tokens
+ * @return {number}
+ *   The odds of this combination
+ */
+function oddsOfCombination(
+  totalNumberOfTokens: number,
+  numberOfTokensInCombination: number,
+  numberOfNonRedrawTokensInCombination: number
+): number {
+  return (
+    (factorial(totalNumberOfTokens - numberOfTokensInCombination) *
+      factorial(numberOfTokensInCombination - 1) *
+      numberOfNonRedrawTokensInCombination) /
+    factorial(totalNumberOfTokens)
+  );
+}
 
 /**
  * Compute the odds of a particular outcome when pulling tokens from the bag.
@@ -83,7 +113,25 @@ export const odds: OddsFn = (
   const filterCondition = (tokensPulled: Token[]) => {
     return outcomeFunction(tokensPulled, outcomes, bag);
   };
-  return comb.filter(filterCondition).length / comb.length;
+
+  const totalNumberOfTokens = bag.getTokens().length;
+  return (
+    comb
+      .filter(filterCondition) // Only successful combinations
+      .map(successfulComb => {
+        const numOfNonRedrawTokens = successfulComb.filter(
+          token => !outcomes.getEffect(token).isRedraw()
+        ).length;
+        // Compute the odds of success of this particular combination
+        return oddsOfCombination(
+          totalNumberOfTokens,
+          successfulComb.length,
+          numOfNonRedrawTokens
+        );
+      })
+      // Sum up odds of success for successful combinations
+      .reduce((totalOdds, oddsOfComb) => totalOdds + oddsOfComb)
+  );
 };
 
 /**
