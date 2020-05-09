@@ -78,6 +78,19 @@ describe("cards", () => {
       ).to.be.false;
     });
 
+    it("should not modify the combination", () => {
+      const myComb = [Token.SKULL, Token.MINUS_ONE, Token.MINUS_TWO];
+      oliveMcBrideWithSkull(2)(
+        myComb,
+        effects.merge(new TokenEffects([[Token.SKULL, new Modifier(-1)]]))
+      );
+      expect(myComb).to.deep.equal([
+        Token.SKULL,
+        Token.MINUS_ONE,
+        Token.MINUS_TWO
+      ]);
+    });
+
     it("returns true if there is a Skull token in the tokens pulled and if adding best of remaining tokens is still higher than difficulty", () => {
       expect(
         oliveMcBrideWithSkull(2)(

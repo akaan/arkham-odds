@@ -93,12 +93,13 @@ export function oliveMcBrideWithSkull(
       return false;
     }
 
-    const skull: Token[] = tokensPulled.splice(
-      tokensPulled.indexOf(Token.SKULL),
+    const copyOfTokensPulled = [...tokensPulled];
+    const skull: Token[] = copyOfTokensPulled.splice(
+      copyOfTokensPulled.indexOf(Token.SKULL),
       1
     );
     const secondToken: Token[] = tokenEffects
-      .sortByBestOutcomeDesc(tokensPulled)
+      .sortByBestOutcomeDesc(copyOfTokensPulled)
       .slice(0, 1);
     return tokenEffects.isSuccess(
       skull.concat(secondToken),
