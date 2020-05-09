@@ -7,6 +7,7 @@ import {
   Modifier,
   oliveMcBrideAndWinchesterDoing1Damage,
   oliveMcBrideAndWinchesterDoing3Damage,
+  oliveMcBrideWithSkull,
   success,
   successChoosingBest,
   Token,
@@ -58,6 +59,40 @@ describe("cards", () => {
     it("returns false if lesser than difficulty when applying the best token", () => {
       expect(
         successChoosingBest(0)([Token.MINUS_ONE, Token.MINUS_TWO], effects)
+      ).to.be.false;
+    });
+  });
+
+  describe("oliveMcBrideWithSkull", () => {
+    it("returns a function", () => {
+      const returnValue = oliveMcBrideWithSkull(0);
+      expect(returnValue).to.be.instanceof(Function);
+    });
+
+    it("returns false if there is no Skull token in the tokens pulled", () => {
+      expect(
+        oliveMcBrideWithSkull(0)(
+          [Token.ZERO, Token.MINUS_ONE, Token.MINUS_TWO],
+          effects
+        )
+      ).to.be.false;
+    });
+
+    it("returns true if there is a Skull token in the tokens pulled and if adding best of remaining tokens is still higher than difficulty", () => {
+      expect(
+        oliveMcBrideWithSkull(2)(
+          [Token.SKULL, Token.MINUS_ONE, Token.MINUS_TWO],
+          effects.merge(new TokenEffects([[Token.SKULL, new Modifier(-1)]]))
+        )
+      ).to.be.true;
+    });
+
+    it("returns false if there is a Skull token in the tokens pulled and if adding best of remaining tokens is lesser than difficulty", () => {
+      expect(
+        oliveMcBrideWithSkull(1)(
+          [Token.SKULL, Token.MINUS_ONE, Token.MINUS_TWO],
+          effects.merge(new TokenEffects([[Token.SKULL, new Modifier(-1)]]))
+        )
       ).to.be.false;
     });
   });
