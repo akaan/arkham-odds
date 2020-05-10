@@ -4,6 +4,7 @@ import "mocha";
 import {
   Autofail,
   Bag,
+  darkProphecy,
   jacqueline,
   Modifier,
   oliveMcBride,
@@ -235,6 +236,99 @@ describe("cards", () => {
             Token.MINUS_TWO,
             Token.CURSE
           ])
+        )
+      ).to.be.false;
+    });
+  });
+
+  describe("darkProphecy", () => {
+    it("returns a function", () => {
+      const returnValue = darkProphecy(0);
+      expect(returnValue).to.be.instanceof(Function);
+    });
+
+    it('return true if greater than difficulty using the "best" bad token pulled', () => {
+      expect(
+        darkProphecy(2)(
+          [
+            Token.ZERO,
+            Token.MINUS_ONE,
+            Token.MINUS_ONE,
+            Token.CULTIST,
+            Token.ELDER_THING
+          ],
+          effects.merge(
+            new TokenEffects([
+              [Token.CULTIST, new Modifier(-2)],
+              [Token.ELDER_THING, new Modifier(-4)]
+            ])
+          )
+        )
+      ).to.be.true;
+    });
+
+    it('return false if lesser than difficulty using the "best" bad token pulled', () => {
+      expect(
+        darkProphecy(1)(
+          [
+            Token.ZERO,
+            Token.MINUS_ONE,
+            Token.MINUS_ONE,
+            Token.CULTIST,
+            Token.ELDER_THING
+          ],
+          effects.merge(
+            new TokenEffects([
+              [Token.CULTIST, new Modifier(-2)],
+              [Token.ELDER_THING, new Modifier(-4)]
+            ])
+          )
+        )
+      ).to.be.false;
+    });
+
+    it("return true if greater than difficulty using best token when no bad tokens were pulled", () => {
+      expect(
+        darkProphecy(0)(
+          [
+            Token.ZERO,
+            Token.MINUS_ONE,
+            Token.MINUS_ONE,
+            Token.ZERO,
+            Token.MINUS_TWO
+          ],
+          effects
+        )
+      ).to.be.true;
+    });
+
+    it("return false if lesser than difficulty using best token when no bad tokens were pulled", () => {
+      expect(
+        darkProphecy(-1)(
+          [
+            Token.ZERO,
+            Token.MINUS_ONE,
+            Token.MINUS_ONE,
+            Token.ZERO,
+            Token.MINUS_TWO
+          ],
+          effects
+        )
+      ).to.be.false;
+    });
+
+    it("takes into account redraw tokens (assuming they were pulled)", () => {
+      expect(
+        darkProphecy(0)(
+          [
+            Token.ZERO,
+            Token.MINUS_ONE,
+            Token.MINUS_ONE,
+            Token.ZERO,
+            Token.MINUS_TWO,
+            Token.CURSE
+          ],
+          effects
         )
       ).to.be.false;
     });

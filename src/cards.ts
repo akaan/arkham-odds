@@ -224,15 +224,21 @@ export function recallTheFuture(skillMinusDifficulty: number): OutcomeFunction {
 export function darkProphecy(skillMinusDifficulty: number): OutcomeFunction {
   return (tokensPulled, tokenEffects) => {
     let chosenToken: Token;
+    const { redrawTokens, nonRedrawTokens } = tokenEffects.separateRedrawTokens(
+      tokensPulled
+    );
 
-    if (tokensPulled.some(t => BadTokens.includes(t))) {
-      const onlyBad = tokensPulled.filter(t => BadTokens.includes(t));
+    if (nonRedrawTokens.some(t => BadTokens.includes(t))) {
+      const onlyBad = nonRedrawTokens.filter(t => BadTokens.includes(t));
       chosenToken = tokenEffects.sortByBestOutcomeDesc(onlyBad)[0];
     } else {
-      chosenToken = tokenEffects.sortByBestOutcomeDesc(tokensPulled)[0];
+      chosenToken = tokenEffects.sortByBestOutcomeDesc(nonRedrawTokens)[0];
     }
 
-    return tokenEffects.isSuccess([chosenToken], skillMinusDifficulty);
+    return tokenEffects.isSuccess(
+      [chosenToken].concat(redrawTokens),
+      skillMinusDifficulty
+    );
   };
 }
 
