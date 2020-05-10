@@ -436,6 +436,15 @@ describe("cards", () => {
         )
       ).to.be.false;
     });
+
+    it("takes into account redraw tokens", () => {
+      expect(
+        oliveMcBrideAndWinchesterDoing1Damage(2)(
+          [Token.MINUS_ONE, Token.MINUS_ONE, Token.MINUS_TWO, Token.CURSE],
+          effects
+        )
+      ).to.be.false;
+    });
   });
 
   describe("oliveMcBrideAndWinchesterDoing3Damage", () => {
@@ -494,6 +503,15 @@ describe("cards", () => {
         )
       ).to.be.false;
     });
+
+    it("takes into account redraw tokens", () => {
+      expect(
+        oliveMcBrideAndWinchesterDoing3Damage(1)(
+          [Token.ZERO, Token.MINUS_ONE, Token.MINUS_TWO, Token.CURSE],
+          effects
+        )
+      ).to.be.false;
+    });
   });
 
   describe("jacqueline", () => {
@@ -533,6 +551,24 @@ describe("cards", () => {
       expect(
         jacqueline(1)(
           [Token.MINUS_ONE, Token.MINUS_ONE, Token.AUTOFAIL],
+          effects
+        )
+      ).to.be.false;
+    });
+
+    it("takes into account redraw tokens when ignoring 2 tokens", () => {
+      expect(
+        jacqueline(2)(
+          [Token.MINUS_ONE, Token.MINUS_ONE, Token.MINUS_TWO, Token.CURSE],
+          effects
+        )
+      ).to.be.false;
+    });
+
+    it("takes into account redraw tokens when cancelling tentacle", () => {
+      expect(
+        jacqueline(2)(
+          [Token.MINUS_ONE, Token.MINUS_ONE, Token.AUTOFAIL, Token.CURSE],
           effects
         )
       ).to.be.false;

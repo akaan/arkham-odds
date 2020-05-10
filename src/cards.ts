@@ -327,11 +327,14 @@ export function oliveMcBrideAndWinchesterDoing1Damage(
   skillMinusDifficulty: number
 ): OutcomeFunction {
   return (tokensPulled, tokenEffects) => {
-    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+    const { redrawTokens, nonRedrawTokens } = tokenEffects.separateRedrawTokens(
+      tokensPulled
+    );
+    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(nonRedrawTokens);
     const chosen: Token[] = sorted.slice(0, 2);
     return (
       containsNoneOf(chosen, [Token.ELDER_SIGN, Token.PLUS_ONE, Token.ZERO]) &&
-      tokenEffects.isSuccess(chosen, skillMinusDifficulty)
+      tokenEffects.isSuccess(chosen.concat(redrawTokens), skillMinusDifficulty)
     );
   };
 }
@@ -348,14 +351,18 @@ export function oliveMcBrideAndWinchesterDoing3Damage(
   skillMinusDifficulty: number
 ): OutcomeFunction {
   return (tokensPulled, tokenEffects) => {
-    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+    const { redrawTokens, nonRedrawTokens } = tokenEffects.separateRedrawTokens(
+      tokensPulled
+    );
+    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(nonRedrawTokens);
     const chosen: Token[] = sorted.slice(0, 2);
     return (
       containsAtLeastOneAmong(chosen, [
         Token.ELDER_SIGN,
         Token.PLUS_ONE,
         Token.ZERO
-      ]) && tokenEffects.isSuccess(chosen, skillMinusDifficulty)
+      ]) &&
+      tokenEffects.isSuccess(chosen.concat(redrawTokens), skillMinusDifficulty)
     );
   };
 }
@@ -377,8 +384,17 @@ export function jacqueline(skillMinusDifficulty: number): OutcomeFunction {
         skillMinusDifficulty
       );
     } else {
-      const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
-      return tokenEffects.isSuccess(sorted.slice(0, -2), skillMinusDifficulty);
+      const {
+        redrawTokens,
+        nonRedrawTokens
+      } = tokenEffects.separateRedrawTokens(tokensPulled);
+      const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(
+        nonRedrawTokens
+      );
+      return tokenEffects.isSuccess(
+        sorted.slice(0, -2).concat(redrawTokens),
+        skillMinusDifficulty
+      );
     }
   };
 }
