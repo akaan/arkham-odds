@@ -343,4 +343,73 @@ describe("TokenEffects", () => {
       });
     });
   });
+
+  describe("separateRedrawTokens", () => {
+    it("separates redraw tokens from non-redraw tokens", () => {
+      const effects = new TokenEffects([
+        [Token.PLUS_ONE, new Modifier(1)],
+        [Token.ZERO, new Modifier(0)],
+        [Token.BLESS, new Modifier(2, true)],
+        [Token.CURSE, new Modifier(-2, true)]
+      ]);
+      const { nonRedrawTokens, redrawTokens } = effects.separateRedrawTokens([
+        Token.ZERO,
+        Token.BLESS,
+        Token.PLUS_ONE,
+        Token.CURSE,
+        Token.ZERO
+      ]);
+      expect(nonRedrawTokens).to.deep.equal([
+        Token.ZERO,
+        Token.PLUS_ONE,
+        Token.ZERO
+      ]);
+      expect(redrawTokens).to.deep.equal([Token.BLESS, Token.CURSE]);
+    });
+
+    it("separates redraw tokens from non-redraw tokens when there are no redraw tokens", () => {
+      const effects = new TokenEffects([
+        [Token.PLUS_ONE, new Modifier(1)],
+        [Token.ZERO, new Modifier(0)],
+        [Token.BLESS, new Modifier(2, true)],
+        [Token.CURSE, new Modifier(-2, true)]
+      ]);
+      const { nonRedrawTokens, redrawTokens } = effects.separateRedrawTokens([
+        Token.ZERO,
+        Token.PLUS_ONE,
+        Token.ZERO
+      ]);
+      expect(nonRedrawTokens).to.deep.equal([
+        Token.ZERO,
+        Token.PLUS_ONE,
+        Token.ZERO
+      ]);
+      expect(redrawTokens).to.deep.equal([]);
+    });
+
+    it("separates redraw tokens from non-redraw tokens when there are no non-redraw tokens", () => {
+      const effects = new TokenEffects([
+        [Token.PLUS_ONE, new Modifier(1)],
+        [Token.ZERO, new Modifier(0)],
+        [Token.BLESS, new Modifier(2, true)],
+        [Token.CURSE, new Modifier(-2, true)]
+      ]);
+      const { nonRedrawTokens, redrawTokens } = effects.separateRedrawTokens([
+        Token.BLESS,
+        Token.CURSE
+      ]);
+      expect(nonRedrawTokens).to.deep.equal([]);
+      expect(redrawTokens).to.deep.equal([Token.BLESS, Token.CURSE]);
+    });
+
+    it("leaves the original token array untouched", () => {
+      const effects = new TokenEffects([
+        [Token.PLUS_ONE, new Modifier(1)],
+        [Token.BLESS, new Modifier(2, true)]
+      ]);
+      const tokens = [Token.BLESS, Token.PLUS_ONE];
+      effects.separateRedrawTokens(tokens);
+      expect(tokens).to.deep.equal([Token.BLESS, Token.PLUS_ONE]);
+    });
+  });
 });

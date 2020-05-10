@@ -30,9 +30,15 @@ export function successChoosingBest(
   skillMinusDifficulty: number
 ): OutcomeFunction {
   return (tokensPulled, tokenEffects) => {
-    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+    const { redrawTokens, nonRedrawTokens } = tokenEffects.separateRedrawTokens(
+      tokensPulled
+    );
+    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(nonRedrawTokens);
     const chosen: Token[] = sorted.slice(0, 1);
-    return tokenEffects.isSuccess(chosen, skillMinusDifficulty);
+    return tokenEffects.isSuccess(
+      chosen.concat(redrawTokens),
+      skillMinusDifficulty
+    );
   };
 }
 

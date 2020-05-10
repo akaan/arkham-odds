@@ -26,7 +26,9 @@ describe("cards", () => {
       [Token.ZERO, new Modifier(0)],
       [Token.MINUS_ONE, new Modifier(-1)],
       [Token.MINUS_TWO, new Modifier(-2)],
-      [Token.AUTOFAIL, new Autofail()]
+      [Token.MINUS_FOUR, new Modifier(-4)],
+      [Token.AUTOFAIL, new Autofail()],
+      [Token.BLESS, new Modifier(2, true)]
     ]);
   });
 
@@ -59,6 +61,15 @@ describe("cards", () => {
     it("returns false if lesser than difficulty when applying the best token", () => {
       expect(
         successChoosingBest(0)([Token.MINUS_ONE, Token.MINUS_TWO], effects)
+      ).to.be.false;
+    });
+
+    it("should assume that redraw tokens where pulled", () => {
+      expect(
+        successChoosingBest(0)(
+          [Token.AUTOFAIL, Token.MINUS_FOUR, Token.BLESS],
+          effects
+        )
       ).to.be.false;
     });
   });

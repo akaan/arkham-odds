@@ -189,6 +189,25 @@ export class TokenEffects {
       0
     );
   }
+
+  /**
+   * Separate redraw tokens from non-redraw tokens in the supplied array of
+   * tokens.
+   *
+   * @param {Token[]} tokens
+   *   The tokens to separate.
+   * @return {{ redrawTokens: Token[]; nonRedrawTokens: Token[] }}
+   *   An object with `redrawTokens` containing the redraw tokens and
+   *   `nonRedrawTokens` containing non-redraw tokens.
+   */
+  public separateRedrawTokens(
+    tokens: Token[]
+  ): { redrawTokens: Token[]; nonRedrawTokens: Token[] } {
+    return {
+      nonRedrawTokens: tokens.filter(t => !this.getEffect(t).isRedraw()),
+      redrawTokens: tokens.filter(t => this.getEffect(t).isRedraw())
+    };
+  }
 }
 
 export const DefaultTokenEffects: TokenEffects = new TokenEffects([
