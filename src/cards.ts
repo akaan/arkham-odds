@@ -127,6 +127,9 @@ export function oliveMcBrideWithSkull(
  * Choose the right token to call with Recall the Future which is, among tokens
  * that can be turned to success using the +2 bonus, the one which has the most
  * occurrences in the bag.
+ * Note that it will take into account redraw tokens. For example, when testing
+ * at -2, it will not choose -3 even though there is a Bless token (+2, redraw)
+ * in the bag.
  *
  * @param {number} skillMinusDifficulty
  *   value and the difficulty.

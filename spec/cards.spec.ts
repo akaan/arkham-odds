@@ -3,12 +3,14 @@ import { expect } from "chai";
 import "mocha";
 import {
   Autofail,
+  Bag,
   jacqueline,
   Modifier,
   oliveMcBride,
   oliveMcBrideAndWinchesterDoing1Damage,
   oliveMcBrideAndWinchesterDoing3Damage,
   oliveMcBrideWithSkull,
+  recallTheFuture,
   success,
   successChoosingBest,
   Token,
@@ -29,7 +31,8 @@ describe("cards", () => {
       [Token.MINUS_TWO, new Modifier(-2)],
       [Token.MINUS_FOUR, new Modifier(-4)],
       [Token.AUTOFAIL, new Autofail()],
-      [Token.BLESS, new Modifier(2, true)]
+      [Token.BLESS, new Modifier(2, true)],
+      [Token.CURSE, new Modifier(-2, true)]
     ]);
   });
 
@@ -154,6 +157,84 @@ describe("cards", () => {
         oliveMcBrideWithSkull(3)(
           [Token.AUTOFAIL, Token.SKULL, Token.BLESS, Token.MINUS_TWO],
           effects.merge(new TokenEffects([[Token.SKULL, new Modifier(-4)]]))
+        )
+      ).to.be.false;
+    });
+  });
+
+  describe("recallTheFuture", () => {
+    it("returns a function", () => {
+      const returnValue = recallTheFuture(0);
+      expect(returnValue).to.be.instanceof(Function);
+    });
+
+    it("returns true if greater than difficulty", () => {
+      expect(
+        recallTheFuture(0)(
+          [Token.ZERO],
+          effects,
+          new Bag([Token.ZERO, Token.MINUS_ONE, Token.MINUS_ONE])
+        )
+      ).to.be.true;
+    });
+
+    it("returns true if lesser than difficulty but drew the token which has the most chances to be turned into success using the +2 bonus", () => {
+      expect(
+        recallTheFuture(-1)(
+          [Token.MINUS_ONE],
+          effects,
+          new Bag([Token.ZERO, Token.MINUS_ONE, Token.MINUS_ONE])
+        )
+      ).to.be.true;
+    });
+
+    it("returns false if lesser than difficulty and did not drew the token which has the most chances to be turned into success using the +2 bonus", () => {
+      expect(
+        recallTheFuture(-1)(
+          [Token.ZERO],
+          effects,
+          new Bag([Token.ZERO, Token.MINUS_ONE, Token.MINUS_ONE])
+        )
+      ).to.be.false;
+    });
+
+    it("returns false if still lesser than difficulty applying the +2 bonus", () => {
+      expect(
+        recallTheFuture(-2)(
+          [Token.MINUS_ONE],
+          effects,
+          new Bag([Token.ZERO, Token.MINUS_ONE, Token.MINUS_ONE])
+        )
+      ).to.be.false;
+    });
+
+    it("can handle the case where several tokens where drawn", () => {
+      expect(
+        recallTheFuture(-1)(
+          [Token.ZERO, Token.MINUS_ONE],
+          effects,
+          new Bag([
+            Token.ZERO,
+            Token.MINUS_ONE,
+            Token.MINUS_ONE,
+            Token.MINUS_TWO
+          ])
+        )
+      ).to.be.true;
+    });
+
+    it("can handle redraw tokens", () => {
+      expect(
+        recallTheFuture(-1)(
+          [Token.MINUS_ONE, Token.CURSE],
+          effects,
+          new Bag([
+            Token.ZERO,
+            Token.MINUS_ONE,
+            Token.MINUS_ONE,
+            Token.MINUS_TWO,
+            Token.CURSE
+          ])
         )
       ).to.be.false;
     });
