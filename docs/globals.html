@@ -194,6 +194,43 @@
 							<li>Defined in OutcomeFunction.ts:43</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An outcome function determine success based of the tokens pulled. The
+								function is passed the mapping of token effects and the bag in case they are
+							needed to determine success.</p>
+						</div>
+						<p>The simplest example just check whether a particular token was pulled:</p>
+						<pre><code class="language-javascript"><span class="hljs-keyword">const</span> elderSignPulled = <span class="hljs-function">(<span class="hljs-params">tokensPulled</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> tokensPulled[<span class="hljs-number">0</span>] === ArkhamOdds.Token.ELDER_SIGN;
+}</code></pre>
+						<p>You can return an outcome function from another function :</p>
+						<pre><code class="language-javascript"><span class="hljs-keyword">const</span> pulledAToken = <span class="hljs-function">(<span class="hljs-params">token</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">tokensPulled</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> tokensPulled[<span class="hljs-number">0</span>] === token;
+  }
+}</code></pre>
+						<p>A more complex example includes the token effects:</p>
+						<pre><code class="language-javascript"><span class="hljs-keyword">const</span> isSuccessWhenOverByTwo = <span class="hljs-function">(<span class="hljs-params">tokensPulled, tokenEffects</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> tokenEffects.isSuccess(tokensPulled, <span class="hljs-number">2</span>);
+}</code></pre>
+						<p>See <a href="classes/tokeneffects.html">TokenEffects</a>.</p>
+						<p>Finally, some complex cases may require access to the bag. For example an
+							outcome function for <a href="https://arkhamdb.com/card/04158">Recall the Future</a> may
+							use the bag composition to determine which token to name based on bag
+						composition (see <a href="globals.html#recallthefuture">recallTheFuture</a>).</p>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>  The tokens pulled from the bag.</p>
+							</dd>
+							<dt>param</dt>
+							<dd><p>  Mapping of token effects</p>
+							</dd>
+							<dt>param</dt>
+							<dd><p>  The bag from which the tokens were pulled.</p>
+							</dd>
+						</dl>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -244,6 +281,11 @@
 							<li>Defined in tokens/Token.ts:28</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>List of &#39;bad&#39; tokens, tokens generally triggering bad effects.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="defaulttokeneffects" class="tsd-anchor"></a>
@@ -329,16 +371,35 @@
 									<li>Defined in cards.ts:143</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Choose the right token to call with Recall the Future which is, among tokens
+										that can be turned to success using the +2 bonus, the one which has the most
+										occurrences in the bag.
+										Note that it will take into account redraw tokens. For example, when testing
+										at -2, it will not choose -3 even though there is a Bless token (+2, redraw)
+									in the bag.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  value and the difficulty.</p>
+									</div>
 								</li>
 								<li>
 									<h5>bag: <a href="classes/bag.html" class="tsd-signature-type">Bag</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The Chaos bag</p>
+									</div>
 								</li>
 								<li>
 									<h5>tokenEffects: <a href="classes/tokeneffects.html" class="tsd-signature-type">TokenEffects</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The token effects mapping.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="enums/token.html" class="tsd-signature-type">Token</a>
@@ -362,6 +423,11 @@
 									<li>Defined in utils.ts:52</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns combinations of elements from an array.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -372,9 +438,15 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>k: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The number of elements in each combination.</p>
+									</div>
 								</li>
 								<li>
 									<h5>elems: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The array of elements to pull from.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -395,6 +467,12 @@
 									<li>Defined in cards.ts:254</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if a list of elements contains at least one of the elements provided as
+									second argument.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -405,9 +483,15 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>elements: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The list of elements to check.</p>
+									</div>
 								</li>
 								<li>
 									<h5>elementsSearched: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The list of elements to look for.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -429,6 +513,12 @@
 									<li>Defined in cards.ts:270</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if a list of elements does not contains any of the elements provided as
+									second argument.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -439,9 +529,15 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>elements: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The list of elements to check.</p>
+									</div>
 								</li>
 								<li>
 									<h5>elementsSearched: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The list of elements to look for.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -463,10 +559,19 @@
 									<li>Defined in cards.ts:224</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success using Dark Prophecy.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -487,10 +592,20 @@
 									<li>Defined in utils.ts:112</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Compute the fractional n!</p>
+								</div>
+								<p>Here we are using an iterative version of this function for better
+								performance over a recursive version.</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>n: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The number to compute the factorial from</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -540,10 +655,20 @@
 									<li>Defined in cards.ts:379</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success using Jacqueline Fine&#39;s ability to draw 3 tokens and cancel
+									2 non-tentacle tokens or a tentacle token.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -564,19 +689,64 @@
 									<li>Defined in index.ts:91</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Compute the odds of a particular outcome when pulling tokens from the bag.</p>
+								</div>
+								<p>The outcome function is called for each possible combination of <code>numTokens</code>
+									from the bag and return <code>true</code> or <code>false</code> wether this specific combination
+									is a success or not. This function is called with first argument being the
+									combination (it will contain exactly <code>numTokens</code> tokens), second optional
+									argument being the effects of the tokens and third optional argument being
+								the Chaos bag.</p>
+								<p>The simplest outcome function is checking if a particular token was pulled:</p>
+								<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pulledASkull</span>(<span class="hljs-params">tokensPulled</span>) </span>{
+  <span class="hljs-keyword">return</span> tokensPulled[<span class="hljs-number">0</span>] === ArkhamOdds.Token.SKULL;
+}</code></pre>
+								<p>Using the token effects mapping, you can check if the skill test is a
+								success when the total skil vallue is 2 above the difficulty.</p>
+								<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isSuccessWhenTwoAbove</span>(<span class="hljs-params">tokensPulled, tokenEffects</span>) </span>{
+  <span class="hljs-keyword">return</span> tokenEffects.isSuccess(tokensPulled, <span class="hljs-number">2</span>);
+}</code></pre>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>numTokensPulled: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>  The number of tokens simultaneously pulled from the bag.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>bag: <a href="classes/bag.html" class="tsd-signature-type">Bag</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>  The bag from which the tokens are pulled.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>outcomes: <a href="classes/tokeneffects.html" class="tsd-signature-type">TokenEffects</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>  The token effects.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>outcomeFunction: <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>  The outcome function returning <code>true</code> if the pulled tokens represent a
+												desired outcome and <code>false</code> otherwise.
+												The first argument passed to the function are the tokens pulled, the second
+												is the token effects map and the third is the bag.
+												The outcome function should always assume that redraw tokens are counted
+											and that pulled tokens contains the result of redrawing.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -597,16 +767,34 @@
 									<li>Defined in index.ts:35</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Compute the odds of a particular combination of tokens based on how many
+										tokens are not &quot;redraw&quot; tokens.
+										It took me a lot of time to get this formula right. Many thanks to those who
+										helped me get it.
+									TODO: Use fraction.js for precise calculations</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>totalNumberOfTokens: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The total number of tokens in the bag</p>
+									</div>
 								</li>
 								<li>
 									<h5>numberOfTokensInCombination: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The number of tokens in the combination</p>
+									</div>
 								</li>
 								<li>
 									<h5>numberOfNonRedrawTokensInCombination: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The number of tokens in this combination that are not &quot;redraw&quot; tokens</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -627,19 +815,49 @@
 									<li>Defined in index.ts:166</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Similar to <code>odds</code> but this time putting tokens back into the bag between
+									each pull.</p>
+								</div>
+								<p>It should be used for abilities like Wendy&#39;s:</p>
+								<pre><code class="language-javascript"><span class="hljs-keyword">let</span> wendyOdds = ArkhamOdds.oddsWithRedraw(
+  <span class="hljs-number">2</span>, theBag, theEffects,
+  ArkhamOdds.successChoosingBest(<span class="hljs-number">0</span>));</code></pre>
+								<p>TODO Update this function to account for tokens with a redraw effect.</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>numTokensPulled: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>  The number of tokens sequentially pulled from the bag while putting them
+											back in between each pull..</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>bag: <a href="classes/bag.html" class="tsd-signature-type">Bag</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>  The bag from which the tokens are pulled.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>outcomes: <a href="classes/tokeneffects.html" class="tsd-signature-type">TokenEffects</a></h5>
 								</li>
 								<li>
 									<h5>outcomeFunction: <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>  The outcome function returning <code>true</code> if the pulled tokens represent a
+												desired outcome and <code>false</code> otherwise.
+												The first argument passed to the function are the tokens pulled, the second
+											is the token effects map and the third is the bag.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -660,10 +878,19 @@
 									<li>Defined in cards.ts:77</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Choose the 2 best tokens.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -685,10 +912,19 @@
 									<li>Defined in cards.ts:326</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success and doing exactly 3 damage using .35 Winchester and Olive McBride.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -709,10 +945,19 @@
 									<li>Defined in cards.ts:350</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success and doing exactly 3 damage using .35 Winchester and Olive McBride.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -733,10 +978,19 @@
 									<li>Defined in cards.ts:100</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Choose a Skull if able and the best of remaining tokens.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -759,10 +1013,25 @@
 									<li>Defined in cards.ts:196</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success using Recall the Future.
+									The strategy applied for Recall the Future is the following :</p>
+									<ul>
+										<li>determine which tokens can be turned from failure to success using the
+										+2 bonus from Recall the Future</li>
+										<li>choose the token with the most occurrences in the bag</li>
+									</ul>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -783,6 +1052,12 @@
 									<li>Defined in utils.ts:12</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a new array with the first occurrence of an element removed from
+									the array passed.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -793,9 +1068,15 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>elems: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The original array.</p>
+									</div>
 								</li>
 								<li>
 									<h5>elem: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The element to remove</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -839,10 +1120,20 @@
 									<li>Defined in cards.ts:14</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Basically determine success based on difference between skill value and
+									difficulty.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -863,10 +1154,20 @@
 									<li>Defined in cards.ts:29</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success when pulling several tokens and choosing the best to
+									resolve and ignore to others.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -916,10 +1217,20 @@
 									<li>Defined in bag/Bags.ts:11</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>internal</dt>
+									<dd><p>A function to facilitate the declaration of bag composition.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tokenList: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>  The comma-separated list of tokens.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="enums/token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -940,10 +1251,19 @@
 									<li>Defined in cards.ts:282</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success and doing exactly 1 damage using .35 Winchester.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -964,10 +1284,19 @@
 									<li>Defined in cards.ts:304</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine success and doing exactly 3 damage using .35 Winchester.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>skillMinusDifficulty: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The difference between the total skill
+										value and the difficulty.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="globals.html#outcomefunction" class="tsd-signature-type">OutcomeFunction</a></h4>
@@ -987,6 +1316,11 @@
 							<li>Defined in bag/Bags.ts:56</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Bag compositions for the different campaigns.</p>
+						</div>
+					</div>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
 						<a name="bags.carnevaleofhorrors" class="tsd-anchor"></a>
 						<h3>Carnevale<wbr>OfHorrors</h3>
@@ -996,6 +1330,11 @@
 								<li>Defined in bag/Bags.ts:190</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Carnevale of Horrors</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.carnevaleofhorrors.hard" class="tsd-anchor"></a>
 							<h3>Hard</h3>
@@ -1026,6 +1365,11 @@
 								<li>Defined in bag/Bags.ts:179</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Curse of the Rougarou</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.curseoftherougarou.hard-1" class="tsd-anchor"></a>
 							<h3>Hard</h3>
@@ -1056,6 +1400,11 @@
 								<li>Defined in bag/Bags.ts:212</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Guardians of the Abyss</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.guardiansoftheabyss.hard-2" class="tsd-anchor"></a>
 							<h3>Hard</h3>
@@ -1086,6 +1435,11 @@
 								<li>Defined in bag/Bags.ts:223</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Guardians of the Abyss</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.murderattheexcelsiorhotel.hard-3" class="tsd-anchor"></a>
 							<h3>Hard</h3>
@@ -1116,6 +1470,11 @@
 								<li>Defined in bag/Bags.ts:60</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Night of the Zealot</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.nightofthezealot.easy" class="tsd-anchor"></a>
 							<h3>Easy</h3>
@@ -1166,6 +1525,11 @@
 								<li>Defined in bag/Bags.ts:128</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Circle Undone</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.thecircleundone.easy-1" class="tsd-anchor"></a>
 							<h3>Easy</h3>
@@ -1216,6 +1580,11 @@
 								<li>Defined in bag/Bags.ts:145</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Dream-Eaters : The Dream-Quest</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.thedreameatersthedreamquest.easy-2" class="tsd-anchor"></a>
 							<h3>Easy</h3>
@@ -1266,6 +1635,11 @@
 								<li>Defined in bag/Bags.ts:162</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Dream-Eaters : The Web of Dreams</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.thedreameatersthewebofdreams.easy-3" class="tsd-anchor"></a>
 							<h3>Easy</h3>
@@ -1316,6 +1690,11 @@
 								<li>Defined in bag/Bags.ts:77</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Dunwich Legacy</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.thedunwichlegacy.easy-4" class="tsd-anchor"></a>
 							<h3>Easy</h3>
@@ -1366,6 +1745,11 @@
 								<li>Defined in bag/Bags.ts:111</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Forgotten Age</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.theforgottenage.easy-5" class="tsd-anchor"></a>
 							<h3>Easy</h3>
@@ -1416,6 +1800,11 @@
 								<li>Defined in bag/Bags.ts:201</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Labyrinths of Lunacy</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.thelabyrinthsoflunacy.hard-10" class="tsd-anchor"></a>
 							<h3>Hard</h3>
@@ -1446,6 +1835,11 @@
 								<li>Defined in bag/Bags.ts:94</li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Path to Carcosa</p>
+							</div>
+						</div>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="bags.thepathtocarcosa.easy-6" class="tsd-anchor"></a>
 							<h3>Easy</h3>
@@ -1637,6 +2031,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -1685,7 +2080,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
