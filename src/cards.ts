@@ -76,9 +76,15 @@ export function ritualCandles(skillMinusDifficulty: number): OutcomeFunction {
  */
 export function oliveMcBride(skillMinusDifficulty: number): OutcomeFunction {
   return (tokensPulled, tokenEffects) => {
-    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(tokensPulled);
+    const { redrawTokens, nonRedrawTokens } = tokenEffects.separateRedrawTokens(
+      tokensPulled
+    );
+    const sorted: Token[] = tokenEffects.sortByBestOutcomeDesc(nonRedrawTokens);
     const chosen: Token[] = sorted.slice(0, 2);
-    return tokenEffects.isSuccess(chosen, skillMinusDifficulty);
+    return tokenEffects.isSuccess(
+      chosen.concat(redrawTokens),
+      skillMinusDifficulty
+    );
   };
 }
 
@@ -104,11 +110,14 @@ export function oliveMcBrideWithSkull(
       copyOfTokensPulled.indexOf(Token.SKULL),
       1
     );
+    const { redrawTokens, nonRedrawTokens } = tokenEffects.separateRedrawTokens(
+      copyOfTokensPulled
+    );
     const secondToken: Token[] = tokenEffects
-      .sortByBestOutcomeDesc(copyOfTokensPulled)
+      .sortByBestOutcomeDesc(nonRedrawTokens)
       .slice(0, 1);
     return tokenEffects.isSuccess(
-      skull.concat(secondToken),
+      skull.concat(secondToken, redrawTokens),
       skillMinusDifficulty
     );
   };

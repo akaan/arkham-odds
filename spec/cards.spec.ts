@@ -5,6 +5,7 @@ import {
   Autofail,
   jacqueline,
   Modifier,
+  oliveMcBride,
   oliveMcBrideAndWinchesterDoing1Damage,
   oliveMcBrideAndWinchesterDoing3Damage,
   oliveMcBrideWithSkull,
@@ -74,6 +75,34 @@ describe("cards", () => {
     });
   });
 
+  describe("oliveMcBride", () => {
+    it("returns a function", () => {
+      const returnValue = oliveMcBride(0);
+      expect(returnValue).to.be.instanceof(Function);
+    });
+
+    it("returns true if higher than difficulty with the 2 best tokens", () => {
+      expect(
+        oliveMcBride(1)([Token.ZERO, Token.MINUS_ONE, Token.AUTOFAIL], effects)
+      ).to.be.true;
+    });
+
+    it("returns false if lesser than difficulty with the 2 best tokens", () => {
+      expect(
+        oliveMcBride(0)([Token.ZERO, Token.MINUS_ONE, Token.AUTOFAIL], effects)
+      ).to.be.false;
+    });
+
+    it("should assume that redraw tokens where pulled", () => {
+      expect(
+        oliveMcBride(-2)(
+          [Token.AUTOFAIL, Token.MINUS_FOUR, Token.BLESS, Token.ZERO],
+          effects
+        )
+      ).to.be.false;
+    });
+  });
+
   describe("oliveMcBrideWithSkull", () => {
     it("returns a function", () => {
       const returnValue = oliveMcBrideWithSkull(0);
@@ -116,6 +145,15 @@ describe("cards", () => {
         oliveMcBrideWithSkull(1)(
           [Token.SKULL, Token.MINUS_ONE, Token.MINUS_TWO],
           effects.merge(new TokenEffects([[Token.SKULL, new Modifier(-1)]]))
+        )
+      ).to.be.false;
+    });
+
+    it("should assume that redraw tokens where pulled", () => {
+      expect(
+        oliveMcBrideWithSkull(3)(
+          [Token.AUTOFAIL, Token.SKULL, Token.BLESS, Token.MINUS_TWO],
+          effects.merge(new TokenEffects([[Token.SKULL, new Modifier(-4)]]))
         )
       ).to.be.false;
     });

@@ -83,6 +83,8 @@ function oddsOfCombination(
  *   desired outcome and `false` otherwise.
  *   The first argument passed to the function are the tokens pulled, the second
  *   is the token effects map and the third is the bag.
+ *   The outcome function should always assume that redraw tokens are counted
+ *   and that pulled tokens contains the result of redrawing.
  * @return {number}
  *   The odds of the desired outcome.
  */
