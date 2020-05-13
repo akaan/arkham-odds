@@ -20,7 +20,7 @@ describe("Autofail", () => {
 
   describe("isRedraw", () => {
     it("is not a redraw token", () => {
-      expect(new Autofail().isRedraw()).to.equal(false);
+      expect(new Autosuccess().isRedraw()).to.equal(false);
     });
   });
 
