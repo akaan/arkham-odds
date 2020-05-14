@@ -1,5 +1,7 @@
 # ArkhamOdds
 
+![Node.js CI](https://github.com/akaan/arkham-odds/workflows/Node.js%20CI/badge.svg?branch=master)
+
 ArkhamOdds is a Javascript library for computing odds of outcome in Arkham
 Horror : The Card Game.
 
