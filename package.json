@@ -29,9 +29,7 @@
     "test": "nyc mocha \"spec/**/*.spec.ts\"",
     "test:mutate": "stryker run",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "postversion": "git push && git push --tags"
+    "prepublishOnly": "npm test && npm run lint"
   },
   "files": [
     "examples",
