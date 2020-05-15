@@ -8,7 +8,11 @@
   <a href="https://github.com/akaan/arkham-odds/actions">
     <img src="https://github.com/akaan/arkham-odds/workflows/Generate%20GitHub%20Pages/badge.svg?branch=master">
   </a>
-  
+
+  <a href="https://github.com/akaan/arkham-odds/actions">
+    <img src="https://github.com/akaan/arkham-odds/workflows/Publish%20to%20NPM/badge.svg">
+  </a>
+
   <a href="https://github.com/akaan/arkham-odds/releases">
     <img src="https://img.shields.io/github/v/release/akaan/arkham-odds.svg?logo=github">
   </a>
