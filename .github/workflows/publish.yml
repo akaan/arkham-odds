@@ -35,7 +35,7 @@ jobs:
       - run: yarn --frozen-lockfile
 
       # Publish to NPM (git tag is created by the GitHub release)
-      - run: yarn publish --new-version ${{ steps.versionnumber.outputs.replaced }} --no-git-tag-version
+      - run: yarn publish --new-version ${{ steps.versionnumber.outputs.replaced }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
