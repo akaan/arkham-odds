@@ -3,10 +3,12 @@ on:
   release:
     types: [created]
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: master
 
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v1
