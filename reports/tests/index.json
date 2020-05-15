@@ -5,9 +5,9 @@
     "passes": 130,
     "pending": 0,
     "failures": 0,
-    "start": "2020-05-15T13:37:57.955Z",
-    "end": "2020-05-15T13:37:58.025Z",
-    "duration": 70,
+    "start": "2020-05-15T14:01:16.412Z",
+    "end": "2020-05-15T14:01:16.477Z",
+    "duration": 65,
     "testsRegistered": 130,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "4fb1429f-542b-4b78-9d5f-3964e9496178",
+      "uuid": "9e8be3d4-9675-4f1c-a549-e5bf6a76e964",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "6e50fce2-e4a1-4cae-ba85-f7a365e16cf7",
+          "uuid": "802be998-6061-4718-b2ad-e87e541fa95a",
           "title": "Bag",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/bag/Bag.spec.ts",
           "file": "/spec/bag/Bag.spec.ts",
@@ -47,15 +47,15 @@
               "context": null,
               "code": "var someTokens = [tokens_1.Token.ZERO, tokens_1.Token.MINUS_ONE];\nvar bag = new bag_1.Bag(someTokens);\nchai_1.expect(bag.getTokens()).to.deep.equal([tokens_1.Token.ZERO, tokens_1.Token.MINUS_ONE]);\nsomeTokens.push(tokens_1.Token.AUTOFAIL);\nchai_1.expect(someTokens).to.deep.equal([\n    tokens_1.Token.ZERO,\n    tokens_1.Token.MINUS_ONE,\n    tokens_1.Token.AUTOFAIL\n]);\nchai_1.expect(bag.getTokens()).to.deep.equal([tokens_1.Token.ZERO, tokens_1.Token.MINUS_ONE]);",
               "err": {},
-              "uuid": "dea4c339-4c70-4a29-a702-ce3cf340770e",
-              "parentUUID": "6e50fce2-e4a1-4cae-ba85-f7a365e16cf7",
+              "uuid": "f3e00f0f-7579-432f-a4f3-9f1b83b22621",
+              "parentUUID": "802be998-6061-4718-b2ad-e87e541fa95a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [
             {
-              "uuid": "cf7859cc-970c-4c83-9637-5290f02a0f38",
+              "uuid": "f5354238-8f8e-4b4f-9150-3dea59b063a2",
               "title": "getTokens",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/bag/Bag.spec.ts",
               "file": "/spec/bag/Bag.spec.ts",
@@ -75,15 +75,15 @@
                   "context": null,
                   "code": "var bag = new bag_1.Bag([tokens_1.Token.ELDER_SIGN, tokens_1.Token.AUTOFAIL]);\nvar tokens = bag.getTokens();\ntokens.push(tokens_1.Token.TABLET);\nchai_1.expect(tokens).to.deep.equal([\n    tokens_1.Token.ELDER_SIGN,\n    tokens_1.Token.AUTOFAIL,\n    tokens_1.Token.TABLET\n]);\nchai_1.expect(bag.getTokens()).to.deep.equal([tokens_1.Token.ELDER_SIGN, tokens_1.Token.AUTOFAIL]);",
                   "err": {},
-                  "uuid": "fa66ae5a-26b9-4bca-96fe-844a6d45e2f4",
-                  "parentUUID": "cf7859cc-970c-4c83-9637-5290f02a0f38",
+                  "uuid": "bc20d95e-261f-44cd-8faf-8f1b5cddc1f3",
+                  "parentUUID": "f5354238-8f8e-4b4f-9150-3dea59b063a2",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "fa66ae5a-26b9-4bca-96fe-844a6d45e2f4"
+                "bc20d95e-261f-44cd-8faf-8f1b5cddc1f3"
               ],
               "failures": [],
               "pending": [],
@@ -94,7 +94,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "62129bf7-dfe3-4a5e-a0e7-951a8ef00f23",
+              "uuid": "47336b79-9725-4882-818e-efc84703eb0c",
               "title": "addTokens",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/bag/Bag.spec.ts",
               "file": "/spec/bag/Bag.spec.ts",
@@ -114,8 +114,8 @@
                   "context": null,
                   "code": "var bag = new bag_1.Bag([tokens_1.Token.ELDER_SIGN]);\nvar added = bag.addTokens([tokens_1.Token.AUTOFAIL]);\nchai_1.expect(added).not.to.equal(bag);",
                   "err": {},
-                  "uuid": "d47d55b3-3a46-4e48-b646-8aa6db6ef475",
-                  "parentUUID": "62129bf7-dfe3-4a5e-a0e7-951a8ef00f23",
+                  "uuid": "ab863921-ecfd-46e5-8d7d-72c31036b0aa",
+                  "parentUUID": "47336b79-9725-4882-818e-efc84703eb0c",
                   "isHook": false,
                   "skipped": false
                 },
@@ -132,8 +132,8 @@
                   "context": null,
                   "code": "var bag = new bag_1.Bag([tokens_1.Token.ELDER_SIGN]);\nvar added = bag.addTokens([tokens_1.Token.AUTOFAIL, tokens_1.Token.TABLET]);\nchai_1.expect(added.getTokens()).to.deep.equal([\n    tokens_1.Token.ELDER_SIGN,\n    tokens_1.Token.AUTOFAIL,\n    tokens_1.Token.TABLET\n]);",
                   "err": {},
-                  "uuid": "e8abbbc5-5805-4704-97f4-d7905116ecd6",
-                  "parentUUID": "62129bf7-dfe3-4a5e-a0e7-951a8ef00f23",
+                  "uuid": "8da12cc8-69f4-46fe-b1fc-abbe66cd5e18",
+                  "parentUUID": "47336b79-9725-4882-818e-efc84703eb0c",
                   "isHook": false,
                   "skipped": false
                 },
@@ -141,7 +141,7 @@
                   "title": "should leave the original Bag untouched",
                   "fullTitle": "Bag addTokens should leave the original Bag untouched",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -150,28 +150,28 @@
                   "context": null,
                   "code": "var bag = new bag_1.Bag([tokens_1.Token.ELDER_SIGN]);\nbag.addTokens([tokens_1.Token.AUTOFAIL]);\nchai_1.expect(bag.getTokens()).to.deep.equal([tokens_1.Token.ELDER_SIGN]);",
                   "err": {},
-                  "uuid": "463589cc-f9f6-4ec7-af90-72087219d859",
-                  "parentUUID": "62129bf7-dfe3-4a5e-a0e7-951a8ef00f23",
+                  "uuid": "7352e0e6-40de-4c1e-8b40-3639debc3ba5",
+                  "parentUUID": "47336b79-9725-4882-818e-efc84703eb0c",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "d47d55b3-3a46-4e48-b646-8aa6db6ef475",
-                "e8abbbc5-5805-4704-97f4-d7905116ecd6",
-                "463589cc-f9f6-4ec7-af90-72087219d859"
+                "ab863921-ecfd-46e5-8d7d-72c31036b0aa",
+                "8da12cc8-69f4-46fe-b1fc-abbe66cd5e18",
+                "7352e0e6-40de-4c1e-8b40-3639debc3ba5"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "7634071b-4075-44b2-9faa-3efa6891f5da",
+              "uuid": "f25c7318-b56d-477c-a1d1-40d573b3e6df",
               "title": "removeToken",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/bag/Bag.spec.ts",
               "file": "/spec/bag/Bag.spec.ts",
@@ -191,8 +191,8 @@
                   "context": null,
                   "code": "var bag = new bag_1.Bag([tokens_1.Token.ELDER_SIGN, tokens_1.Token.AUTOFAIL]);\nvar removed = bag.removeToken(tokens_1.Token.AUTOFAIL);\nchai_1.expect(removed).not.to.equal(bag);",
                   "err": {},
-                  "uuid": "82b074d3-963c-4b87-9b99-8904655fcfa1",
-                  "parentUUID": "7634071b-4075-44b2-9faa-3efa6891f5da",
+                  "uuid": "40555b83-8a9d-412e-b880-dc67469f6e44",
+                  "parentUUID": "f25c7318-b56d-477c-a1d1-40d573b3e6df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -209,8 +209,8 @@
                   "context": null,
                   "code": "var bag = new bag_1.Bag([tokens_1.Token.ELDER_SIGN, tokens_1.Token.AUTOFAIL]);\nvar removed = bag.removeToken(tokens_1.Token.AUTOFAIL);\nchai_1.expect(removed.getTokens()).to.deep.equal([tokens_1.Token.ELDER_SIGN]);",
                   "err": {},
-                  "uuid": "39c47731-c0ed-4563-97eb-18573e76c39a",
-                  "parentUUID": "7634071b-4075-44b2-9faa-3efa6891f5da",
+                  "uuid": "f1ee75be-350b-45ab-b9db-d06f9c660ced",
+                  "parentUUID": "f25c7318-b56d-477c-a1d1-40d573b3e6df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -218,7 +218,7 @@
                   "title": "should the original Bag untouched",
                   "fullTitle": "Bag removeToken should the original Bag untouched",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -227,29 +227,29 @@
                   "context": null,
                   "code": "var bag = new bag_1.Bag([tokens_1.Token.ELDER_SIGN, tokens_1.Token.AUTOFAIL]);\nbag.removeToken(tokens_1.Token.AUTOFAIL);\nchai_1.expect(bag.getTokens()).to.deep.equal([tokens_1.Token.ELDER_SIGN, tokens_1.Token.AUTOFAIL]);",
                   "err": {},
-                  "uuid": "8ec485ac-2a03-43f0-97a1-f93db2e7c8b7",
-                  "parentUUID": "7634071b-4075-44b2-9faa-3efa6891f5da",
+                  "uuid": "302eb016-6c5f-4bd1-a47f-a3854feaa733",
+                  "parentUUID": "f25c7318-b56d-477c-a1d1-40d573b3e6df",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "82b074d3-963c-4b87-9b99-8904655fcfa1",
-                "39c47731-c0ed-4563-97eb-18573e76c39a",
-                "8ec485ac-2a03-43f0-97a1-f93db2e7c8b7"
+                "40555b83-8a9d-412e-b880-dc67469f6e44",
+                "f1ee75be-350b-45ab-b9db-d06f9c660ced",
+                "302eb016-6c5f-4bd1-a47f-a3854feaa733"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             }
           ],
           "passes": [
-            "dea4c339-4c70-4a29-a702-ce3cf340770e"
+            "f3e00f0f-7579-432f-a4f3-9f1b83b22621"
           ],
           "failures": [],
           "pending": [],
@@ -260,7 +260,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "3c71c6db-088d-4142-8ac0-4f83d1bb80bd",
+          "uuid": "5e3fca1e-54aa-4386-9fc4-6262139692d6",
           "title": "cards",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
           "file": "/spec/cards.spec.ts",
@@ -278,8 +278,8 @@
               "context": null,
               "code": "effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.ZERO, new src_1.Modifier(0)],\n    [src_1.Token.MINUS_ONE, new src_1.Modifier(-1)],\n    [src_1.Token.MINUS_TWO, new src_1.Modifier(-2)],\n    [src_1.Token.MINUS_FOUR, new src_1.Modifier(-4)],\n    [src_1.Token.AUTOFAIL, new src_1.Autofail()],\n    [src_1.Token.BLESS, new src_1.Modifier(2, true)],\n    [src_1.Token.CURSE, new src_1.Modifier(-2, true)]\n]);",
               "err": {},
-              "uuid": "9ffd6b67-4e1b-4bf1-b598-bfd23c0fcbe0",
-              "parentUUID": "3c71c6db-088d-4142-8ac0-4f83d1bb80bd",
+              "uuid": "a7f24029-5601-4437-a540-6209dd76ede8",
+              "parentUUID": "5e3fca1e-54aa-4386-9fc4-6262139692d6",
               "isHook": true,
               "skipped": false
             }
@@ -288,7 +288,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "da4a35a2-68f3-44b5-9ac5-47cd7a02917f",
+              "uuid": "281b4747-6f2b-4fbf-80e4-9cd5269dae27",
               "title": "success",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -299,7 +299,7 @@
                   "title": "returns a function",
                   "fullTitle": "cards success returns a function",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -308,8 +308,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.success(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "98db1eb1-549f-4854-a0e6-80ac4395c1b5",
-                  "parentUUID": "da4a35a2-68f3-44b5-9ac5-47cd7a02917f",
+                  "uuid": "7f7b924d-ec41-48fe-9818-6de9c98055f9",
+                  "parentUUID": "281b4747-6f2b-4fbf-80e4-9cd5269dae27",
                   "isHook": false,
                   "skipped": false
                 },
@@ -326,27 +326,27 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.success(2)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], effects)).to.be\n    .false;\nchai_1.expect(src_1.success(3)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], effects)).to.be\n    .true;",
                   "err": {},
-                  "uuid": "5b22b543-852c-4242-a81a-8c0456a604b6",
-                  "parentUUID": "da4a35a2-68f3-44b5-9ac5-47cd7a02917f",
+                  "uuid": "1da5403a-cb51-4472-9831-59d608a681e3",
+                  "parentUUID": "281b4747-6f2b-4fbf-80e4-9cd5269dae27",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "98db1eb1-549f-4854-a0e6-80ac4395c1b5",
-                "5b22b543-852c-4242-a81a-8c0456a604b6"
+                "7f7b924d-ec41-48fe-9818-6de9c98055f9",
+                "1da5403a-cb51-4472-9831-59d608a681e3"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "d1d1ea0b-2ba2-42a8-96fc-458a2c6e2b1a",
+              "uuid": "729b7b43-8757-425e-8da2-b3468105fca7",
               "title": "successChoosingBest",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -366,8 +366,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.successChoosingBest(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "2c2e1ae6-e461-4559-8ef0-f2fbe31378c6",
-                  "parentUUID": "d1d1ea0b-2ba2-42a8-96fc-458a2c6e2b1a",
+                  "uuid": "47327c45-0aa0-4487-8da5-23e5ff190c4a",
+                  "parentUUID": "729b7b43-8757-425e-8da2-b3468105fca7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -384,8 +384,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.successChoosingBest(1)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "b5fec9a1-cdb3-4e5f-a231-d3bc928ef73c",
-                  "parentUUID": "d1d1ea0b-2ba2-42a8-96fc-458a2c6e2b1a",
+                  "uuid": "d317792a-d4ce-49b8-bad4-e1316a369833",
+                  "parentUUID": "729b7b43-8757-425e-8da2-b3468105fca7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -402,8 +402,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.successChoosingBest(0)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "80479f4c-bbf5-4c09-ad49-789a8ac78abf",
-                  "parentUUID": "d1d1ea0b-2ba2-42a8-96fc-458a2c6e2b1a",
+                  "uuid": "61a08e64-4347-4226-8d70-7f56cadb2a5f",
+                  "parentUUID": "729b7b43-8757-425e-8da2-b3468105fca7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -420,18 +420,18 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.successChoosingBest(0)([src_1.Token.AUTOFAIL, src_1.Token.MINUS_FOUR, src_1.Token.BLESS], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "aa451520-a253-428e-96b9-409c9a847d88",
-                  "parentUUID": "d1d1ea0b-2ba2-42a8-96fc-458a2c6e2b1a",
+                  "uuid": "2cfd268a-6c55-4d34-8495-0f0760a907bd",
+                  "parentUUID": "729b7b43-8757-425e-8da2-b3468105fca7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "2c2e1ae6-e461-4559-8ef0-f2fbe31378c6",
-                "b5fec9a1-cdb3-4e5f-a231-d3bc928ef73c",
-                "80479f4c-bbf5-4c09-ad49-789a8ac78abf",
-                "aa451520-a253-428e-96b9-409c9a847d88"
+                "47327c45-0aa0-4487-8da5-23e5ff190c4a",
+                "d317792a-d4ce-49b8-bad4-e1316a369833",
+                "61a08e64-4347-4226-8d70-7f56cadb2a5f",
+                "2cfd268a-6c55-4d34-8495-0f0760a907bd"
               ],
               "failures": [],
               "pending": [],
@@ -442,7 +442,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "94f1ad81-cd2a-4848-9743-bcc635ccee51",
+              "uuid": "e90da7ec-c583-4d6d-b553-2b81aa1f1a75",
               "title": "oliveMcBride",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -453,7 +453,7 @@
                   "title": "returns a function",
                   "fullTitle": "cards oliveMcBride returns a function",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -462,8 +462,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.oliveMcBride(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "e3d8a9fc-c941-4cab-a5a0-c4bda29dceaa",
-                  "parentUUID": "94f1ad81-cd2a-4848-9743-bcc635ccee51",
+                  "uuid": "6ef83f2f-79f6-40ac-9414-9491295dff9b",
+                  "parentUUID": "e90da7ec-c583-4d6d-b553-2b81aa1f1a75",
                   "isHook": false,
                   "skipped": false
                 },
@@ -471,7 +471,7 @@
                   "title": "returns true if higher than difficulty with the 2 best tokens",
                   "fullTitle": "cards oliveMcBride returns true if higher than difficulty with the 2 best tokens",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -480,8 +480,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBride(1)([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.AUTOFAIL], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "b44cfc02-626e-4616-b8fe-a7d238948d80",
-                  "parentUUID": "94f1ad81-cd2a-4848-9743-bcc635ccee51",
+                  "uuid": "0a335f09-b25e-4c51-94a5-561ceff86b84",
+                  "parentUUID": "e90da7ec-c583-4d6d-b553-2b81aa1f1a75",
                   "isHook": false,
                   "skipped": false
                 },
@@ -498,8 +498,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBride(0)([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.AUTOFAIL], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "43b7affd-d6cf-4378-b0b3-27352ae71843",
-                  "parentUUID": "94f1ad81-cd2a-4848-9743-bcc635ccee51",
+                  "uuid": "653279d9-c063-42f7-af67-4a5c28a64f0f",
+                  "parentUUID": "e90da7ec-c583-4d6d-b553-2b81aa1f1a75",
                   "isHook": false,
                   "skipped": false
                 },
@@ -516,18 +516,18 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBride(-2)([src_1.Token.AUTOFAIL, src_1.Token.MINUS_FOUR, src_1.Token.BLESS, src_1.Token.ZERO], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "d7e9ab52-54ef-4cc0-9b2a-fd06abbe2617",
-                  "parentUUID": "94f1ad81-cd2a-4848-9743-bcc635ccee51",
+                  "uuid": "6e36af28-4122-4617-b1e4-b30a06c2e082",
+                  "parentUUID": "e90da7ec-c583-4d6d-b553-2b81aa1f1a75",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e3d8a9fc-c941-4cab-a5a0-c4bda29dceaa",
-                "b44cfc02-626e-4616-b8fe-a7d238948d80",
-                "43b7affd-d6cf-4378-b0b3-27352ae71843",
-                "d7e9ab52-54ef-4cc0-9b2a-fd06abbe2617"
+                "6ef83f2f-79f6-40ac-9414-9491295dff9b",
+                "0a335f09-b25e-4c51-94a5-561ceff86b84",
+                "653279d9-c063-42f7-af67-4a5c28a64f0f",
+                "6e36af28-4122-4617-b1e4-b30a06c2e082"
               ],
               "failures": [],
               "pending": [],
@@ -538,7 +538,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "d7667ed2-b1e2-4edd-95af-634186d0942c",
+              "uuid": "a115e61e-2a4b-4532-bf74-6def41cfcadb",
               "title": "oliveMcBrideWithSkull",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -558,8 +558,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.oliveMcBrideWithSkull(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "4985966d-83e3-493a-ae15-346a37f1b451",
-                  "parentUUID": "d7667ed2-b1e2-4edd-95af-634186d0942c",
+                  "uuid": "e86514fd-65da-4ec7-a7bd-d8d4b919dfe2",
+                  "parentUUID": "a115e61e-2a4b-4532-bf74-6def41cfcadb",
                   "isHook": false,
                   "skipped": false
                 },
@@ -567,7 +567,7 @@
                   "title": "returns false if there is no Skull token in the tokens pulled",
                   "fullTitle": "cards oliveMcBrideWithSkull returns false if there is no Skull token in the tokens pulled",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -576,8 +576,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideWithSkull(0)([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "a73c44e9-484e-4062-a3fa-ca5e853da763",
-                  "parentUUID": "d7667ed2-b1e2-4edd-95af-634186d0942c",
+                  "uuid": "af3cd1e5-bbe7-43d8-9310-0ad304af9b76",
+                  "parentUUID": "a115e61e-2a4b-4532-bf74-6def41cfcadb",
                   "isHook": false,
                   "skipped": false
                 },
@@ -594,8 +594,8 @@
                   "context": null,
                   "code": "var myComb = [src_1.Token.SKULL, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO];\nsrc_1.oliveMcBrideWithSkull(2)(myComb, effects.merge(new src_1.TokenEffects([[src_1.Token.SKULL, new src_1.Modifier(-1)]])));\nchai_1.expect(myComb).to.deep.equal([\n    src_1.Token.SKULL,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_TWO\n]);",
                   "err": {},
-                  "uuid": "17c443a0-9b71-488d-a3dc-665e65362d01",
-                  "parentUUID": "d7667ed2-b1e2-4edd-95af-634186d0942c",
+                  "uuid": "78dfebc8-e1cf-47b6-a83c-b9e63813c8be",
+                  "parentUUID": "a115e61e-2a4b-4532-bf74-6def41cfcadb",
                   "isHook": false,
                   "skipped": false
                 },
@@ -612,8 +612,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideWithSkull(2)([src_1.Token.SKULL, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], effects.merge(new src_1.TokenEffects([[src_1.Token.SKULL, new src_1.Modifier(-1)]])))).to.be.true;",
                   "err": {},
-                  "uuid": "8009efe3-07b6-4c77-837f-5d600de62f68",
-                  "parentUUID": "d7667ed2-b1e2-4edd-95af-634186d0942c",
+                  "uuid": "deaa2142-8b65-4fce-a882-07509c77ea19",
+                  "parentUUID": "a115e61e-2a4b-4532-bf74-6def41cfcadb",
                   "isHook": false,
                   "skipped": false
                 },
@@ -630,8 +630,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideWithSkull(1)([src_1.Token.SKULL, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], effects.merge(new src_1.TokenEffects([[src_1.Token.SKULL, new src_1.Modifier(-1)]])))).to.be.false;",
                   "err": {},
-                  "uuid": "38c6d428-e051-4901-a405-b6b981029295",
-                  "parentUUID": "d7667ed2-b1e2-4edd-95af-634186d0942c",
+                  "uuid": "c5c0e0f7-09e1-4d62-a8a5-9fe9dfef6953",
+                  "parentUUID": "a115e61e-2a4b-4532-bf74-6def41cfcadb",
                   "isHook": false,
                   "skipped": false
                 },
@@ -648,31 +648,31 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideWithSkull(3)([src_1.Token.AUTOFAIL, src_1.Token.SKULL, src_1.Token.BLESS, src_1.Token.MINUS_TWO], effects.merge(new src_1.TokenEffects([[src_1.Token.SKULL, new src_1.Modifier(-4)]])))).to.be.false;",
                   "err": {},
-                  "uuid": "5f6e8936-0e56-48ec-92fd-82547ea6f971",
-                  "parentUUID": "d7667ed2-b1e2-4edd-95af-634186d0942c",
+                  "uuid": "426fae58-5c28-4053-b6f0-b695b0aaf2ae",
+                  "parentUUID": "a115e61e-2a4b-4532-bf74-6def41cfcadb",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "4985966d-83e3-493a-ae15-346a37f1b451",
-                "a73c44e9-484e-4062-a3fa-ca5e853da763",
-                "17c443a0-9b71-488d-a3dc-665e65362d01",
-                "8009efe3-07b6-4c77-837f-5d600de62f68",
-                "38c6d428-e051-4901-a405-b6b981029295",
-                "5f6e8936-0e56-48ec-92fd-82547ea6f971"
+                "e86514fd-65da-4ec7-a7bd-d8d4b919dfe2",
+                "af3cd1e5-bbe7-43d8-9310-0ad304af9b76",
+                "78dfebc8-e1cf-47b6-a83c-b9e63813c8be",
+                "deaa2142-8b65-4fce-a882-07509c77ea19",
+                "c5c0e0f7-09e1-4d62-a8a5-9fe9dfef6953",
+                "426fae58-5c28-4053-b6f0-b695b0aaf2ae"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
+              "uuid": "012c3225-19fe-4475-a20e-7fa8b3878877",
               "title": "recallTheFuture",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -683,7 +683,7 @@
                   "title": "returns a function",
                   "fullTitle": "cards recallTheFuture returns a function",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -692,32 +692,14 @@
                   "context": null,
                   "code": "var returnValue = src_1.recallTheFuture(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "1faf709e-4499-4710-b0d5-1a0c5244e05f",
-                  "parentUUID": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
+                  "uuid": "361f8c74-672f-47c1-ba56-24d117af668b",
+                  "parentUUID": "012c3225-19fe-4475-a20e-7fa8b3878877",
                   "isHook": false,
                   "skipped": false
                 },
                 {
                   "title": "returns true if greater than difficulty",
                   "fullTitle": "cards recallTheFuture returns true if greater than difficulty",
-                  "timedOut": false,
-                  "duration": 0,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "chai_1.expect(src_1.recallTheFuture(0)([src_1.Token.ZERO], effects, new src_1.Bag([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE]))).to.be.true;",
-                  "err": {},
-                  "uuid": "8f1617cf-791c-41f9-ad48-57aa9762e8c7",
-                  "parentUUID": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
-                  "isHook": false,
-                  "skipped": false
-                },
-                {
-                  "title": "returns true if lesser than difficulty but drew the token which has the most chances to be turned into success using the +2 bonus",
-                  "fullTitle": "cards recallTheFuture returns true if lesser than difficulty but drew the token which has the most chances to be turned into success using the +2 bonus",
                   "timedOut": false,
                   "duration": 1,
                   "state": "passed",
@@ -726,10 +708,28 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
+                  "code": "chai_1.expect(src_1.recallTheFuture(0)([src_1.Token.ZERO], effects, new src_1.Bag([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE]))).to.be.true;",
+                  "err": {},
+                  "uuid": "1b565351-13b9-4045-af17-c974e4c3cca5",
+                  "parentUUID": "012c3225-19fe-4475-a20e-7fa8b3878877",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "returns true if lesser than difficulty but drew the token which has the most chances to be turned into success using the +2 bonus",
+                  "fullTitle": "cards recallTheFuture returns true if lesser than difficulty but drew the token which has the most chances to be turned into success using the +2 bonus",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
                   "code": "chai_1.expect(src_1.recallTheFuture(-1)([src_1.Token.MINUS_ONE], effects, new src_1.Bag([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE]))).to.be.true;",
                   "err": {},
-                  "uuid": "5758763c-4aae-4fd7-8e41-7a4b131f965e",
-                  "parentUUID": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
+                  "uuid": "3af33a8e-c390-4eb8-9d88-f3d6e003e777",
+                  "parentUUID": "012c3225-19fe-4475-a20e-7fa8b3878877",
                   "isHook": false,
                   "skipped": false
                 },
@@ -746,8 +746,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.recallTheFuture(-1)([src_1.Token.ZERO], effects, new src_1.Bag([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE]))).to.be.false;",
                   "err": {},
-                  "uuid": "b3612e71-a257-4dab-bd92-05b9c9d38ae0",
-                  "parentUUID": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
+                  "uuid": "68306885-c9b0-4dc9-a4fb-f5eb24539b9b",
+                  "parentUUID": "012c3225-19fe-4475-a20e-7fa8b3878877",
                   "isHook": false,
                   "skipped": false
                 },
@@ -764,8 +764,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.recallTheFuture(-2)([src_1.Token.MINUS_ONE], effects, new src_1.Bag([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE]))).to.be.false;",
                   "err": {},
-                  "uuid": "ee79ce36-9cf9-4e7a-a64d-461899dc174d",
-                  "parentUUID": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
+                  "uuid": "5ec2b97c-36bf-41e2-9fff-dbe9f1462343",
+                  "parentUUID": "012c3225-19fe-4475-a20e-7fa8b3878877",
                   "isHook": false,
                   "skipped": false
                 },
@@ -773,7 +773,7 @@
                   "title": "can handle the case where several tokens where drawn",
                   "fullTitle": "cards recallTheFuture can handle the case where several tokens where drawn",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -782,8 +782,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.recallTheFuture(-1)([src_1.Token.ZERO, src_1.Token.MINUS_ONE], effects, new src_1.Bag([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_TWO\n]))).to.be.true;",
                   "err": {},
-                  "uuid": "1b7065f6-f2f0-47cd-be76-212553900c73",
-                  "parentUUID": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
+                  "uuid": "99089869-80d2-46c3-837d-74679471e62b",
+                  "parentUUID": "012c3225-19fe-4475-a20e-7fa8b3878877",
                   "isHook": false,
                   "skipped": false
                 },
@@ -800,32 +800,32 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.recallTheFuture(-1)([src_1.Token.MINUS_ONE, src_1.Token.CURSE], effects, new src_1.Bag([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_TWO,\n    src_1.Token.CURSE\n]))).to.be.false;",
                   "err": {},
-                  "uuid": "eccd327f-9bda-4271-8581-d2838e500be7",
-                  "parentUUID": "e9ad3b77-9f01-4aff-af4d-7d144f037fc1",
+                  "uuid": "a342cb98-6bf2-43b0-a8f7-c17f671ee314",
+                  "parentUUID": "012c3225-19fe-4475-a20e-7fa8b3878877",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "1faf709e-4499-4710-b0d5-1a0c5244e05f",
-                "8f1617cf-791c-41f9-ad48-57aa9762e8c7",
-                "5758763c-4aae-4fd7-8e41-7a4b131f965e",
-                "b3612e71-a257-4dab-bd92-05b9c9d38ae0",
-                "ee79ce36-9cf9-4e7a-a64d-461899dc174d",
-                "1b7065f6-f2f0-47cd-be76-212553900c73",
-                "eccd327f-9bda-4271-8581-d2838e500be7"
+                "361f8c74-672f-47c1-ba56-24d117af668b",
+                "1b565351-13b9-4045-af17-c974e4c3cca5",
+                "3af33a8e-c390-4eb8-9d88-f3d6e003e777",
+                "68306885-c9b0-4dc9-a4fb-f5eb24539b9b",
+                "5ec2b97c-36bf-41e2-9fff-dbe9f1462343",
+                "99089869-80d2-46c3-837d-74679471e62b",
+                "a342cb98-6bf2-43b0-a8f7-c17f671ee314"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 3,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "13098c6b-1606-48d4-b240-e1e13c0457bf",
+              "uuid": "f86c8dc9-70d5-46c6-b261-5178ee9286ec",
               "title": "darkProphecy",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -845,8 +845,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.darkProphecy(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "6a3b8c8a-edca-4ab7-b063-a78f7ab54d10",
-                  "parentUUID": "13098c6b-1606-48d4-b240-e1e13c0457bf",
+                  "uuid": "096a7898-5645-4e6b-9eb0-ec89ba17e674",
+                  "parentUUID": "f86c8dc9-70d5-46c6-b261-5178ee9286ec",
                   "isHook": false,
                   "skipped": false
                 },
@@ -854,7 +854,7 @@
                   "title": "return true if greater than difficulty using the \"best\" bad token pulled",
                   "fullTitle": "cards darkProphecy return true if greater than difficulty using the \"best\" bad token pulled",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -863,8 +863,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.darkProphecy(2)([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.CULTIST,\n    src_1.Token.ELDER_THING\n], effects.merge(new src_1.TokenEffects([\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)],\n    [src_1.Token.ELDER_THING, new src_1.Modifier(-4)]\n])))).to.be.true;",
                   "err": {},
-                  "uuid": "3c0548e5-aa4b-4bfd-beb5-a04fd86c7d7b",
-                  "parentUUID": "13098c6b-1606-48d4-b240-e1e13c0457bf",
+                  "uuid": "5020c28b-2567-4492-9141-39fd324974aa",
+                  "parentUUID": "f86c8dc9-70d5-46c6-b261-5178ee9286ec",
                   "isHook": false,
                   "skipped": false
                 },
@@ -881,32 +881,14 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.darkProphecy(1)([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.CULTIST,\n    src_1.Token.ELDER_THING\n], effects.merge(new src_1.TokenEffects([\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)],\n    [src_1.Token.ELDER_THING, new src_1.Modifier(-4)]\n])))).to.be.false;",
                   "err": {},
-                  "uuid": "c9b7fa0d-f246-4191-839e-646751411781",
-                  "parentUUID": "13098c6b-1606-48d4-b240-e1e13c0457bf",
+                  "uuid": "13dfb52a-aafd-4caa-bd5e-8cd6fde9302e",
+                  "parentUUID": "f86c8dc9-70d5-46c6-b261-5178ee9286ec",
                   "isHook": false,
                   "skipped": false
                 },
                 {
                   "title": "return true if greater than difficulty using best token when no bad tokens were pulled",
                   "fullTitle": "cards darkProphecy return true if greater than difficulty using best token when no bad tokens were pulled",
-                  "timedOut": false,
-                  "duration": 1,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "chai_1.expect(src_1.darkProphecy(0)([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_TWO\n], effects)).to.be.true;",
-                  "err": {},
-                  "uuid": "513cbb40-dd99-4557-975c-5a4f325d5181",
-                  "parentUUID": "13098c6b-1606-48d4-b240-e1e13c0457bf",
-                  "isHook": false,
-                  "skipped": false
-                },
-                {
-                  "title": "return false if lesser than difficulty using best token when no bad tokens were pulled",
-                  "fullTitle": "cards darkProphecy return false if lesser than difficulty using best token when no bad tokens were pulled",
                   "timedOut": false,
                   "duration": 0,
                   "state": "passed",
@@ -915,10 +897,28 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
+                  "code": "chai_1.expect(src_1.darkProphecy(0)([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_TWO\n], effects)).to.be.true;",
+                  "err": {},
+                  "uuid": "c414bbe2-9733-408f-8d69-1e7bd849c7ef",
+                  "parentUUID": "f86c8dc9-70d5-46c6-b261-5178ee9286ec",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "return false if lesser than difficulty using best token when no bad tokens were pulled",
+                  "fullTitle": "cards darkProphecy return false if lesser than difficulty using best token when no bad tokens were pulled",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
                   "code": "chai_1.expect(src_1.darkProphecy(-1)([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_TWO\n], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "93edda76-6c91-4a58-8d5b-af80367b0e15",
-                  "parentUUID": "13098c6b-1606-48d4-b240-e1e13c0457bf",
+                  "uuid": "580ee29f-19ea-45f4-b969-ceda354c704e",
+                  "parentUUID": "f86c8dc9-70d5-46c6-b261-5178ee9286ec",
                   "isHook": false,
                   "skipped": false
                 },
@@ -935,31 +935,31 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.darkProphecy(0)([\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.ZERO,\n    src_1.Token.MINUS_TWO,\n    src_1.Token.CURSE\n], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "c79c63f4-9789-4e45-bf26-bdb425f3800d",
-                  "parentUUID": "13098c6b-1606-48d4-b240-e1e13c0457bf",
+                  "uuid": "48e1c51d-3c17-4b01-aee3-cdbb9ec75044",
+                  "parentUUID": "f86c8dc9-70d5-46c6-b261-5178ee9286ec",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "6a3b8c8a-edca-4ab7-b063-a78f7ab54d10",
-                "3c0548e5-aa4b-4bfd-beb5-a04fd86c7d7b",
-                "c9b7fa0d-f246-4191-839e-646751411781",
-                "513cbb40-dd99-4557-975c-5a4f325d5181",
-                "93edda76-6c91-4a58-8d5b-af80367b0e15",
-                "c79c63f4-9789-4e45-bf26-bdb425f3800d"
+                "096a7898-5645-4e6b-9eb0-ec89ba17e674",
+                "5020c28b-2567-4492-9141-39fd324974aa",
+                "13dfb52a-aafd-4caa-bd5e-8cd6fde9302e",
+                "c414bbe2-9733-408f-8d69-1e7bd849c7ef",
+                "580ee29f-19ea-45f4-b969-ceda354c704e",
+                "48e1c51d-3c17-4b01-aee3-cdbb9ec75044"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 2,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "13a369c1-d7b3-42fb-90ac-dccd8e06430c",
+              "uuid": "5a770c13-6da8-4fb5-9f47-c0c8c50f6606",
               "title": "winchesterDoing1Damage",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -970,7 +970,7 @@
                   "title": "returns a function",
                   "fullTitle": "cards winchesterDoing1Damage returns a function",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -979,8 +979,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.winchesterDoing1Damage(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "4d7bdc4c-b0d6-49ce-9a76-9a05a0565fdf",
-                  "parentUUID": "13a369c1-d7b3-42fb-90ac-dccd8e06430c",
+                  "uuid": "c9ba5654-7849-4743-a059-fa28b28e1959",
+                  "parentUUID": "5a770c13-6da8-4fb5-9f47-c0c8c50f6606",
                   "isHook": false,
                   "skipped": false
                 },
@@ -997,8 +997,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.winchesterDoing1Damage(1)([src_1.Token.MINUS_ONE], effects)).to.be.true;\nchai_1.expect(src_1.winchesterDoing1Damage(2)([src_1.Token.MINUS_TWO], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "18e072a8-b6b5-46d9-81da-f0c392163fda",
-                  "parentUUID": "13a369c1-d7b3-42fb-90ac-dccd8e06430c",
+                  "uuid": "7aabae5d-9016-48ce-9428-6f10f7d99890",
+                  "parentUUID": "5a770c13-6da8-4fb5-9f47-c0c8c50f6606",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1006,7 +1006,7 @@
                   "title": "returns false if greater than difficulty and pulled an Elder Sign, a +1 or a 0",
                   "fullTitle": "cards winchesterDoing1Damage returns false if greater than difficulty and pulled an Elder Sign, a +1 or a 0",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1015,8 +1015,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.winchesterDoing1Damage(0)([src_1.Token.ELDER_SIGN], effects)).to.be\n    .false;\nchai_1.expect(src_1.winchesterDoing1Damage(0)([src_1.Token.ZERO], effects)).to.be.false;\nchai_1.expect(src_1.winchesterDoing1Damage(-1)([src_1.Token.PLUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "8d787705-b98e-4f89-bd30-72c7ba686df4",
-                  "parentUUID": "13a369c1-d7b3-42fb-90ac-dccd8e06430c",
+                  "uuid": "1fe612a1-fc2b-4b1f-8872-3a232ee00d99",
+                  "parentUUID": "5a770c13-6da8-4fb5-9f47-c0c8c50f6606",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1033,29 +1033,29 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.winchesterDoing1Damage(-2)([src_1.Token.ELDER_SIGN], effects)).to.be\n    .false;\nchai_1.expect(src_1.winchesterDoing1Damage(-1)([src_1.Token.ZERO], effects)).to.be.false;\nchai_1.expect(src_1.winchesterDoing1Damage(-2)([src_1.Token.PLUS_ONE], effects)).to.be.false;\nchai_1.expect(src_1.winchesterDoing1Damage(0)([src_1.Token.MINUS_ONE], effects)).to.be.false;\nchai_1.expect(src_1.winchesterDoing1Damage(1)([src_1.Token.MINUS_TWO], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "8a2ce385-e7fd-414f-95fc-2e1615aaa528",
-                  "parentUUID": "13a369c1-d7b3-42fb-90ac-dccd8e06430c",
+                  "uuid": "e90d8834-6bc5-4481-827c-12d8327b66e5",
+                  "parentUUID": "5a770c13-6da8-4fb5-9f47-c0c8c50f6606",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "4d7bdc4c-b0d6-49ce-9a76-9a05a0565fdf",
-                "18e072a8-b6b5-46d9-81da-f0c392163fda",
-                "8d787705-b98e-4f89-bd30-72c7ba686df4",
-                "8a2ce385-e7fd-414f-95fc-2e1615aaa528"
+                "c9ba5654-7849-4743-a059-fa28b28e1959",
+                "7aabae5d-9016-48ce-9428-6f10f7d99890",
+                "1fe612a1-fc2b-4b1f-8872-3a232ee00d99",
+                "e90d8834-6bc5-4481-827c-12d8327b66e5"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 2,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "2ee48715-fb12-4656-a3d2-21dcbaccc85c",
+              "uuid": "813f70cf-1621-4bc6-9512-c690bc0cd0f7",
               "title": "winchesterDoing3Damage",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -1075,8 +1075,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.winchesterDoing3Damage(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "e184daf2-a51c-4bf5-a004-4ca6faf83a38",
-                  "parentUUID": "2ee48715-fb12-4656-a3d2-21dcbaccc85c",
+                  "uuid": "3195b201-f5c0-42ad-82e3-734ad66e2670",
+                  "parentUUID": "813f70cf-1621-4bc6-9512-c690bc0cd0f7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1084,7 +1084,7 @@
                   "title": "returns true if greater than difficulty and pulled an Elder Sign, a +1 or a 0",
                   "fullTitle": "cards winchesterDoing3Damage returns true if greater than difficulty and pulled an Elder Sign, a +1 or a 0",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1093,8 +1093,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.winchesterDoing3Damage(0)([src_1.Token.ELDER_SIGN], effects)).to.be.true;\nchai_1.expect(src_1.winchesterDoing3Damage(0)([src_1.Token.ZERO], effects)).to.be.true;\nchai_1.expect(src_1.winchesterDoing3Damage(-1)([src_1.Token.PLUS_ONE], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "fd890919-814b-4d3a-8320-33763adff714",
-                  "parentUUID": "2ee48715-fb12-4656-a3d2-21dcbaccc85c",
+                  "uuid": "a7793bfe-fd90-4e3b-8d9a-10c25446fcde",
+                  "parentUUID": "813f70cf-1621-4bc6-9512-c690bc0cd0f7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1111,8 +1111,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.winchesterDoing3Damage(-2)([src_1.Token.ELDER_SIGN], effects)).to.be\n    .false;\nchai_1.expect(src_1.winchesterDoing3Damage(-1)([src_1.Token.ZERO], effects)).to.be.false;\nchai_1.expect(src_1.winchesterDoing3Damage(-2)([src_1.Token.PLUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "7380afcc-963e-4e6e-ab7c-18862ffd8dae",
-                  "parentUUID": "2ee48715-fb12-4656-a3d2-21dcbaccc85c",
+                  "uuid": "0d94df1d-0bcc-400f-8d35-5eaedb2331d8",
+                  "parentUUID": "813f70cf-1621-4bc6-9512-c690bc0cd0f7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1129,29 +1129,29 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.winchesterDoing3Damage(1)([src_1.Token.MINUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "ba139eba-0ef6-4797-a1aa-a43c4099c1c2",
-                  "parentUUID": "2ee48715-fb12-4656-a3d2-21dcbaccc85c",
+                  "uuid": "a7947981-287a-41b8-8a8f-acf81d32088c",
+                  "parentUUID": "813f70cf-1621-4bc6-9512-c690bc0cd0f7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e184daf2-a51c-4bf5-a004-4ca6faf83a38",
-                "fd890919-814b-4d3a-8320-33763adff714",
-                "7380afcc-963e-4e6e-ab7c-18862ffd8dae",
-                "ba139eba-0ef6-4797-a1aa-a43c4099c1c2"
+                "3195b201-f5c0-42ad-82e3-734ad66e2670",
+                "a7793bfe-fd90-4e3b-8d9a-10c25446fcde",
+                "0d94df1d-0bcc-400f-8d35-5eaedb2331d8",
+                "a7947981-287a-41b8-8a8f-acf81d32088c"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "f09f190f-11a3-4c56-8583-75ce51b970bf",
+              "uuid": "2c47d58f-fab3-412e-b202-8b9a0c56cfa4",
               "title": "oliveMcBrideAndWinchesterDoing1Damage",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -1162,7 +1162,7 @@
                   "title": "returns a function",
                   "fullTitle": "cards oliveMcBrideAndWinchesterDoing1Damage returns a function",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1171,8 +1171,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.oliveMcBrideAndWinchesterDoing1Damage(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "4e78fc9c-3db1-4c4c-9862-a440523e8815",
-                  "parentUUID": "f09f190f-11a3-4c56-8583-75ce51b970bf",
+                  "uuid": "2aa40599-9daf-4798-8469-8906575852f9",
+                  "parentUUID": "2c47d58f-fab3-412e-b202-8b9a0c56cfa4",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1189,8 +1189,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing1Damage(2)([src_1.Token.MINUS_TWO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "358e9fbc-462d-49c0-a68f-e5d000b31168",
-                  "parentUUID": "f09f190f-11a3-4c56-8583-75ce51b970bf",
+                  "uuid": "1de41942-bb2c-47f3-b287-19be798f4872",
+                  "parentUUID": "2c47d58f-fab3-412e-b202-8b9a0c56cfa4",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1207,8 +1207,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing1Damage(0)([src_1.Token.ELDER_SIGN, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;\nchai_1.expect(src_1.oliveMcBrideAndWinchesterDoing1Damage(1)([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;\nchai_1.expect(src_1.oliveMcBrideAndWinchesterDoing1Damage(0)([src_1.Token.PLUS_ONE, , src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "6f3244f5-57f6-4835-9672-0154d2f1d3ff",
-                  "parentUUID": "f09f190f-11a3-4c56-8583-75ce51b970bf",
+                  "uuid": "7aa52e26-597a-4115-96df-4215d637c7bd",
+                  "parentUUID": "2c47d58f-fab3-412e-b202-8b9a0c56cfa4",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1225,8 +1225,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing1Damage(-1)([src_1.Token.ELDER_SIGN, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;\nchai_1.expect(src_1.oliveMcBrideAndWinchesterDoing1Damage(1)([src_1.Token.MINUS_TWO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "71dda8c7-9788-4e78-86df-c27a922483d7",
-                  "parentUUID": "f09f190f-11a3-4c56-8583-75ce51b970bf",
+                  "uuid": "8f032c8e-756a-44dc-b595-97bf3e76b797",
+                  "parentUUID": "2c47d58f-fab3-412e-b202-8b9a0c56cfa4",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1243,30 +1243,30 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing1Damage(2)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO, src_1.Token.CURSE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "829d787d-4ebe-4442-8f2a-d109efaf9c01",
-                  "parentUUID": "f09f190f-11a3-4c56-8583-75ce51b970bf",
+                  "uuid": "00c9b9f3-993c-4417-813f-f22ac5dbbb1a",
+                  "parentUUID": "2c47d58f-fab3-412e-b202-8b9a0c56cfa4",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "4e78fc9c-3db1-4c4c-9862-a440523e8815",
-                "358e9fbc-462d-49c0-a68f-e5d000b31168",
-                "6f3244f5-57f6-4835-9672-0154d2f1d3ff",
-                "71dda8c7-9788-4e78-86df-c27a922483d7",
-                "829d787d-4ebe-4442-8f2a-d109efaf9c01"
+                "2aa40599-9daf-4798-8469-8906575852f9",
+                "1de41942-bb2c-47f3-b287-19be798f4872",
+                "7aa52e26-597a-4115-96df-4215d637c7bd",
+                "8f032c8e-756a-44dc-b595-97bf3e76b797",
+                "00c9b9f3-993c-4417-813f-f22ac5dbbb1a"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "2be1665e-7792-484b-9495-a4f0d84f0387",
+              "uuid": "4dc64ac7-8af6-4d03-9639-84d6c42f17d6",
               "title": "oliveMcBrideAndWinchesterDoing3Damage",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -1277,7 +1277,7 @@
                   "title": "returns a function",
                   "fullTitle": "cards oliveMcBrideAndWinchesterDoing3Damage returns a function",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1286,8 +1286,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.oliveMcBrideAndWinchesterDoing3Damage(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "e15d5d12-8185-4a86-891e-06a3c1f9a39c",
-                  "parentUUID": "2be1665e-7792-484b-9495-a4f0d84f0387",
+                  "uuid": "22184c2c-0066-4fec-b4ad-1569709a35df",
+                  "parentUUID": "4dc64ac7-8af6-4d03-9639-84d6c42f17d6",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1304,8 +1304,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(0)([src_1.Token.ELDER_SIGN, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.true;\nchai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(1)([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.true;\nchai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(0)([src_1.Token.PLUS_ONE, , src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "3642919e-f439-42ab-b496-ed6c03f76858",
-                  "parentUUID": "2be1665e-7792-484b-9495-a4f0d84f0387",
+                  "uuid": "f4022be3-9140-4285-abd4-be589d6ed7c2",
+                  "parentUUID": "4dc64ac7-8af6-4d03-9639-84d6c42f17d6",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1313,7 +1313,7 @@
                   "title": "returns false if lesser than difficulty",
                   "fullTitle": "cards oliveMcBrideAndWinchesterDoing3Damage returns false if lesser than difficulty",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1322,8 +1322,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(-1)([src_1.Token.ELDER_SIGN, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;\nchai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(0)([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;\nchai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(-1)([src_1.Token.PLUS_ONE, , src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "ef38012f-8ff3-4584-81ef-dd9abf8ae426",
-                  "parentUUID": "2be1665e-7792-484b-9495-a4f0d84f0387",
+                  "uuid": "37a44d3b-6cf6-4fcc-8b68-e30840911dbe",
+                  "parentUUID": "4dc64ac7-8af6-4d03-9639-84d6c42f17d6",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1340,8 +1340,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(2)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "64880cdc-465f-4d5e-a71d-57725efa27ef",
-                  "parentUUID": "2be1665e-7792-484b-9495-a4f0d84f0387",
+                  "uuid": "8b65ac26-4e2e-4f4c-9f7e-6ae42926b82d",
+                  "parentUUID": "4dc64ac7-8af6-4d03-9639-84d6c42f17d6",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1358,19 +1358,19 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.oliveMcBrideAndWinchesterDoing3Damage(1)([src_1.Token.ZERO, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO, src_1.Token.CURSE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "4d39fc02-35b7-43d4-9a7e-2a6f272fe007",
-                  "parentUUID": "2be1665e-7792-484b-9495-a4f0d84f0387",
+                  "uuid": "6db6e1ed-0e41-4bd3-9c6c-a73454d7a90a",
+                  "parentUUID": "4dc64ac7-8af6-4d03-9639-84d6c42f17d6",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e15d5d12-8185-4a86-891e-06a3c1f9a39c",
-                "3642919e-f439-42ab-b496-ed6c03f76858",
-                "ef38012f-8ff3-4584-81ef-dd9abf8ae426",
-                "64880cdc-465f-4d5e-a71d-57725efa27ef",
-                "4d39fc02-35b7-43d4-9a7e-2a6f272fe007"
+                "22184c2c-0066-4fec-b4ad-1569709a35df",
+                "f4022be3-9140-4285-abd4-be589d6ed7c2",
+                "37a44d3b-6cf6-4fcc-8b68-e30840911dbe",
+                "8b65ac26-4e2e-4f4c-9f7e-6ae42926b82d",
+                "6db6e1ed-0e41-4bd3-9c6c-a73454d7a90a"
               ],
               "failures": [],
               "pending": [],
@@ -1381,7 +1381,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "5120bddc-a09f-42c4-a776-206938a6fb62",
+              "uuid": "6b7820ab-6323-4aed-812f-9ff0a654244a",
               "title": "jacqueline",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/cards.spec.ts",
               "file": "/spec/cards.spec.ts",
@@ -1401,8 +1401,8 @@
                   "context": null,
                   "code": "var returnValue = src_1.jacqueline(0);\nchai_1.expect(returnValue).to.be.instanceof(Function);",
                   "err": {},
-                  "uuid": "356787cf-3676-4161-93a9-c0a254b38ea3",
-                  "parentUUID": "5120bddc-a09f-42c4-a776-206938a6fb62",
+                  "uuid": "096d8115-3a9d-49c9-b27d-04ebfd77a0c5",
+                  "parentUUID": "6b7820ab-6323-4aed-812f-9ff0a654244a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1419,8 +1419,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.jacqueline(1)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "0d440e1c-bf33-4fc4-aaca-1add30b3e6cd",
-                  "parentUUID": "5120bddc-a09f-42c4-a776-206938a6fb62",
+                  "uuid": "2d57cc12-f25c-4d5e-8071-db79739b9707",
+                  "parentUUID": "6b7820ab-6323-4aed-812f-9ff0a654244a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1437,8 +1437,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.jacqueline(2)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.AUTOFAIL], effects)).to.be.true;",
                   "err": {},
-                  "uuid": "44026442-dadf-4cbf-812e-29dbb059249a",
-                  "parentUUID": "5120bddc-a09f-42c4-a776-206938a6fb62",
+                  "uuid": "f65002a4-d8e6-475f-b32d-b0446600fced",
+                  "parentUUID": "6b7820ab-6323-4aed-812f-9ff0a654244a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1455,8 +1455,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.jacqueline(0)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "031daf68-8dda-4ff8-b099-56d5a5b2f062",
-                  "parentUUID": "5120bddc-a09f-42c4-a776-206938a6fb62",
+                  "uuid": "c9eee50a-6e6c-47f5-8acb-e398ac8fe67f",
+                  "parentUUID": "6b7820ab-6323-4aed-812f-9ff0a654244a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1473,8 +1473,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.jacqueline(1)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.AUTOFAIL], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "48a90631-880d-4b92-ae8d-f8dbdd847761",
-                  "parentUUID": "5120bddc-a09f-42c4-a776-206938a6fb62",
+                  "uuid": "b866e006-b462-4b22-8fe6-c89df41a76a1",
+                  "parentUUID": "6b7820ab-6323-4aed-812f-9ff0a654244a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1491,8 +1491,8 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.jacqueline(2)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO, src_1.Token.CURSE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "fbbc379d-8bcd-4543-9a3d-c52388f40b18",
-                  "parentUUID": "5120bddc-a09f-42c4-a776-206938a6fb62",
+                  "uuid": "315d10c8-1983-4327-986f-f1e62a07a283",
+                  "parentUUID": "6b7820ab-6323-4aed-812f-9ff0a654244a",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1509,21 +1509,21 @@
                   "context": null,
                   "code": "chai_1.expect(src_1.jacqueline(2)([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.AUTOFAIL, src_1.Token.CURSE], effects)).to.be.false;",
                   "err": {},
-                  "uuid": "1ba596ce-ca33-4fc3-ba14-3fd175ffd5d1",
-                  "parentUUID": "5120bddc-a09f-42c4-a776-206938a6fb62",
+                  "uuid": "f747f435-f266-454a-ba94-92820f11ad96",
+                  "parentUUID": "6b7820ab-6323-4aed-812f-9ff0a654244a",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "356787cf-3676-4161-93a9-c0a254b38ea3",
-                "0d440e1c-bf33-4fc4-aaca-1add30b3e6cd",
-                "44026442-dadf-4cbf-812e-29dbb059249a",
-                "031daf68-8dda-4ff8-b099-56d5a5b2f062",
-                "48a90631-880d-4b92-ae8d-f8dbdd847761",
-                "fbbc379d-8bcd-4543-9a3d-c52388f40b18",
-                "1ba596ce-ca33-4fc3-ba14-3fd175ffd5d1"
+                "096d8115-3a9d-49c9-b27d-04ebfd77a0c5",
+                "2d57cc12-f25c-4d5e-8071-db79739b9707",
+                "f65002a4-d8e6-475f-b32d-b0446600fced",
+                "c9eee50a-6e6c-47f5-8acb-e398ac8fe67f",
+                "b866e006-b462-4b22-8fe6-c89df41a76a1",
+                "315d10c8-1983-4327-986f-f1e62a07a283",
+                "f747f435-f266-454a-ba94-92820f11ad96"
               ],
               "failures": [],
               "pending": [],
@@ -1544,7 +1544,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "53671728-a96b-4929-8540-1c2aadd5362a",
+          "uuid": "41c2c46e-46dd-4a95-8b24-1d805a3d6948",
           "title": "exports",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/exports.spec.ts",
           "file": "/spec/exports.spec.ts",
@@ -1555,7 +1555,7 @@
               "title": "exports the `odds` function",
               "fullTitle": "exports exports the `odds` function",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -1564,26 +1564,26 @@
               "context": null,
               "code": "chai_1.expect(ArkhamOdds.odds).to.exist;",
               "err": {},
-              "uuid": "1d30b26d-3992-4ed0-a277-5900e77d1253",
-              "parentUUID": "53671728-a96b-4929-8540-1c2aadd5362a",
+              "uuid": "5bb1a959-eecf-491e-83ac-fe0294908019",
+              "parentUUID": "41c2c46e-46dd-4a95-8b24-1d805a3d6948",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "1d30b26d-3992-4ed0-a277-5900e77d1253"
+            "5bb1a959-eecf-491e-83ac-fe0294908019"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1,
+          "duration": 0,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "e6dbda19-73c0-4839-aecf-182d76e1b498",
+          "uuid": "e5275df2-ca3f-41a1-84b5-ff1b62a30b85",
           "title": "Odds functions",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/index.spec.ts",
           "file": "/spec/index.spec.ts",
@@ -1601,8 +1601,8 @@
               "context": null,
               "code": "effects = new src_1.TokenEffects([\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.MINUS_ONE, new src_1.Modifier(-1)],\n    [src_1.Token.MINUS_TWO, new src_1.Modifier(-2)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-1, true)]\n]);",
               "err": {},
-              "uuid": "e4576dba-9818-4be5-8434-98c5d88a66d7",
-              "parentUUID": "e6dbda19-73c0-4839-aecf-182d76e1b498",
+              "uuid": "e5085f05-c77c-4f20-8867-fde0ba68cd30",
+              "parentUUID": "e5275df2-ca3f-41a1-84b5-ff1b62a30b85",
               "isHook": true,
               "skipped": false
             }
@@ -1611,7 +1611,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "70d8658b-abb2-41f3-88a7-1d31e05fe731",
+              "uuid": "798c5842-9310-4f90-8e20-330b8ed98ef1",
               "title": "odds",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/index.spec.ts",
               "file": "/spec/index.spec.ts",
@@ -1631,8 +1631,8 @@
                   "context": null,
                   "code": "var bag = new src_1.Bag([src_1.Token.PLUS_ONE, src_1.Token.MINUS_ONE]);\nvar oddsOfSuccess = src_1.odds(1, bag, effects, src_1.success(0));\nchai_1.expect(oddsOfSuccess).to.equal(0.5);",
                   "err": {},
-                  "uuid": "bf6ed01c-bb53-44e7-b7f3-e36e5636c14a",
-                  "parentUUID": "70d8658b-abb2-41f3-88a7-1d31e05fe731",
+                  "uuid": "a53f451f-836e-4d58-badd-947e37b8a68f",
+                  "parentUUID": "798c5842-9310-4f90-8e20-330b8ed98ef1",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1649,8 +1649,8 @@
                   "context": null,
                   "code": "var bag = new src_1.Bag([src_1.Token.PLUS_ONE, src_1.Token.MINUS_ONE]);\nvar oddsOfSuccess = src_1.odds(1, bag, effects, src_1.success(-4));\nchai_1.expect(oddsOfSuccess).to.equal(0);",
                   "err": {},
-                  "uuid": "51541f6f-4fba-4880-af9c-30a5c8e96776",
-                  "parentUUID": "70d8658b-abb2-41f3-88a7-1d31e05fe731",
+                  "uuid": "264cbfc3-4222-47c4-ad20-d25892f6cac9",
+                  "parentUUID": "798c5842-9310-4f90-8e20-330b8ed98ef1",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1667,8 +1667,8 @@
                   "context": null,
                   "code": "var bag = new src_1.Bag([src_1.Token.PLUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.CULTIST]);\nvar oddsOfSuccess = src_1.odds(1, bag, effects, src_1.success(-1));\n/* Possible draws are :\n * - +1 with a probability of 1/3\n * - -1 with a probability of 1/3\n * - Cultist and +1 with a probability of 1/6 (1/3 x 1/2)\n * - Cultist and -1 with a probability of 1/6 (1/3 x 1/2)\n * If testing at -1, only +1 result in a success.\n */\nchai_1.expect(oddsOfSuccess).to.be.closeTo(0.33, 0.1);",
                   "err": {},
-                  "uuid": "bcbb50e5-f94f-4adc-9075-9daf7a0def8f",
-                  "parentUUID": "70d8658b-abb2-41f3-88a7-1d31e05fe731",
+                  "uuid": "6f9833dc-fb6c-4bb6-85eb-62e22f92423a",
+                  "parentUUID": "798c5842-9310-4f90-8e20-330b8ed98ef1",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1676,7 +1676,7 @@
                   "title": "takes into account tokens with a redraw effect when pulling multiple tokens",
                   "fullTitle": "Odds functions odds takes into account tokens with a redraw effect when pulling multiple tokens",
                   "timedOut": false,
-                  "duration": 2,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1685,29 +1685,29 @@
                   "context": null,
                   "code": "var bag = new src_1.Bag([\n    src_1.Token.PLUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_TWO,\n    src_1.Token.CULTIST\n]);\n/* Possible draws are in the table below\n *\n * | 1st pull | 2nd pull | 3rd pull | Result | Probability |\n * | +1       | -1       |          | +0     | 1/12        |\n * | +1       | -2       |          | -1     | 1/12        |\n * | +1       | Cultist  | -1       | -1     | 1/24        |\n * | +1       | Cultist  | -2       | -2     | 1/24        |\n * | -1       | +1       |          | +0     | 1/12        |\n * | -1       | -2       |          | -3     | 1/12        |\n * | -1       | Cultist  | +1       | -1     | 1/24        |\n * | -1       | Cultist  | -2       | -4     | 1/24        |\n * | -2       | +1       |          | -1     | 1/12        |\n * | -2       | -1       |          | -3     | 1/12        |\n * | -2       | Cultist  | +1       | -2     | 1/24        |\n * | -2       | Cultist  | -1       | -4     | 1/24        |\n * | Cultist  | +1       | -1       | -1     | 1/24        |\n * | Cultist  | +1       | -2       | -2     | 1/24        |\n * | Cultist  | -1       | +1       | -1     | 1/24        |\n * | Cultist  | -1       | -2       | -4     | 1/24        |\n * | Cultist  | -2       | +1       | -2     | 1/24        |\n * | Cultist  | -2       | -1       | -4     | 1/24        |\n *\n * Odds of success depending on difficulty is then :\n *\n * | Result | Probability |\n * | -4     | 4/24        |\n * | -3     | 4/24        |\n * | -2     | 4/24        |\n * | -1     | 8/24        |\n * | 0      | 4/24        |\n */\nchai_1.expect(src_1.odds(2, bag, effects, src_1.success(0))).to.be.closeTo(4 / 24, 0.01, \"when equal\");\nchai_1.expect(src_1.odds(2, bag, effects, src_1.success(1))).to.be.closeTo(4 / 24 + 8 / 24, 0.01, \"when over by 1\");\nchai_1.expect(src_1.odds(2, bag, effects, src_1.success(2))).to.be.closeTo(4 / 24 + 8 / 24 + 4 / 24, 0.01, \"when over by 2\");\nchai_1.expect(src_1.odds(2, bag, effects, src_1.success(3))).to.equal(4 / 24 + 8 / 24 + 4 / 24 + 4 / 24, \"when over by 3\");\nchai_1.expect(src_1.odds(2, bag, effects, src_1.success(4))).to.be.closeTo(1, 0.01, \"when over by 4\");",
                   "err": {},
-                  "uuid": "1bac0e89-3e3e-4caa-ac36-276c30df45d6",
-                  "parentUUID": "70d8658b-abb2-41f3-88a7-1d31e05fe731",
+                  "uuid": "6fac5c4a-6488-40e4-bf86-e9fe253fa803",
+                  "parentUUID": "798c5842-9310-4f90-8e20-330b8ed98ef1",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "bf6ed01c-bb53-44e7-b7f3-e36e5636c14a",
-                "51541f6f-4fba-4880-af9c-30a5c8e96776",
-                "bcbb50e5-f94f-4adc-9075-9daf7a0def8f",
-                "1bac0e89-3e3e-4caa-ac36-276c30df45d6"
+                "a53f451f-836e-4d58-badd-947e37b8a68f",
+                "264cbfc3-4222-47c4-ad20-d25892f6cac9",
+                "6f9833dc-fb6c-4bb6-85eb-62e22f92423a",
+                "6fac5c4a-6488-40e4-bf86-e9fe253fa803"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 3,
+              "duration": 2,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "61c73a8a-0232-4491-974e-d6fc510d194e",
+              "uuid": "629d67de-2fcb-4c9a-9b96-9cef3bd378e5",
               "title": "oddsWithRedraw",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/index.spec.ts",
               "file": "/spec/index.spec.ts",
@@ -1727,8 +1727,8 @@
                   "context": null,
                   "code": "var bag = new src_1.Bag([src_1.Token.PLUS_ONE, src_1.Token.MINUS_ONE]);\nvar oddsOfSuccess = src_1.oddsWithRedraw(1, bag, effects, src_1.success(0));\nchai_1.expect(oddsOfSuccess).to.equal(0.5);",
                   "err": {},
-                  "uuid": "3f118bea-9c74-47c5-89c3-b46b820b153e",
-                  "parentUUID": "61c73a8a-0232-4491-974e-d6fc510d194e",
+                  "uuid": "f3e3725c-4da8-4dc6-abb7-0cce3b58fcf9",
+                  "parentUUID": "629d67de-2fcb-4c9a-9b96-9cef3bd378e5",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1736,7 +1736,7 @@
                   "title": "returns 0.75 when pulling 2 tokens (putting back first token before second draw) if half the tokens results in a success",
                   "fullTitle": "Odds functions oddsWithRedraw returns 0.75 when pulling 2 tokens (putting back first token before second draw) if half the tokens results in a success",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -1745,21 +1745,21 @@
                   "context": null,
                   "code": "var bag = new src_1.Bag([src_1.Token.PLUS_ONE, src_1.Token.MINUS_ONE]);\nvar oddsOfSuccess = src_1.oddsWithRedraw(2, bag, effects, src_1.successChoosingBest(0));\nchai_1.expect(oddsOfSuccess).to.equal(0.75);",
                   "err": {},
-                  "uuid": "d0700b65-1c56-4352-a157-df641c35dc0a",
-                  "parentUUID": "61c73a8a-0232-4491-974e-d6fc510d194e",
+                  "uuid": "0f402627-c8c5-4972-9399-cb5a1e9aa178",
+                  "parentUUID": "629d67de-2fcb-4c9a-9b96-9cef3bd378e5",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "3f118bea-9c74-47c5-89c3-b46b820b153e",
-                "d0700b65-1c56-4352-a157-df641c35dc0a"
+                "f3e3725c-4da8-4dc6-abb7-0cce3b58fcf9",
+                "0f402627-c8c5-4972-9399-cb5a1e9aa178"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -1775,7 +1775,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "6b562891-2d2f-47da-be9a-6bdca6cefac9",
+          "uuid": "de601db7-bb32-4bba-9ec8-587b896bb0fe",
           "title": "Autofail",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autofail.spec.ts",
           "file": "/spec/tokens/Autofail.spec.ts",
@@ -1784,7 +1784,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "3ac6bbac-1cf2-447f-bb39-ad1c01d4499f",
+              "uuid": "88223b8e-f2df-4a5d-af8e-d9e0e6f650f1",
               "title": "getOutcome",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autofail.spec.ts",
               "file": "/spec/tokens/Autofail.spec.ts",
@@ -1804,15 +1804,15 @@
                   "context": null,
                   "code": "chai_1.expect(new src_1.Autofail().getOutcome()).to.equal(src_1.TokenEffectType.AUTOFAIL);",
                   "err": {},
-                  "uuid": "49f006e6-60d8-4e59-9d99-a8e03c3822eb",
-                  "parentUUID": "3ac6bbac-1cf2-447f-bb39-ad1c01d4499f",
+                  "uuid": "4d33db2f-1100-4f94-87be-caac43a9b0e4",
+                  "parentUUID": "88223b8e-f2df-4a5d-af8e-d9e0e6f650f1",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "49f006e6-60d8-4e59-9d99-a8e03c3822eb"
+                "4d33db2f-1100-4f94-87be-caac43a9b0e4"
               ],
               "failures": [],
               "pending": [],
@@ -1823,7 +1823,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "53dd9914-daa5-4659-8e30-046c1b239660",
+              "uuid": "a15f9194-856a-477c-b987-250d9c9cdf75",
               "title": "isRedraw",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autofail.spec.ts",
               "file": "/spec/tokens/Autofail.spec.ts",
@@ -1843,15 +1843,15 @@
                   "context": null,
                   "code": "chai_1.expect(new src_1.Autofail().isRedraw()).to.equal(false);",
                   "err": {},
-                  "uuid": "9390ff66-333e-4bf7-bf59-b2400c73e958",
-                  "parentUUID": "53dd9914-daa5-4659-8e30-046c1b239660",
+                  "uuid": "d8ee5437-d675-4efd-a536-e4b596ebce95",
+                  "parentUUID": "a15f9194-856a-477c-b987-250d9c9cdf75",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "9390ff66-333e-4bf7-bf59-b2400c73e958"
+                "d8ee5437-d675-4efd-a536-e4b596ebce95"
               ],
               "failures": [],
               "pending": [],
@@ -1862,7 +1862,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "f9a64549-bd19-4646-9ec5-46c222d88bea",
+              "uuid": "2a5fd54a-cd42-4c1f-a427-2bb384fc1a38",
               "title": "sameAs",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autofail.spec.ts",
               "file": "/spec/tokens/Autofail.spec.ts",
@@ -1882,8 +1882,8 @@
                   "context": null,
                   "code": "var _a = [new src_1.Autofail(), new src_1.Autofail()], fail1 = _a[0], fail2 = _a[1];\nchai_1.expect(fail1.sameAs(fail2)).to.be.true;",
                   "err": {},
-                  "uuid": "2300d5db-cf53-4bd1-895f-9e2c5c095605",
-                  "parentUUID": "f9a64549-bd19-4646-9ec5-46c222d88bea",
+                  "uuid": "c6ca2d8f-d3f1-4f5f-afbd-5b2099fd7125",
+                  "parentUUID": "2a5fd54a-cd42-4c1f-a427-2bb384fc1a38",
                   "isHook": false,
                   "skipped": false
                 },
@@ -1900,16 +1900,16 @@
                   "context": null,
                   "code": "var fail = new src_1.Autofail();\nchai_1.expect(fail.sameAs(new src_1.Modifier(-1))).to.be.false;\nchai_1.expect(fail.sameAs(new src_1.Autosuccess())).to.be.false;",
                   "err": {},
-                  "uuid": "e1e5091d-c414-4884-99ee-f61b56acc93a",
-                  "parentUUID": "f9a64549-bd19-4646-9ec5-46c222d88bea",
+                  "uuid": "fc9cfa22-6399-4d66-99b2-21680e2db8f0",
+                  "parentUUID": "2a5fd54a-cd42-4c1f-a427-2bb384fc1a38",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "2300d5db-cf53-4bd1-895f-9e2c5c095605",
-                "e1e5091d-c414-4884-99ee-f61b56acc93a"
+                "c6ca2d8f-d3f1-4f5f-afbd-5b2099fd7125",
+                "fc9cfa22-6399-4d66-99b2-21680e2db8f0"
               ],
               "failures": [],
               "pending": [],
@@ -1930,7 +1930,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "0cf9ddcb-4e53-42ad-b1a2-8dc7d9482e3f",
+          "uuid": "3ad723a7-d713-4ada-9770-077fe01e07fc",
           "title": "Autofail",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autosuccess.spec.ts",
           "file": "/spec/tokens/Autosuccess.spec.ts",
@@ -1939,7 +1939,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "ab43d6a6-b80a-459f-b05a-7576df6689b4",
+              "uuid": "2397b609-9f93-4510-bc7e-53a03f0b3ea5",
               "title": "getOutcome",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autosuccess.spec.ts",
               "file": "/spec/tokens/Autosuccess.spec.ts",
@@ -1959,15 +1959,15 @@
                   "context": null,
                   "code": "chai_1.expect(new src_1.Autosuccess().getOutcome()).to.equal(src_1.TokenEffectType.AUTOSUCCESS);",
                   "err": {},
-                  "uuid": "4514db9b-111c-4820-b62b-3bac5c0de4d8",
-                  "parentUUID": "ab43d6a6-b80a-459f-b05a-7576df6689b4",
+                  "uuid": "bc95d4cd-2685-4300-9a5c-9d4d3875be97",
+                  "parentUUID": "2397b609-9f93-4510-bc7e-53a03f0b3ea5",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "4514db9b-111c-4820-b62b-3bac5c0de4d8"
+                "bc95d4cd-2685-4300-9a5c-9d4d3875be97"
               ],
               "failures": [],
               "pending": [],
@@ -1978,7 +1978,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "b446ca82-30c6-4e90-8c41-0567c030d22f",
+              "uuid": "79f1e4fa-bafb-4a4d-a875-f91f0f13dbd9",
               "title": "isRedraw",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autosuccess.spec.ts",
               "file": "/spec/tokens/Autosuccess.spec.ts",
@@ -1998,15 +1998,15 @@
                   "context": null,
                   "code": "chai_1.expect(new src_1.Autosuccess().isRedraw()).to.equal(false);",
                   "err": {},
-                  "uuid": "256d5211-e85f-45b0-b6ff-47857eb3d061",
-                  "parentUUID": "b446ca82-30c6-4e90-8c41-0567c030d22f",
+                  "uuid": "a148ade3-5c42-42fa-ad67-e96dfccaacd5",
+                  "parentUUID": "79f1e4fa-bafb-4a4d-a875-f91f0f13dbd9",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "256d5211-e85f-45b0-b6ff-47857eb3d061"
+                "a148ade3-5c42-42fa-ad67-e96dfccaacd5"
               ],
               "failures": [],
               "pending": [],
@@ -2017,7 +2017,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "2b99182d-8437-4c43-8e92-da431479c4f9",
+              "uuid": "ee6ad690-289d-43e4-a4e6-fb24b921b571",
               "title": "sameAs",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Autosuccess.spec.ts",
               "file": "/spec/tokens/Autosuccess.spec.ts",
@@ -2037,8 +2037,8 @@
                   "context": null,
                   "code": "var _a = [new src_1.Autosuccess(), new src_1.Autosuccess()], succ1 = _a[0], succ2 = _a[1];\nchai_1.expect(succ1.sameAs(succ2)).to.be.true;",
                   "err": {},
-                  "uuid": "8be1df41-f198-402c-b88a-4a29e16ebfe2",
-                  "parentUUID": "2b99182d-8437-4c43-8e92-da431479c4f9",
+                  "uuid": "6b2e857b-685e-4b5b-ba63-ef9cd28f833a",
+                  "parentUUID": "ee6ad690-289d-43e4-a4e6-fb24b921b571",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2055,16 +2055,16 @@
                   "context": null,
                   "code": "var succ = new src_1.Autosuccess();\nchai_1.expect(succ.sameAs(new src_1.Modifier(-1))).to.be.false;\nchai_1.expect(succ.sameAs(new src_1.Autofail())).to.be.false;",
                   "err": {},
-                  "uuid": "c06acb73-32e8-4add-bed2-9dd98a0f8499",
-                  "parentUUID": "2b99182d-8437-4c43-8e92-da431479c4f9",
+                  "uuid": "428df9f0-aa34-4494-a540-fcbcb720092b",
+                  "parentUUID": "ee6ad690-289d-43e4-a4e6-fb24b921b571",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "8be1df41-f198-402c-b88a-4a29e16ebfe2",
-                "c06acb73-32e8-4add-bed2-9dd98a0f8499"
+                "6b2e857b-685e-4b5b-ba63-ef9cd28f833a",
+                "428df9f0-aa34-4494-a540-fcbcb720092b"
               ],
               "failures": [],
               "pending": [],
@@ -2085,7 +2085,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "90d6fe93-84c5-41d4-8c72-364e0993088a",
+          "uuid": "cbc25772-8c37-4dff-9247-81f5007aad93",
           "title": "Modifier",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Modifier.spec.ts",
           "file": "/spec/tokens/Modifier.spec.ts",
@@ -2094,7 +2094,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "9c2b44a4-f2bb-4f04-b998-c04915e2ed51",
+              "uuid": "80251cba-e51f-4e34-8088-55e771b2edc4",
               "title": "getOutcome",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Modifier.spec.ts",
               "file": "/spec/tokens/Modifier.spec.ts",
@@ -2105,7 +2105,7 @@
                   "title": "outcome is of type MODIFIER",
                   "fullTitle": "Modifier getOutcome outcome is of type MODIFIER",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2114,26 +2114,26 @@
                   "context": null,
                   "code": "chai_1.expect(new src_1.Modifier(0).getOutcome()).to.equal(src_1.TokenEffectType.MODIFIER);",
                   "err": {},
-                  "uuid": "8996034c-3843-4418-95a3-3c5c7dba04d2",
-                  "parentUUID": "9c2b44a4-f2bb-4f04-b998-c04915e2ed51",
+                  "uuid": "f483f92b-6425-43e0-80d8-17e04ade52fb",
+                  "parentUUID": "80251cba-e51f-4e34-8088-55e771b2edc4",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "8996034c-3843-4418-95a3-3c5c7dba04d2"
+                "f483f92b-6425-43e0-80d8-17e04ade52fb"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "e63d1a75-ed2a-4914-b22c-906c9fbb3228",
+              "uuid": "f304123e-8802-4c3f-837b-8666bff37f29",
               "title": "isRedraw",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Modifier.spec.ts",
               "file": "/spec/tokens/Modifier.spec.ts",
@@ -2153,8 +2153,8 @@
                   "context": null,
                   "code": "chai_1.expect(new src_1.Modifier(0, true).isRedraw()).to.equal(true);",
                   "err": {},
-                  "uuid": "d9534391-414a-4810-99df-c223efae3bfa",
-                  "parentUUID": "e63d1a75-ed2a-4914-b22c-906c9fbb3228",
+                  "uuid": "6a1bb370-e6a6-45fc-96cc-9b7486477611",
+                  "parentUUID": "f304123e-8802-4c3f-837b-8666bff37f29",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2171,16 +2171,16 @@
                   "context": null,
                   "code": "chai_1.expect(new src_1.Modifier(0).isRedraw()).to.equal(false);",
                   "err": {},
-                  "uuid": "f889dac7-3e21-4e4c-96fb-241ad504137e",
-                  "parentUUID": "e63d1a75-ed2a-4914-b22c-906c9fbb3228",
+                  "uuid": "c7750432-6b62-4132-be35-aa7e61d3439d",
+                  "parentUUID": "f304123e-8802-4c3f-837b-8666bff37f29",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "d9534391-414a-4810-99df-c223efae3bfa",
-                "f889dac7-3e21-4e4c-96fb-241ad504137e"
+                "6a1bb370-e6a6-45fc-96cc-9b7486477611",
+                "c7750432-6b62-4132-be35-aa7e61d3439d"
               ],
               "failures": [],
               "pending": [],
@@ -2191,7 +2191,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "f8a5aee8-2213-45ba-bf6b-6de463193ebe",
+              "uuid": "c02579ae-303e-40cd-adbe-8f50e8fd2842",
               "title": "sameAs",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/Modifier.spec.ts",
               "file": "/spec/tokens/Modifier.spec.ts",
@@ -2202,7 +2202,7 @@
                   "title": "is true when representing a modifier with same value and redraw effect",
                   "fullTitle": "Modifier sameAs is true when representing a modifier with same value and redraw effect",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2211,8 +2211,8 @@
                   "context": null,
                   "code": "var _a = [new src_1.Modifier(1), new src_1.Modifier(1)], mod1 = _a[0], mod2 = _a[1];\nchai_1.expect(mod1.sameAs(mod2)).to.be.true;",
                   "err": {},
-                  "uuid": "1c061c8a-abc6-4edc-9ec4-8895c2f54030",
-                  "parentUUID": "f8a5aee8-2213-45ba-bf6b-6de463193ebe",
+                  "uuid": "a9269f74-106c-48b8-aece-61a2198c764f",
+                  "parentUUID": "c02579ae-303e-40cd-adbe-8f50e8fd2842",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2229,8 +2229,8 @@
                   "context": null,
                   "code": "var _a = [new src_1.Modifier(1), new src_1.Modifier(2)], mod1 = _a[0], mod2 = _a[1];\nchai_1.expect(mod1.sameAs(mod2)).to.be.false;",
                   "err": {},
-                  "uuid": "58936bdf-6d09-4863-b458-4e6844977983",
-                  "parentUUID": "f8a5aee8-2213-45ba-bf6b-6de463193ebe",
+                  "uuid": "c0c9ada3-fc63-4766-ab97-92b5de2dd871",
+                  "parentUUID": "c02579ae-303e-40cd-adbe-8f50e8fd2842",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2247,8 +2247,8 @@
                   "context": null,
                   "code": "var _a = [new src_1.Modifier(1), new src_1.Modifier(1, true)], mod1 = _a[0], mod2 = _a[1];\nchai_1.expect(mod1.sameAs(mod2)).to.be.false;",
                   "err": {},
-                  "uuid": "5e622503-4f35-44b7-8a3f-6c7c9f1afb79",
-                  "parentUUID": "f8a5aee8-2213-45ba-bf6b-6de463193ebe",
+                  "uuid": "ef846584-a403-4304-9cd8-30f399487769",
+                  "parentUUID": "c02579ae-303e-40cd-adbe-8f50e8fd2842",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2265,23 +2265,23 @@
                   "context": null,
                   "code": "var mod1 = new src_1.Modifier(1);\nchai_1.expect(mod1.sameAs(new src_1.Autofail())).to.be.false;\nchai_1.expect(mod1.sameAs(new src_1.Autosuccess())).to.be.false;",
                   "err": {},
-                  "uuid": "4306d476-5c3b-41c7-a661-313aac5aad1d",
-                  "parentUUID": "f8a5aee8-2213-45ba-bf6b-6de463193ebe",
+                  "uuid": "d878c9dd-e2fe-4d23-b997-58b0ac35b49f",
+                  "parentUUID": "c02579ae-303e-40cd-adbe-8f50e8fd2842",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "1c061c8a-abc6-4edc-9ec4-8895c2f54030",
-                "58936bdf-6d09-4863-b458-4e6844977983",
-                "5e622503-4f35-44b7-8a3f-6c7c9f1afb79",
-                "4306d476-5c3b-41c7-a661-313aac5aad1d"
+                "a9269f74-106c-48b8-aece-61a2198c764f",
+                "c0c9ada3-fc63-4766-ab97-92b5de2dd871",
+                "ef846584-a403-4304-9cd8-30f399487769",
+                "d878c9dd-e2fe-4d23-b997-58b0ac35b49f"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
@@ -2297,7 +2297,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "7b11730c-c820-4503-8e5e-9fc36c3cd559",
+          "uuid": "3ba4efa8-451d-4ad7-815c-6694433283c4",
           "title": "TokenEffects",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
           "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2317,8 +2317,8 @@
               "context": null,
               "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\nchai_1.expect(effects.getEffect(src_1.Token.ELDER_SIGN)).to.exist;\nchai_1.expect(effects.getEffect(src_1.Token.AUTOFAIL)).to.not.exist;",
               "err": {},
-              "uuid": "4760c28e-0561-437e-b145-a02c533b4175",
-              "parentUUID": "7b11730c-c820-4503-8e5e-9fc36c3cd559",
+              "uuid": "66b8e90e-6842-4122-98ff-1822a5ff5d56",
+              "parentUUID": "3ba4efa8-451d-4ad7-815c-6694433283c4",
               "isHook": false,
               "skipped": false
             },
@@ -2335,8 +2335,8 @@
               "context": null,
               "code": "var mapping = [\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n];\nvar effects = new src_1.TokenEffects(mapping);\nchai_1.expect(effects.getEffect(src_1.Token.AUTOFAIL)).to.not.exist;\nmapping.push([src_1.Token.AUTOFAIL, new src_1.Autofail()]);\nchai_1.expect(effects.getEffect(src_1.Token.AUTOFAIL)).to.not.exist;",
               "err": {},
-              "uuid": "f3788ebd-23ef-4136-9f4d-4f68794c6ef3",
-              "parentUUID": "7b11730c-c820-4503-8e5e-9fc36c3cd559",
+              "uuid": "859dd93c-ad45-4d2c-8fe6-ff95c7c8209b",
+              "parentUUID": "3ba4efa8-451d-4ad7-815c-6694433283c4",
               "isHook": false,
               "skipped": false
             },
@@ -2353,15 +2353,15 @@
               "context": null,
               "code": "var effects = new src_1.TokenEffects();\nchai_1.expect(effects.getEffect(src_1.Token.ELDER_SIGN)).to.not.exist;",
               "err": {},
-              "uuid": "629b9442-bed5-45af-8a98-5a234bc5cd03",
-              "parentUUID": "7b11730c-c820-4503-8e5e-9fc36c3cd559",
+              "uuid": "0d11e9b5-d90f-4668-a7e3-17f377f64e5d",
+              "parentUUID": "3ba4efa8-451d-4ad7-815c-6694433283c4",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [
             {
-              "uuid": "dc5093bb-f0bb-49b6-814c-2df0b3dff85f",
+              "uuid": "7e5eee1c-8062-47ad-b39a-db2ca873066e",
               "title": "setEffect",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2381,8 +2381,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\nvar modifiedEffects = effects.setEffect(src_1.Token.CULTIST, new src_1.Autofail());\nchai_1.expect(modifiedEffects).to.not.equal(effects);",
                   "err": {},
-                  "uuid": "0bda0f5b-89a9-4a26-988a-6a855cb7ba33",
-                  "parentUUID": "dc5093bb-f0bb-49b6-814c-2df0b3dff85f",
+                  "uuid": "41f2629b-b359-46f7-9749-d60c03c6b002",
+                  "parentUUID": "7e5eee1c-8062-47ad-b39a-db2ca873066e",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2399,8 +2399,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\nvar modifiedEffects = effects.setEffect(src_1.Token.CULTIST, new src_1.Autofail());\nchai_1.expect(modifiedEffects.getEffect(src_1.Token.CULTIST).sameAs(new src_1.Autofail())).to\n    .be.true;",
                   "err": {},
-                  "uuid": "0d1bd868-3ef0-407c-b3e6-a578cd28c765",
-                  "parentUUID": "dc5093bb-f0bb-49b6-814c-2df0b3dff85f",
+                  "uuid": "a0bd56da-baf4-460f-8d4d-8100fcb34e84",
+                  "parentUUID": "7e5eee1c-8062-47ad-b39a-db2ca873066e",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2417,17 +2417,17 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\neffects.setEffect(src_1.Token.CULTIST, new src_1.Autofail());\nchai_1.expect(effects.getEffect(src_1.Token.CULTIST).sameAs(new src_1.Modifier(-2))).to.be\n    .true;",
                   "err": {},
-                  "uuid": "eb7dd441-eb0e-4313-a6cd-2cdc7766bf00",
-                  "parentUUID": "dc5093bb-f0bb-49b6-814c-2df0b3dff85f",
+                  "uuid": "223e0766-b912-4429-bba5-695c85e95d67",
+                  "parentUUID": "7e5eee1c-8062-47ad-b39a-db2ca873066e",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "0bda0f5b-89a9-4a26-988a-6a855cb7ba33",
-                "0d1bd868-3ef0-407c-b3e6-a578cd28c765",
-                "eb7dd441-eb0e-4313-a6cd-2cdc7766bf00"
+                "41f2629b-b359-46f7-9749-d60c03c6b002",
+                "a0bd56da-baf4-460f-8d4d-8100fcb34e84",
+                "223e0766-b912-4429-bba5-695c85e95d67"
               ],
               "failures": [],
               "pending": [],
@@ -2438,7 +2438,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "3a5ba511-96ff-4b3a-b554-8dd78274161d",
+              "uuid": "d10b8741-0c47-492f-b140-7356c672bb66",
               "title": "setEffects",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2458,8 +2458,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\nvar modifiedEffects = effects.setEffects([\n    [src_1.Token.AUTOFAIL, new src_1.Autofail()]\n]);\nchai_1.expect(modifiedEffects).to.not.equal(effects);",
                   "err": {},
-                  "uuid": "2616b9b1-32f9-445b-843b-879f1408a7a9",
-                  "parentUUID": "3a5ba511-96ff-4b3a-b554-8dd78274161d",
+                  "uuid": "2cc4ded7-3fde-4dea-92f9-335d7860b743",
+                  "parentUUID": "d10b8741-0c47-492f-b140-7356c672bb66",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2476,8 +2476,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\nvar modifiedEffects = effects.setEffects([\n    [src_1.Token.TABLET, new src_1.Modifier(-3)],\n    [src_1.Token.ELDER_THING, new src_1.Modifier(-4)]\n]);\nchai_1.expect(modifiedEffects.getEffect(src_1.Token.TABLET).sameAs(new src_1.Modifier(-3)))\n    .to.be.true;\nchai_1.expect(modifiedEffects.getEffect(src_1.Token.ELDER_THING).sameAs(new src_1.Modifier(-4))).to.be.true;",
                   "err": {},
-                  "uuid": "1d06578e-4338-42dc-9f7a-ee68682c0e11",
-                  "parentUUID": "3a5ba511-96ff-4b3a-b554-8dd78274161d",
+                  "uuid": "2098f809-7d09-44a2-b152-b7aacac9168c",
+                  "parentUUID": "d10b8741-0c47-492f-b140-7356c672bb66",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2494,17 +2494,17 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\neffects.setEffects([\n    [src_1.Token.CULTIST, new src_1.Modifier(-3)],\n    [src_1.Token.TABLET, new src_1.Modifier(-4)]\n]);\nchai_1.expect(effects.getEffect(src_1.Token.CULTIST).sameAs(new src_1.Modifier(-2))).to.be\n    .true;",
                   "err": {},
-                  "uuid": "474706d1-7f18-4224-89b5-8005bb9c7fec",
-                  "parentUUID": "3a5ba511-96ff-4b3a-b554-8dd78274161d",
+                  "uuid": "99565dc7-d57b-4583-9587-3b0b8876cb7d",
+                  "parentUUID": "d10b8741-0c47-492f-b140-7356c672bb66",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "2616b9b1-32f9-445b-843b-879f1408a7a9",
-                "1d06578e-4338-42dc-9f7a-ee68682c0e11",
-                "474706d1-7f18-4224-89b5-8005bb9c7fec"
+                "2cc4ded7-3fde-4dea-92f9-335d7860b743",
+                "2098f809-7d09-44a2-b152-b7aacac9168c",
+                "99565dc7-d57b-4583-9587-3b0b8876cb7d"
               ],
               "failures": [],
               "pending": [],
@@ -2515,7 +2515,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "09601aac-6693-42c4-919b-1b4da4eb78e9",
+              "uuid": "522fc7c4-9066-4a4c-8311-85c8398ccfc7",
               "title": "merge",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2535,8 +2535,8 @@
                   "context": null,
                   "code": "var effects1 = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\nvar effects2 = new src_1.TokenEffects([\n    [src_1.Token.TABLET, new src_1.Modifier(-3)],\n    [src_1.Token.ELDER_THING, new src_1.Modifier(-4)]\n]);\nvar merged = effects1.merge(effects2);\nchai_1.expect(merged).to.not.equal(effects1);\nchai_1.expect(merged).to.not.equal(effects2);",
                   "err": {},
-                  "uuid": "2de1280a-edf1-4ffc-a389-8e76096c7a91",
-                  "parentUUID": "09601aac-6693-42c4-919b-1b4da4eb78e9",
+                  "uuid": "1d68feb7-0906-4d4b-8f1f-dcb0b47ec938",
+                  "parentUUID": "522fc7c4-9066-4a4c-8311-85c8398ccfc7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2553,16 +2553,16 @@
                   "context": null,
                   "code": "var effects1 = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Modifier(1)],\n    [src_1.Token.CULTIST, new src_1.Modifier(-2)]\n]);\nvar effects2 = new src_1.TokenEffects([\n    [src_1.Token.CULTIST, new src_1.Modifier(-3)],\n    [src_1.Token.TABLET, new src_1.Modifier(-4)]\n]);\nvar merged = effects1.merge(effects2);\nchai_1.expect(merged.getEffect(src_1.Token.ELDER_SIGN).sameAs(new src_1.Modifier(1))).to.be\n    .true;\nchai_1.expect(merged.getEffect(src_1.Token.CULTIST).sameAs(new src_1.Modifier(-3))).to.be\n    .true;\nchai_1.expect(merged.getEffect(src_1.Token.TABLET).sameAs(new src_1.Modifier(-4))).to.be\n    .true;",
                   "err": {},
-                  "uuid": "0857af95-83da-475b-8790-55f1d975618c",
-                  "parentUUID": "09601aac-6693-42c4-919b-1b4da4eb78e9",
+                  "uuid": "2e45e224-1fc9-4cd5-abfe-9c88a56087d3",
+                  "parentUUID": "522fc7c4-9066-4a4c-8311-85c8398ccfc7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "2de1280a-edf1-4ffc-a389-8e76096c7a91",
-                "0857af95-83da-475b-8790-55f1d975618c"
+                "1d68feb7-0906-4d4b-8f1f-dcb0b47ec938",
+                "2e45e224-1fc9-4cd5-abfe-9c88a56087d3"
               ],
               "failures": [],
               "pending": [],
@@ -2573,7 +2573,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "b4a325d0-7d1c-42b6-b29a-9ea0d43d5d68",
+              "uuid": "efb84c60-42fe-4cf9-923d-58273cc21919",
               "title": "isTokenAutoSuccess",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2593,8 +2593,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([[src_1.Token.ELDER_SIGN, new src_1.Autosuccess()]]);\nchai_1.expect(effects.isTokenAutoSuccess(src_1.Token.ELDER_SIGN)).to.be.true;",
                   "err": {},
-                  "uuid": "bf05dbce-fe3a-40a1-8690-0a66b087cdb8",
-                  "parentUUID": "b4a325d0-7d1c-42b6-b29a-9ea0d43d5d68",
+                  "uuid": "45c68819-4efb-46bd-9448-7f4158f4c73c",
+                  "parentUUID": "efb84c60-42fe-4cf9-923d-58273cc21919",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2611,16 +2611,16 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([[src_1.Token.ELDER_SIGN, new src_1.Modifier(1)]]);\nchai_1.expect(effects.isTokenAutoSuccess(src_1.Token.ELDER_SIGN)).to.be.false;",
                   "err": {},
-                  "uuid": "e3c80667-db7b-4deb-bbe0-ecbe49a5199c",
-                  "parentUUID": "b4a325d0-7d1c-42b6-b29a-9ea0d43d5d68",
+                  "uuid": "4b6340b6-5608-4cad-8376-c02584d2eb8e",
+                  "parentUUID": "efb84c60-42fe-4cf9-923d-58273cc21919",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "bf05dbce-fe3a-40a1-8690-0a66b087cdb8",
-                "e3c80667-db7b-4deb-bbe0-ecbe49a5199c"
+                "45c68819-4efb-46bd-9448-7f4158f4c73c",
+                "4b6340b6-5608-4cad-8376-c02584d2eb8e"
               ],
               "failures": [],
               "pending": [],
@@ -2631,7 +2631,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "ef22f8ee-5063-4047-846e-830fd1cbb87b",
+              "uuid": "217a5552-659f-4bc1-86a3-2f2acab30cb9",
               "title": "isTokenAutoFail",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2651,8 +2651,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([[src_1.Token.AUTOFAIL, new src_1.Autofail()]]);\nchai_1.expect(effects.isTokenAutoFail(src_1.Token.AUTOFAIL)).to.be.true;",
                   "err": {},
-                  "uuid": "b3f5be30-5147-4c88-9234-0471419b9a70",
-                  "parentUUID": "ef22f8ee-5063-4047-846e-830fd1cbb87b",
+                  "uuid": "af9a6bd4-045e-4da6-9c21-a259a7ac7770",
+                  "parentUUID": "217a5552-659f-4bc1-86a3-2f2acab30cb9",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2669,16 +2669,16 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([[src_1.Token.ELDER_SIGN, new src_1.Modifier(1)]]);\nchai_1.expect(effects.isTokenAutoFail(src_1.Token.ELDER_SIGN)).to.be.false;",
                   "err": {},
-                  "uuid": "ad74e6be-b31f-4a1f-9585-ab8c25e53d9b",
-                  "parentUUID": "ef22f8ee-5063-4047-846e-830fd1cbb87b",
+                  "uuid": "3560cc0d-1898-49bd-81f5-9a3fcc09fc6b",
+                  "parentUUID": "217a5552-659f-4bc1-86a3-2f2acab30cb9",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "b3f5be30-5147-4c88-9234-0471419b9a70",
-                "ad74e6be-b31f-4a1f-9585-ab8c25e53d9b"
+                "af9a6bd4-045e-4da6-9c21-a259a7ac7770",
+                "3560cc0d-1898-49bd-81f5-9a3fcc09fc6b"
               ],
               "failures": [],
               "pending": [],
@@ -2689,7 +2689,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "007285c8-3b65-420d-a107-f3d7631dd597",
+              "uuid": "69fec6b2-7e0e-48ec-b432-a2f1b08b4ba4",
               "title": "getTokenModifier",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2709,8 +2709,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([[src_1.Token.ELDER_SIGN, new src_1.Modifier(2)]]);\nchai_1.expect(effects.getTokenModifier(src_1.Token.ELDER_SIGN)).to.equal(2);",
                   "err": {},
-                  "uuid": "f62137ad-366c-4dd2-ad44-0c6f56600d8f",
-                  "parentUUID": "007285c8-3b65-420d-a107-f3d7631dd597",
+                  "uuid": "a44c1f93-5a42-48f5-ac0a-7ad506ea2861",
+                  "parentUUID": "69fec6b2-7e0e-48ec-b432-a2f1b08b4ba4",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2718,7 +2718,7 @@
                   "title": "returns an error if the token effect is not a modifier token",
                   "fullTitle": "TokenEffects getTokenModifier returns an error if the token effect is not a modifier token",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2727,27 +2727,27 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([[src_1.Token.ELDER_SIGN, new src_1.Autosuccess()]]);\nchai_1.expect(function () {\n    effects.getTokenModifier(src_1.Token.ELDER_SIGN);\n}).to.throw();",
                   "err": {},
-                  "uuid": "9255b7a1-a453-4a45-af03-996860572bc7",
-                  "parentUUID": "007285c8-3b65-420d-a107-f3d7631dd597",
+                  "uuid": "efd8cee3-a525-4d8b-b872-5e13eec9e850",
+                  "parentUUID": "69fec6b2-7e0e-48ec-b432-a2f1b08b4ba4",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "f62137ad-366c-4dd2-ad44-0c6f56600d8f",
-                "9255b7a1-a453-4a45-af03-996860572bc7"
+                "a44c1f93-5a42-48f5-ac0a-7ad506ea2861",
+                "efd8cee3-a525-4d8b-b872-5e13eec9e850"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "4d904cdf-eceb-4bd3-aae1-d32309d752fc",
+              "uuid": "13979d26-10f4-477a-be4e-d78c6d35391d",
               "title": "sortByBestOutcomeDesc",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2758,7 +2758,7 @@
                   "title": "Autosuccess comes first",
                   "fullTitle": "TokenEffects sortByBestOutcomeDesc Autosuccess comes first",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -2767,8 +2767,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Autosuccess()],\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.MINUS_ONE, new src_1.Modifier(-1)],\n    [src_1.Token.MINUS_TWO, new src_1.Modifier(-2)]\n]);\nvar tokens = [\n    src_1.Token.PLUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.ELDER_SIGN,\n    src_1.Token.PLUS_ONE\n];\nchai_1.expect(effects.sortByBestOutcomeDesc(tokens)[0]).to.equal(src_1.Token.ELDER_SIGN);",
                   "err": {},
-                  "uuid": "97276b05-9952-4e1f-8124-f0c006782867",
-                  "parentUUID": "4d904cdf-eceb-4bd3-aae1-d32309d752fc",
+                  "uuid": "8f436753-412d-4b78-91d4-680fe176c20e",
+                  "parentUUID": "13979d26-10f4-477a-be4e-d78c6d35391d",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2785,8 +2785,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.MINUS_ONE, new src_1.Modifier(-1)],\n    [src_1.Token.MINUS_TWO, new src_1.Modifier(-2)],\n    [src_1.Token.AUTOFAIL, new src_1.Autofail()]\n]);\nvar tokens = [\n    src_1.Token.PLUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.AUTOFAIL,\n    src_1.Token.PLUS_ONE\n];\nchai_1.expect(effects.sortByBestOutcomeDesc(tokens)[tokens.length - 1]).to.equal(src_1.Token.AUTOFAIL);",
                   "err": {},
-                  "uuid": "e204fb30-a694-4ab7-bce1-ebcd8747f324",
-                  "parentUUID": "4d904cdf-eceb-4bd3-aae1-d32309d752fc",
+                  "uuid": "51a72978-93a9-4657-8f10-0f0a70a6fc94",
+                  "parentUUID": "13979d26-10f4-477a-be4e-d78c6d35391d",
                   "isHook": false,
                   "skipped": false
                 },
@@ -2803,28 +2803,28 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.MINUS_ONE, new src_1.Modifier(-1)],\n    [src_1.Token.MINUS_TWO, new src_1.Modifier(-2)],\n    [src_1.Token.MINUS_FIVE, new src_1.Modifier(-5)]\n]);\nvar tokens = [\n    src_1.Token.PLUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_FIVE,\n    src_1.Token.PLUS_ONE,\n    src_1.Token.MINUS_TWO\n];\nvar sorted = [\n    src_1.Token.PLUS_ONE,\n    src_1.Token.PLUS_ONE,\n    src_1.Token.MINUS_ONE,\n    src_1.Token.MINUS_TWO,\n    src_1.Token.MINUS_FIVE\n];\nchai_1.expect(effects.sortByBestOutcomeDesc(tokens)).to.deep.equal(sorted);",
                   "err": {},
-                  "uuid": "863094e6-9c67-424c-a51b-e497ea995079",
-                  "parentUUID": "4d904cdf-eceb-4bd3-aae1-d32309d752fc",
+                  "uuid": "ababe6af-b81d-4880-84b4-590b66949d5a",
+                  "parentUUID": "13979d26-10f4-477a-be4e-d78c6d35391d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "97276b05-9952-4e1f-8124-f0c006782867",
-                "e204fb30-a694-4ab7-bce1-ebcd8747f324",
-                "863094e6-9c67-424c-a51b-e497ea995079"
+                "8f436753-412d-4b78-91d4-680fe176c20e",
+                "51a72978-93a9-4657-8f10-0f0a70a6fc94",
+                "ababe6af-b81d-4880-84b4-590b66949d5a"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "28b528ac-5abc-44c6-9568-016be1b9104c",
+              "uuid": "b89cf2f0-4094-450a-a87c-8be97f39a1ff",
               "title": "isSuccess",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2842,8 +2842,8 @@
                   "context": null,
                   "code": "sharedEffects = new src_1.TokenEffects([\n    [src_1.Token.ELDER_SIGN, new src_1.Autosuccess()],\n    [src_1.Token.MINUS_ONE, new src_1.Modifier(-1)],\n    [src_1.Token.MINUS_TWO, new src_1.Modifier(-2)],\n    [src_1.Token.AUTOFAIL, new src_1.Autofail()]\n]);",
                   "err": {},
-                  "uuid": "53fd4e12-d800-4e16-9844-ac331404bf56",
-                  "parentUUID": "28b528ac-5abc-44c6-9568-016be1b9104c",
+                  "uuid": "02671b0d-df42-4739-9903-67739ce913d9",
+                  "parentUUID": "b89cf2f0-4094-450a-a87c-8be97f39a1ff",
                   "isHook": true,
                   "skipped": false
                 }
@@ -2852,7 +2852,7 @@
               "tests": [],
               "suites": [
                 {
-                  "uuid": "3ea32098-2084-42a1-9d53-cf8ac844c130",
+                  "uuid": "1fb4a8a3-85fa-4801-b535-b9e6e29370b8",
                   "title": "with a single token",
                   "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
                   "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2863,7 +2863,7 @@
                       "title": "returns true whatever the difficulty if the token is an autosuccess",
                       "fullTitle": "TokenEffects isSuccess with a single token returns true whatever the difficulty if the token is an autosuccess",
                       "timedOut": false,
-                      "duration": 0,
+                      "duration": 1,
                       "state": "passed",
                       "speed": "fast",
                       "pass": true,
@@ -2872,8 +2872,8 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.ELDER_SIGN], 3)).to.be.true;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.ELDER_SIGN], -3)).to.be.true;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.ELDER_SIGN], -20)).to.be.true;",
                       "err": {},
-                      "uuid": "1378a35f-39d5-4379-bc43-5bab09c5933e",
-                      "parentUUID": "3ea32098-2084-42a1-9d53-cf8ac844c130",
+                      "uuid": "72091988-d51c-4760-b785-6aac214a0655",
+                      "parentUUID": "1fb4a8a3-85fa-4801-b535-b9e6e29370b8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -2890,8 +2890,8 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.AUTOFAIL], 3)).to.be.false;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.AUTOFAIL], -3)).to.be.false;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.AUTOFAIL], -20)).to.be.false;",
                       "err": {},
-                      "uuid": "0b6b9255-f0e1-497e-befc-6fce514bf0c7",
-                      "parentUUID": "3ea32098-2084-42a1-9d53-cf8ac844c130",
+                      "uuid": "30ae7ef9-3db9-4b46-950f-7d3ba408ce04",
+                      "parentUUID": "1fb4a8a3-85fa-4801-b535-b9e6e29370b8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -2908,8 +2908,8 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE], 3)).to.be.true;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE], 1)).to.be.true;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_TWO], 2)).to.be.true;",
                       "err": {},
-                      "uuid": "a4f0bea8-3b16-4f79-812c-f3b798ad932b",
-                      "parentUUID": "3ea32098-2084-42a1-9d53-cf8ac844c130",
+                      "uuid": "9250deb3-9427-44e3-affe-c756a5a53baf",
+                      "parentUUID": "1fb4a8a3-85fa-4801-b535-b9e6e29370b8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -2926,29 +2926,29 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE], -3)).to.be.false;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE], 0)).to.be.false;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_TWO], 1)).to.be.false;",
                       "err": {},
-                      "uuid": "c5d9a45b-3a2c-40cd-98f2-c8907b673d2b",
-                      "parentUUID": "3ea32098-2084-42a1-9d53-cf8ac844c130",
+                      "uuid": "51b00efe-5dfd-4b53-ae86-2fb202e86df3",
+                      "parentUUID": "1fb4a8a3-85fa-4801-b535-b9e6e29370b8",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "1378a35f-39d5-4379-bc43-5bab09c5933e",
-                    "0b6b9255-f0e1-497e-befc-6fce514bf0c7",
-                    "a4f0bea8-3b16-4f79-812c-f3b798ad932b",
-                    "c5d9a45b-3a2c-40cd-98f2-c8907b673d2b"
+                    "72091988-d51c-4760-b785-6aac214a0655",
+                    "30ae7ef9-3db9-4b46-950f-7d3ba408ce04",
+                    "9250deb3-9427-44e3-affe-c756a5a53baf",
+                    "51b00efe-5dfd-4b53-ae86-2fb202e86df3"
                   ],
                   "failures": [],
                   "pending": [],
                   "skipped": [],
-                  "duration": 3,
+                  "duration": 4,
                   "root": false,
                   "rootEmpty": false,
                   "_timeout": 2000
                 },
                 {
-                  "uuid": "1e333ed5-a1f4-4da6-ac6a-d0c5a63437a2",
+                  "uuid": "12811fb7-ef8a-4481-96b0-ad52bb8e47fb",
                   "title": "with multiple tokens",
                   "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
                   "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -2968,8 +2968,8 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.ELDER_SIGN, src_1.Token.MINUS_TWO], -8))\n    .to.be.true;",
                       "err": {},
-                      "uuid": "d17b0b2b-4480-4045-b9f2-5c06a757f545",
-                      "parentUUID": "1e333ed5-a1f4-4da6-ac6a-d0c5a63437a2",
+                      "uuid": "7d241fb9-cc40-400e-954b-c68c403c3159",
+                      "parentUUID": "12811fb7-ef8a-4481-96b0-ad52bb8e47fb",
                       "isHook": false,
                       "skipped": false
                     },
@@ -2986,8 +2986,8 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.AUTOFAIL, src_1.Token.MINUS_TWO], 10))\n    .to.be.false;",
                       "err": {},
-                      "uuid": "de779c30-56f1-428d-8f8d-f2c78256425d",
-                      "parentUUID": "1e333ed5-a1f4-4da6-ac6a-d0c5a63437a2",
+                      "uuid": "67d18a49-13e1-44dd-8566-7b1461d201c7",
+                      "parentUUID": "12811fb7-ef8a-4481-96b0-ad52bb8e47fb",
                       "isHook": false,
                       "skipped": false
                     },
@@ -3004,8 +3004,8 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.ELDER_SIGN, src_1.Token.MINUS_TWO, src_1.Token.AUTOFAIL], 10)).to.be.false;",
                       "err": {},
-                      "uuid": "af951265-9771-4b0f-8baf-840f7c2b7b0c",
-                      "parentUUID": "1e333ed5-a1f4-4da6-ac6a-d0c5a63437a2",
+                      "uuid": "609fcd98-8686-4d92-95ef-daac5c4fa932",
+                      "parentUUID": "12811fb7-ef8a-4481-96b0-ad52bb8e47fb",
                       "isHook": false,
                       "skipped": false
                     },
@@ -3022,8 +3022,8 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], 6)).to.be.true;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO, src_1.Token.MINUS_ONE], 4)).to.be.true;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_TWO, src_1.Token.MINUS_TWO, src_1.Token.MINUS_TWO], 6)).to.be.true;",
                       "err": {},
-                      "uuid": "d52dc06b-1d50-48a6-b276-a92e9dbd97dc",
-                      "parentUUID": "1e333ed5-a1f4-4da6-ac6a-d0c5a63437a2",
+                      "uuid": "dfdaa3b8-11ce-4df3-9b63-bb4e8588e78c",
+                      "parentUUID": "12811fb7-ef8a-4481-96b0-ad52bb8e47fb",
                       "isHook": false,
                       "skipped": false
                     },
@@ -3040,19 +3040,19 @@
                       "context": null,
                       "code": "chai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], 0)).to.be.false;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE], 2)).to.be.false;\nchai_1.expect(sharedEffects.isSuccess([src_1.Token.MINUS_ONE, src_1.Token.MINUS_ONE, src_1.Token.MINUS_TWO], 3)).to.be.false;",
                       "err": {},
-                      "uuid": "11030a01-6484-4b1a-93d3-f4702fb19c1c",
-                      "parentUUID": "1e333ed5-a1f4-4da6-ac6a-d0c5a63437a2",
+                      "uuid": "63719a45-59c6-4fe6-9c2b-4e5099bf1f10",
+                      "parentUUID": "12811fb7-ef8a-4481-96b0-ad52bb8e47fb",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "d17b0b2b-4480-4045-b9f2-5c06a757f545",
-                    "de779c30-56f1-428d-8f8d-f2c78256425d",
-                    "af951265-9771-4b0f-8baf-840f7c2b7b0c",
-                    "d52dc06b-1d50-48a6-b276-a92e9dbd97dc",
-                    "11030a01-6484-4b1a-93d3-f4702fb19c1c"
+                    "7d241fb9-cc40-400e-954b-c68c403c3159",
+                    "67d18a49-13e1-44dd-8566-7b1461d201c7",
+                    "609fcd98-8686-4d92-95ef-daac5c4fa932",
+                    "dfdaa3b8-11ce-4df3-9b63-bb4e8588e78c",
+                    "63719a45-59c6-4fe6-9c2b-4e5099bf1f10"
                   ],
                   "failures": [],
                   "pending": [],
@@ -3073,7 +3073,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "b1178db3-f4eb-4246-af12-cc5e7085f0f3",
+              "uuid": "e5793b89-78a0-42f4-98ef-48da39bf196e",
               "title": "separateRedrawTokens",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/tokens/TokenEffects.spec.ts",
               "file": "/spec/tokens/TokenEffects.spec.ts",
@@ -3093,8 +3093,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.ZERO, new src_1.Modifier(0)],\n    [src_1.Token.BLESS, new src_1.Modifier(2, true)],\n    [src_1.Token.CURSE, new src_1.Modifier(-2, true)]\n]);\nvar _a = effects.separateRedrawTokens([\n    src_1.Token.ZERO,\n    src_1.Token.BLESS,\n    src_1.Token.PLUS_ONE,\n    src_1.Token.CURSE,\n    src_1.Token.ZERO\n]), nonRedrawTokens = _a.nonRedrawTokens, redrawTokens = _a.redrawTokens;\nchai_1.expect(nonRedrawTokens).to.deep.equal([\n    src_1.Token.ZERO,\n    src_1.Token.PLUS_ONE,\n    src_1.Token.ZERO\n]);\nchai_1.expect(redrawTokens).to.deep.equal([src_1.Token.BLESS, src_1.Token.CURSE]);",
                   "err": {},
-                  "uuid": "64b3b499-f9ad-4330-8753-c9e797e245b0",
-                  "parentUUID": "b1178db3-f4eb-4246-af12-cc5e7085f0f3",
+                  "uuid": "f38f3867-e89a-4596-b8da-1cfdb5e2c360",
+                  "parentUUID": "e5793b89-78a0-42f4-98ef-48da39bf196e",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3111,8 +3111,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.ZERO, new src_1.Modifier(0)],\n    [src_1.Token.BLESS, new src_1.Modifier(2, true)],\n    [src_1.Token.CURSE, new src_1.Modifier(-2, true)]\n]);\nvar _a = effects.separateRedrawTokens([\n    src_1.Token.ZERO,\n    src_1.Token.PLUS_ONE,\n    src_1.Token.ZERO\n]), nonRedrawTokens = _a.nonRedrawTokens, redrawTokens = _a.redrawTokens;\nchai_1.expect(nonRedrawTokens).to.deep.equal([\n    src_1.Token.ZERO,\n    src_1.Token.PLUS_ONE,\n    src_1.Token.ZERO\n]);\nchai_1.expect(redrawTokens).to.deep.equal([]);",
                   "err": {},
-                  "uuid": "10dafd05-968b-49ae-b832-c632cefb1305",
-                  "parentUUID": "b1178db3-f4eb-4246-af12-cc5e7085f0f3",
+                  "uuid": "c3457a6f-ac4e-42b4-bce8-226a4e0ef98a",
+                  "parentUUID": "e5793b89-78a0-42f4-98ef-48da39bf196e",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3129,8 +3129,8 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.ZERO, new src_1.Modifier(0)],\n    [src_1.Token.BLESS, new src_1.Modifier(2, true)],\n    [src_1.Token.CURSE, new src_1.Modifier(-2, true)]\n]);\nvar _a = effects.separateRedrawTokens([\n    src_1.Token.BLESS,\n    src_1.Token.CURSE\n]), nonRedrawTokens = _a.nonRedrawTokens, redrawTokens = _a.redrawTokens;\nchai_1.expect(nonRedrawTokens).to.deep.equal([]);\nchai_1.expect(redrawTokens).to.deep.equal([src_1.Token.BLESS, src_1.Token.CURSE]);",
                   "err": {},
-                  "uuid": "0cffd3f5-1805-4f72-8095-04ad10260a76",
-                  "parentUUID": "b1178db3-f4eb-4246-af12-cc5e7085f0f3",
+                  "uuid": "2ba605bf-ecc2-40b4-980f-1440614b5459",
+                  "parentUUID": "e5793b89-78a0-42f4-98ef-48da39bf196e",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3147,18 +3147,18 @@
                   "context": null,
                   "code": "var effects = new src_1.TokenEffects([\n    [src_1.Token.PLUS_ONE, new src_1.Modifier(1)],\n    [src_1.Token.BLESS, new src_1.Modifier(2, true)]\n]);\nvar tokens = [src_1.Token.BLESS, src_1.Token.PLUS_ONE];\neffects.separateRedrawTokens(tokens);\nchai_1.expect(tokens).to.deep.equal([src_1.Token.BLESS, src_1.Token.PLUS_ONE]);",
                   "err": {},
-                  "uuid": "4a61e57b-1489-4b14-8cc2-db90b19b6dca",
-                  "parentUUID": "b1178db3-f4eb-4246-af12-cc5e7085f0f3",
+                  "uuid": "a19469b0-42dd-4349-a582-1f31eee8a1db",
+                  "parentUUID": "e5793b89-78a0-42f4-98ef-48da39bf196e",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "64b3b499-f9ad-4330-8753-c9e797e245b0",
-                "10dafd05-968b-49ae-b832-c632cefb1305",
-                "0cffd3f5-1805-4f72-8095-04ad10260a76",
-                "4a61e57b-1489-4b14-8cc2-db90b19b6dca"
+                "f38f3867-e89a-4596-b8da-1cfdb5e2c360",
+                "c3457a6f-ac4e-42b4-bce8-226a4e0ef98a",
+                "2ba605bf-ecc2-40b4-980f-1440614b5459",
+                "a19469b0-42dd-4349-a582-1f31eee8a1db"
               ],
               "failures": [],
               "pending": [],
@@ -3170,9 +3170,9 @@
             }
           ],
           "passes": [
-            "4760c28e-0561-437e-b145-a02c533b4175",
-            "f3788ebd-23ef-4136-9f4d-4f68794c6ef3",
-            "629b9442-bed5-45af-8a98-5a234bc5cd03"
+            "66b8e90e-6842-4122-98ff-1822a5ff5d56",
+            "859dd93c-ad45-4d2c-8fe6-ff95c7c8209b",
+            "0d11e9b5-d90f-4668-a7e3-17f377f64e5d"
           ],
           "failures": [],
           "pending": [],
@@ -3183,7 +3183,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "41d78c6f-41a4-4dfe-bbad-49bfa97af967",
+          "uuid": "a9bb3d7b-6196-4d75-be36-99ae8d17c081",
           "title": "utils",
           "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/utils.spec.ts",
           "file": "/spec/utils.spec.ts",
@@ -3192,7 +3192,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "1ec69e21-9341-48da-b437-0730d3eb512a",
+              "uuid": "b79f249d-0ee9-4bf0-a8a0-01681b680a9b",
               "title": "removeFirst",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/utils.spec.ts",
               "file": "/spec/utils.spec.ts",
@@ -3212,8 +3212,8 @@
                   "context": null,
                   "code": "var arr = [1, 2, 3];\nvar removed = utils.removeFirst(arr, 2);\nchai_1.expect(removed).to.deep.equal([1, 3]);",
                   "err": {},
-                  "uuid": "8826cb5e-a96c-4513-b23c-432d6d6d4c2d",
-                  "parentUUID": "1ec69e21-9341-48da-b437-0730d3eb512a",
+                  "uuid": "eb6c4350-4d6e-4f93-88c5-5bdf6ccfb5f5",
+                  "parentUUID": "b79f249d-0ee9-4bf0-a8a0-01681b680a9b",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3230,32 +3230,14 @@
                   "context": null,
                   "code": "var arr = [1, 2, 2, 2, 3];\nvar removed = utils.removeFirst(arr, 2);\nchai_1.expect(removed).to.deep.equal([1, 2, 2, 3]);",
                   "err": {},
-                  "uuid": "f23bcda3-f4b1-4168-9f14-0ee5d7e69d6b",
-                  "parentUUID": "1ec69e21-9341-48da-b437-0730d3eb512a",
+                  "uuid": "35e98065-e2fe-486b-b455-118a62e3fb39",
+                  "parentUUID": "b79f249d-0ee9-4bf0-a8a0-01681b680a9b",
                   "isHook": false,
                   "skipped": false
                 },
                 {
                   "title": "should not modify the original array",
                   "fullTitle": "utils removeFirst should not modify the original array",
-                  "timedOut": false,
-                  "duration": 0,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "var arr = [1, 2, 3];\nutils.removeFirst(arr, 2);\nchai_1.expect(arr).to.deep.equal([1, 2, 3]);",
-                  "err": {},
-                  "uuid": "176a0d63-9029-4630-88ad-c320a0bcb6cc",
-                  "parentUUID": "1ec69e21-9341-48da-b437-0730d3eb512a",
-                  "isHook": false,
-                  "skipped": false
-                },
-                {
-                  "title": "should do nothing if the array does not contain the element",
-                  "fullTitle": "utils removeFirst should do nothing if the array does not contain the element",
                   "timedOut": false,
                   "duration": 1,
                   "state": "passed",
@@ -3264,20 +3246,38 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
+                  "code": "var arr = [1, 2, 3];\nutils.removeFirst(arr, 2);\nchai_1.expect(arr).to.deep.equal([1, 2, 3]);",
+                  "err": {},
+                  "uuid": "d793e84c-ff43-4e8c-886b-cf9383ee7711",
+                  "parentUUID": "b79f249d-0ee9-4bf0-a8a0-01681b680a9b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should do nothing if the array does not contain the element",
+                  "fullTitle": "utils removeFirst should do nothing if the array does not contain the element",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
                   "code": "var arr = [1, 2, 3];\nvar removed = utils.removeFirst(arr, 4);\nchai_1.expect(arr).to.deep.equal([1, 2, 3]);\nchai_1.expect(removed).to.deep.equal([1, 2, 3]);\nchai_1.expect(arr).to.not.equal(removed);",
                   "err": {},
-                  "uuid": "1e0236e7-4789-46e8-aec6-0b125e93db83",
-                  "parentUUID": "1ec69e21-9341-48da-b437-0730d3eb512a",
+                  "uuid": "eed7ac58-372a-4d7a-8560-965ac83f8aa2",
+                  "parentUUID": "b79f249d-0ee9-4bf0-a8a0-01681b680a9b",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "8826cb5e-a96c-4513-b23c-432d6d6d4c2d",
-                "f23bcda3-f4b1-4168-9f14-0ee5d7e69d6b",
-                "176a0d63-9029-4630-88ad-c320a0bcb6cc",
-                "1e0236e7-4789-46e8-aec6-0b125e93db83"
+                "eb6c4350-4d6e-4f93-88c5-5bdf6ccfb5f5",
+                "35e98065-e2fe-486b-b455-118a62e3fb39",
+                "d793e84c-ff43-4e8c-886b-cf9383ee7711",
+                "eed7ac58-372a-4d7a-8560-965ac83f8aa2"
               ],
               "failures": [],
               "pending": [],
@@ -3288,7 +3288,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "9081ffc5-8799-412c-b081-3e4611287304",
+              "uuid": "da9c53d4-4fe2-4f09-984a-cec8f0c3be1b",
               "title": "flatten",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/utils.spec.ts",
               "file": "/spec/utils.spec.ts",
@@ -3308,15 +3308,15 @@
                   "context": null,
                   "code": "chai_1.expect(utils.flatten([[], [1], [2]])).to.deep.equal([1, 2]);",
                   "err": {},
-                  "uuid": "96fc6ef9-8a98-43b9-842a-faea50939009",
-                  "parentUUID": "9081ffc5-8799-412c-b081-3e4611287304",
+                  "uuid": "a8e311c8-145f-4660-8228-789bc9b0c88d",
+                  "parentUUID": "da9c53d4-4fe2-4f09-984a-cec8f0c3be1b",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "96fc6ef9-8a98-43b9-842a-faea50939009"
+                "a8e311c8-145f-4660-8228-789bc9b0c88d"
               ],
               "failures": [],
               "pending": [],
@@ -3327,7 +3327,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "ec1fe441-2b91-458d-9208-a4e5b679f257",
+              "uuid": "3b478eb7-0452-4493-832c-0791e7025ec4",
               "title": "combinations",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/utils.spec.ts",
               "file": "/spec/utils.spec.ts",
@@ -3338,7 +3338,7 @@
                   "title": "should return an empty array if K > N",
                   "fullTitle": "utils combinations should return an empty array if K > N",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -3347,8 +3347,8 @@
                   "context": null,
                   "code": "var arr = [1, 2, 3];\nvar comb = utils.combinations(4, arr);\nchai_1.expect(comb).to.deep.equals([]);",
                   "err": {},
-                  "uuid": "7b063012-2e81-49de-bda6-1545aad11af5",
-                  "parentUUID": "ec1fe441-2b91-458d-9208-a4e5b679f257",
+                  "uuid": "9d85fe25-e933-4eff-8af9-bfd2ba478901",
+                  "parentUUID": "3b478eb7-0452-4493-832c-0791e7025ec4",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3365,8 +3365,8 @@
                   "context": null,
                   "code": "var arr = [1, 2, 3];\nchai_1.expect(utils.combinations(0, arr)).to.deep.equals([[]]);\nchai_1.expect(utils.combinations(-5, arr)).to.deep.equals([[]]);",
                   "err": {},
-                  "uuid": "56132119-24e5-4a60-b656-7904bb320ff9",
-                  "parentUUID": "ec1fe441-2b91-458d-9208-a4e5b679f257",
+                  "uuid": "24797c5c-af0e-4df7-b8bb-94794e4492a3",
+                  "parentUUID": "3b478eb7-0452-4493-832c-0791e7025ec4",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3383,28 +3383,28 @@
                   "context": null,
                   "code": "var arr = [1, 2, 3];\nvar expected = [\n    [1, 2],\n    [1, 3],\n    [2, 3]\n];\nchai_1.expect(utils.combinations(2, arr)).to.deep.equals(expected);",
                   "err": {},
-                  "uuid": "bf2fae76-29ae-426e-9e43-832fe91d16bb",
-                  "parentUUID": "ec1fe441-2b91-458d-9208-a4e5b679f257",
+                  "uuid": "d261c4cb-f83d-42c3-b76c-50948f4c6c25",
+                  "parentUUID": "3b478eb7-0452-4493-832c-0791e7025ec4",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "7b063012-2e81-49de-bda6-1545aad11af5",
-                "56132119-24e5-4a60-b656-7904bb320ff9",
-                "bf2fae76-29ae-426e-9e43-832fe91d16bb"
+                "9d85fe25-e933-4eff-8af9-bfd2ba478901",
+                "24797c5c-af0e-4df7-b8bb-94794e4492a3",
+                "d261c4cb-f83d-42c3-b76c-50948f4c6c25"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "eeb9284c-fc18-4849-8828-a37d553a3cb8",
+              "uuid": "18159b62-f27f-4347-b39c-352591aed43d",
               "title": "allCombinations",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/utils.spec.ts",
               "file": "/spec/utils.spec.ts",
@@ -3424,8 +3424,8 @@
                   "context": null,
                   "code": "var allComb = utils.allCombinations([]);\nchai_1.expect(allComb).to.deep.equals([[]]);",
                   "err": {},
-                  "uuid": "7b3fd934-bdb9-4ef6-9010-f5ce43374a32",
-                  "parentUUID": "eeb9284c-fc18-4849-8828-a37d553a3cb8",
+                  "uuid": "f0c24929-db7c-47b9-bc91-ad053bd23901",
+                  "parentUUID": "18159b62-f27f-4347-b39c-352591aed43d",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3442,16 +3442,16 @@
                   "context": null,
                   "code": "var arr = [1, 2, 3];\nvar expected = [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]];\nvar allComb = utils.allCombinations(arr);\nchai_1.expect(allComb).to.deep.equals(expected);",
                   "err": {},
-                  "uuid": "261f51c4-d2ef-41ea-a78a-f65c842a8953",
-                  "parentUUID": "eeb9284c-fc18-4849-8828-a37d553a3cb8",
+                  "uuid": "3674eea2-db9b-4cad-bf11-550a8d0f2792",
+                  "parentUUID": "18159b62-f27f-4347-b39c-352591aed43d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "7b3fd934-bdb9-4ef6-9010-f5ce43374a32",
-                "261f51c4-d2ef-41ea-a78a-f65c842a8953"
+                "f0c24929-db7c-47b9-bc91-ad053bd23901",
+                "3674eea2-db9b-4cad-bf11-550a8d0f2792"
               ],
               "failures": [],
               "pending": [],
@@ -3462,7 +3462,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "57296df3-967e-4c84-a2b3-38d936774b1e",
+              "uuid": "f529dce2-3124-45ec-be75-b8ad8121abd9",
               "title": "cartesianProduct",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/utils.spec.ts",
               "file": "/spec/utils.spec.ts",
@@ -3482,15 +3482,15 @@
                   "context": null,
                   "code": "var arr1 = [1, 2];\nvar arr2 = [3, 4];\nvar expected = [\n    [1, 3],\n    [1, 4],\n    [2, 3],\n    [2, 4]\n];\nchai_1.expect(utils.cartesianProduct(arr1, arr2)).to.deep.equals(expected);",
                   "err": {},
-                  "uuid": "3a5ab503-c1bb-45be-adb5-aee50c89bc49",
-                  "parentUUID": "57296df3-967e-4c84-a2b3-38d936774b1e",
+                  "uuid": "83f541d7-5ce6-47b0-acca-5fb951efefcb",
+                  "parentUUID": "f529dce2-3124-45ec-be75-b8ad8121abd9",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "3a5ab503-c1bb-45be-adb5-aee50c89bc49"
+                "83f541d7-5ce6-47b0-acca-5fb951efefcb"
               ],
               "failures": [],
               "pending": [],
@@ -3501,7 +3501,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "aa8722c8-5a3d-4bde-b0f6-47dacb8d6538",
+              "uuid": "16a4cfac-d6b3-45c1-9b9d-1038ca2645a7",
               "title": "factorial",
               "fullFile": "/home/runner/work/arkham-odds/arkham-odds/spec/utils.spec.ts",
               "file": "/spec/utils.spec.ts",
@@ -3521,8 +3521,8 @@
                   "context": null,
                   "code": "chai_1.expect(utils.factorial(0)).to.equal(1);",
                   "err": {},
-                  "uuid": "d186f5dc-7e70-41cc-bde0-3090a3f02eb4",
-                  "parentUUID": "aa8722c8-5a3d-4bde-b0f6-47dacb8d6538",
+                  "uuid": "23100fa2-3a5e-48ed-bd71-2d58adb7685c",
+                  "parentUUID": "16a4cfac-d6b3-45c1-9b9d-1038ca2645a7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -3539,16 +3539,16 @@
                   "context": null,
                   "code": "chai_1.expect(utils.factorial(3)).to.equal(6);",
                   "err": {},
-                  "uuid": "0ba89e54-a96b-43b4-821c-b0db5365a928",
-                  "parentUUID": "aa8722c8-5a3d-4bde-b0f6-47dacb8d6538",
+                  "uuid": "8dad4b92-6ec4-4396-b7f0-519b35c82b71",
+                  "parentUUID": "16a4cfac-d6b3-45c1-9b9d-1038ca2645a7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "d186f5dc-7e70-41cc-bde0-3090a3f02eb4",
-                "0ba89e54-a96b-43b4-821c-b0db5365a928"
+                "23100fa2-3a5e-48ed-bd71-2d58adb7685c",
+                "8dad4b92-6ec4-4396-b7f0-519b35c82b71"
               ],
               "failures": [],
               "pending": [],
