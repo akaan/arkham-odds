@@ -1,7 +1,22 @@
 # ArkhamOdds
 
-![Run tests](https://github.com/akaan/arkham-odds/workflows/Run%20tests/badge.svg?branch=master)
-![GitHub Pages](https://github.com/akaan/arkham-odds/workflows/Generate%20GitHub%20Pages/badge.svg?branch=master)
+<p align="center">
+  <a href="https://github.com/akaan/arkham-odds/actions">
+    <img src="https://github.com/akaan/arkham-odds/workflows/Run%20tests/badge.svg?branch=master">
+  </a>
+  
+  <a href="https://github.com/akaan/arkham-odds/actions">
+    <img src="https://github.com/akaan/arkham-odds/workflows/Generate%20GitHub%20Pages/badge.svg?branch=master">
+  </a>
+  
+  <a href="https://github.com/akaan/arkham-odds/releases">
+    <img src="https://img.shields.io/github/v/release/akaan/arkham-odds.svg?logo=github">
+  </a>
+  
+  <a href="https://www.npmjs.com/package/arkham-odds">
+    <img src="https://img.shields.io/npm/v/arkham-odds">
+  </a>
+</p>
 
 ArkhamOdds is a Javascript library for computing odds of outcome in Arkham
 Horror : The Card Game.
