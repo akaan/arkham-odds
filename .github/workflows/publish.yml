@@ -31,7 +31,11 @@ jobs:
 
       # Install dependencies
       - run: yarn --frozen-lockfile
-      - run: yarn publish --new-version ${{ steps.versionnumber.outputs.replaced }}
+
+      # Publish to NPM (git tag is created by the GitHub release)
+      - run: yarn publish --new-version ${{ steps.versionnumber.outputs.replaced }} --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Push updates
       - run: git push
