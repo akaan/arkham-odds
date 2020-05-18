@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TokenEffect | ArkhamOdds</title>
+	<title>Fraction | ArkhamOdds</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,37 +54,22 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="tokeneffect.html">TokenEffect</a>
+					<a href="fraction.html">Fraction</a>
 				</li>
 			</ul>
-			<h1>Interface TokenEffect</h1>
+			<h1>Class Fraction</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represent the effect of a token.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">TokenEffect</span>
+						<span class="target">Fraction</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/autofail.html" class="tsd-signature-type">Autofail</a></li>
-					<li><a href="../classes/autosuccess.html" class="tsd-signature-type">Autosuccess</a></li>
-					<li><a href="../classes/modifier.html" class="tsd-signature-type">Modifier</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -92,93 +77,113 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="fraction.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="tokeneffect.html#getoutcome" class="tsd-kind-icon">get<wbr>Outcome</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="tokeneffect.html#isredraw" class="tsd-kind-icon">is<wbr>Redraw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="tokeneffect.html#sameas" class="tsd-kind-icon">same<wbr>As</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="fraction.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="fraction.html#sameas" class="tsd-kind-icon">same<wbr>As</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="fraction.html#valueof" class="tsd-kind-icon">value<wbr>Of</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getoutcome" class="tsd-anchor"></a>
-					<h3>get<wbr>Outcome</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Outcome<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/tokeneffecttype.html" class="tsd-signature-type">TokenEffectType</a></li>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Fraction<span class="tsd-signature-symbol">(</span>numerator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, denominator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="fraction.html" class="tsd-signature-type">Fraction</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/akaan/arkham-odds/blob/818d980/src/tokens/TokenEffect.ts#L13">tokens/TokenEffect.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/akaan/arkham-odds/blob/818d980/src/Fraction.ts#L25">Fraction.ts:25</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the effect type (autosuccess, autofail or modifier).</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../enums/tokeneffecttype.html" class="tsd-signature-type">TokenEffectType</a></h4>
-							<p>  Token effect type.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="isredraw" class="tsd-anchor"></a>
-					<h3>is<wbr>Redraw</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Redraw<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/akaan/arkham-odds/blob/818d980/src/tokens/TokenEffect.ts#L21">tokens/TokenEffect.ts:21</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Tells if this token effect asks for a redraw..</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>  True if this token effect asks for a redraw.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="sameas" class="tsd-anchor"></a>
-					<h3>same<wbr>As</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">same<wbr>As<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="tokeneffect.html" class="tsd-signature-type">TokenEffect</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/akaan/arkham-odds/blob/818d980/src/tokens/TokenEffect.ts#L31">tokens/TokenEffect.ts:31</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Asserts if the other supplied effect represent the same effect.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>other: <a href="tokeneffect.html" class="tsd-signature-type">TokenEffect</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>  The other effect</p>
-									</div>
+									<h5>numerator: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>denominator: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="fraction.html" class="tsd-signature-type">Fraction</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="add" class="tsd-anchor"></a>
+					<h3>add</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="fraction.html" class="tsd-signature-type">Fraction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="fraction.html" class="tsd-signature-type">Fraction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/akaan/arkham-odds/blob/818d980/src/Fraction.ts#L33">Fraction.ts:33</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="fraction.html" class="tsd-signature-type">Fraction</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="fraction.html" class="tsd-signature-type">Fraction</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sameas" class="tsd-anchor"></a>
+					<h3>same<wbr>As</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">same<wbr>As<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="fraction.html" class="tsd-signature-type">Fraction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/akaan/arkham-odds/blob/818d980/src/Fraction.ts#L45">Fraction.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="fraction.html" class="tsd-signature-type">Fraction</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>  True if same, false otherwise.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="valueof" class="tsd-anchor"></a>
+					<h3>value<wbr>Of</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">value<wbr>Of<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/akaan/arkham-odds/blob/818d980/src/Fraction.ts#L41">Fraction.ts:41</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -196,17 +201,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="tokeneffect.html" class="tsd-kind-icon">Token<wbr>Effect</a>
+					<li class="current tsd-kind-class">
+						<a href="fraction.html" class="tsd-kind-icon">Fraction</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="tokeneffect.html#getoutcome" class="tsd-kind-icon">get<wbr>Outcome</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="fraction.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="tokeneffect.html#isredraw" class="tsd-kind-icon">is<wbr>Redraw</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="fraction.html#add" class="tsd-kind-icon">add</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="tokeneffect.html#sameas" class="tsd-kind-icon">same<wbr>As</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="fraction.html#sameas" class="tsd-kind-icon">same<wbr>As</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="fraction.html#valueof" class="tsd-kind-icon">value<wbr>Of</a>
 							</li>
 						</ul>
 					</li>
