@@ -14,6 +14,8 @@ import {
 
 let effects: TokenEffects;
 
+const PRECISION = 0.0000000001;
+
 describe("Odds functions", () => {
   before(() => {
     effects = new TokenEffects([
@@ -47,7 +49,7 @@ describe("Odds functions", () => {
        * - Cultist and -1 with a probability of 1/6 (1/3 x 1/2)
        * If testing at -1, only +1 result in a success.
        */
-      expect(oddsOfSuccess).to.be.closeTo(0.33, 0.1);
+      expect(oddsOfSuccess).to.be.closeTo(1 / 3, PRECISION);
     });
 
     it("takes into account tokens with a redraw effect when pulling multiple tokens", () => {
@@ -91,26 +93,27 @@ describe("Odds functions", () => {
        */
       expect(odds(2, bag, effects, success(0))).to.be.closeTo(
         4 / 24,
-        0.01,
+        PRECISION,
         "when equal"
       );
       expect(odds(2, bag, effects, success(1))).to.be.closeTo(
-        4 / 24 + 8 / 24,
-        0.01,
+        12 / 24, // 4 / 24 + 8 / 24
+        PRECISION,
         "when over by 1"
       );
       expect(odds(2, bag, effects, success(2))).to.be.closeTo(
-        4 / 24 + 8 / 24 + 4 / 24,
-        0.01,
+        16 / 24, // 4 / 24 + 8 / 24 + 4 / 24
+        PRECISION,
         "when over by 2"
       );
-      expect(odds(2, bag, effects, success(3))).to.equal(
-        4 / 24 + 8 / 24 + 4 / 24 + 4 / 24,
+      expect(odds(2, bag, effects, success(3))).to.closeTo(
+        20 / 24, // 4 / 24 + 8 / 24 + 4 / 24 + 4 / 24
+        PRECISION,
         "when over by 3"
       );
       expect(odds(2, bag, effects, success(4))).to.be.closeTo(
         1,
-        0.01,
+        PRECISION,
         "when over by 4"
       );
     });

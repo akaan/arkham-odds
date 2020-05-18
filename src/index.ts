@@ -1,4 +1,5 @@
 import { Bag } from "./bag";
+import { Fraction } from "./Fraction";
 import { OutcomeFunction } from "./OutcomeFunction";
 import { Token, TokenEffects } from "./tokens";
 import {
@@ -36,11 +37,11 @@ function oddsOfCombination(
   totalNumberOfTokens: number,
   numberOfTokensInCombination: number,
   numberOfNonRedrawTokensInCombination: number
-): number {
-  return (
-    (factorial(totalNumberOfTokens - numberOfTokensInCombination) *
+): Fraction {
+  return new Fraction(
+    factorial(totalNumberOfTokens - numberOfTokensInCombination) *
       factorial(numberOfTokensInCombination - 1) *
-      numberOfNonRedrawTokensInCombination) /
+      numberOfNonRedrawTokensInCombination,
     factorial(totalNumberOfTokens)
   );
 }
@@ -132,7 +133,11 @@ export const odds: OddsFn = (
         );
       })
       // Sum up odds of success for successful combinations
-      .reduce((totalOdds, oddsOfComb) => totalOdds + oddsOfComb, 0)
+      .reduce(
+        (totalOdds, oddsOfComb) => totalOdds.add(oddsOfComb),
+        new Fraction(0, 1)
+      )
+      .valueOf()
   );
 };
 
