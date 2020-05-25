@@ -1,23 +1,14 @@
-function gcd(a: number, b: number): number | undefined {
-  if (!a) {
-    return b;
+function gcd(a: number, b: number): number {
+  if (a === 0 || b === 0) {
+    return 0;
   }
-  if (!b) {
+  if (a === b) {
     return a;
   }
-
-  while (1) {
-    a %= b;
-    if (!a) {
-      return b;
-    }
-    b %= a;
-    if (!b) {
-      return a;
-    }
+  if (a > b) {
+    return gcd(a - b, b);
   }
-
-  return undefined;
+  return gcd(a, b - a);
 }
 
 export class Fraction {
