@@ -2,7 +2,7 @@
   "name": "arkham-odds",
   "version": "0.7.1",
   "description": "Javascript library for computing odds of outcome in Arkham Horror : The Card Game",
-  "main": "lib/index.js",
+  "main": "dist/arkham-odds.js",
   "types": "lib/index.d.ts",
   "author": "Akaan Qualrus <akaan.qualrus@gmail.com>",
   "license": "GPL-3.0-or-later",
@@ -16,7 +16,8 @@
     "clean:build": "rm -Rf lib",
     "clean:dist": "rm -Rf ./dist",
     "clean:reports": "rm -Rf ./reports",
-    "build": "npm run clean:build && tsc",
+    "compile": "npm run clean:build && tsc",
+    "build": "npm run bundle",
     "bundle": "webpack",
     "doc": "npm-run-all doc:generate doc:add-theme",
     "doc:generate": "typedoc",
@@ -33,6 +34,7 @@
   },
   "files": [
     "examples",
+    "dist/arkham-odds.js",
     "lib",
     "spec",
     "src"
