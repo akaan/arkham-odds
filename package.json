@@ -1,6 +1,6 @@
 {
   "name": "arkham-odds",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Javascript library for computing odds of outcome in Arkham Horror : The Card Game",
   "main": "dist/arkham-odds.js",
   "types": "lib/index.d.ts",
