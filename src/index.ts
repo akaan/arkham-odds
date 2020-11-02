@@ -28,7 +28,6 @@ export type OddsFn = (
  * tokens are not "redraw" tokens.
  * It took me a lot of time to get this formula right. Many thanks to those who
  * helped me get it.
- * TODO: Use fraction.js for precise calculations
  *
  * @param {number} totalNumberOfTokens
  *   The total number of tokens in the bag
@@ -66,12 +65,14 @@ function oddsOfCombination(
  *   The bag from which the tokens are pulled.
  * @param {TokenEffects} outcomes
  *   The token effects if needed (which is true if some of them have redraw effects).
+ * @return {PullWithOdds[]}
+ *   The list of possible pulls along with their odds as fractions.
  */
-export function drawFromBag(
+function getPossiblePullsWithOdds(
   numTokensPulled: number,
   bag: Bag,
   outcomes?: TokenEffects
-): { tokens: Token[]; odds: number }[] {
+): PullWithOdds[] {
   let allPossibleCombinations: Token[][] = [];
   if (outcomes) {
     const tokensWithRedraw = bag
@@ -108,43 +109,65 @@ export function drawFromBag(
     })
   );
 
-  return allCombinationsWithOdds
-    .reduce(
-      (
-        reducedCombinations: PullWithOdds[],
-        currentCombination: PullWithOdds
-      ) => {
-        if (reducedCombinations.length === 0) {
-          return [currentCombination];
+  return allCombinationsWithOdds.reduce(
+    (reducedCombinations: PullWithOdds[], currentCombination: PullWithOdds) => {
+      if (reducedCombinations.length === 0) {
+        return [currentCombination];
+      } else {
+        // Find a combination with the same set of tokens
+        const matchingCombinationIndex = reducedCombinations.findIndex(
+          ({ tokens }) => arrayEquals(tokens, currentCombination.tokens)
+        );
+        if (matchingCombinationIndex > -1) {
+          // Update the existing combination by adding the odds
+          return [
+            ...reducedCombinations.slice(0, matchingCombinationIndex),
+            {
+              odds: reducedCombinations[matchingCombinationIndex].odds.add(
+                currentCombination.odds
+              ),
+              tokens: reducedCombinations[matchingCombinationIndex].tokens
+            },
+            ...reducedCombinations.slice(matchingCombinationIndex + 1)
+          ];
         } else {
-          // Find a combination with the same set of tokens
-          const matchingCombinationIndex = reducedCombinations.findIndex(
-            ({ tokens }) => arrayEquals(tokens, currentCombination.tokens)
-          );
-          if (matchingCombinationIndex > -1) {
-            // Update the existing combination by adding the odds
-            return [
-              ...reducedCombinations.slice(0, matchingCombinationIndex),
-              {
-                odds: reducedCombinations[matchingCombinationIndex].odds.add(
-                  currentCombination.odds
-                ),
-                tokens: reducedCombinations[matchingCombinationIndex].tokens
-              },
-              ...reducedCombinations.slice(matchingCombinationIndex + 1)
-            ];
-          } else {
-            // Add the combination
-            return [...reducedCombinations, currentCombination];
-          }
+          // Add the combination
+          return [...reducedCombinations, currentCombination];
         }
-      },
-      []
-    )
-    .map(pullWithOdds => ({
+      }
+    },
+    []
+  );
+}
+
+/**
+ * Return all possible sets of n tokens that can be pulled from the bag along
+ * with the odds of pullingthis particular set among all possible sets.
+ * For exemple, if drawing only 1 token from a bag containing only a +1 token
+ * and 2 -1 token, the result will be:
+ *  * +1 with a 0.33 odds
+ *  * -1 with a 0.66 odds
+ *
+ * @param {number} numTokensPulled
+ *   The number of tokens simultaneously pulled from the bag.
+ * @param {Bag} bag
+ *   The bag from which the tokens are pulled.
+ * @param {TokenEffects} outcomes
+ *   The token effects if needed (which is true if some of them have redraw effects).
+ * @return {{ tokens: Token[]; odds: number }[]}
+ *   The list of possible pulls along with their odds.
+ */
+export function drawFromBag(
+  numTokensPulled: number,
+  bag: Bag,
+  outcomes?: TokenEffects
+): { tokens: Token[]; odds: number }[] {
+  return getPossiblePullsWithOdds(numTokensPulled, bag, outcomes).map(
+    pullWithOdds => ({
       odds: pullWithOdds.odds.valueOf(),
       tokens: pullWithOdds.tokens
-    }));
+    })
+  );
 }
 
 /**
@@ -196,50 +219,24 @@ export const odds: OddsFn = (
   outcomes: TokenEffects,
   outcomeFunction: OutcomeFunction
 ): number => {
-  const tokensWithRedraw = bag
-    .getTokens()
-    .filter(t => outcomes.getEffect(t).isRedraw());
-  const tokensWithoutRedraw = bag
-    .getTokens()
-    .filter(t => !outcomes.getEffect(t).isRedraw());
-
-  const combinationsOfRedrawTokens = allCombinations(tokensWithRedraw);
-  const combinationsOfNonRedrawTokens = combinations(
+  const possiblePullsWithOdds = getPossiblePullsWithOdds(
     numTokensPulled,
-    tokensWithoutRedraw
+    bag,
+    outcomes
   );
 
-  const comb: Token[][] = cartesianProduct(
-    combinationsOfRedrawTokens,
-    combinationsOfNonRedrawTokens
-  ).map(c => flatten(c));
-
-  const filterCondition = (tokensPulled: Token[]) => {
-    return outcomeFunction(tokensPulled, outcomes, bag);
+  const filterCondition = (possiblePullWithOdds: PullWithOdds) => {
+    return outcomeFunction(possiblePullWithOdds.tokens, outcomes, bag);
   };
 
-  const totalNumberOfTokens = bag.getTokens().length;
-  return (
-    comb
-      .filter(filterCondition) // Only successful combinations
-      .map(successfulComb => {
-        const numOfNonRedrawTokens = successfulComb.filter(
-          token => !outcomes.getEffect(token).isRedraw()
-        ).length;
-        // Compute the odds of success of this particular combination
-        return oddsOfCombination(
-          totalNumberOfTokens,
-          successfulComb.length,
-          numOfNonRedrawTokens
-        );
-      })
-      // Sum up odds of success for successful combinations
-      .reduce(
-        (totalOdds, oddsOfComb) => totalOdds.add(oddsOfComb),
-        new Fraction(0, 1)
-      )
-      .valueOf()
-  );
+  return possiblePullsWithOdds
+    .filter(filterCondition)
+    .reduce(
+      (totalOdds, successfulPullWithOdds) =>
+        totalOdds.add(successfulPullWithOdds.odds),
+      new Fraction(0, 1)
+    )
+    .valueOf();
 };
 
 /**
