@@ -13,7 +13,7 @@ import {
 
 interface PullWithOdds {
   tokens: Token[];
-  odds: number;
+  odds: Fraction;
 }
 
 export type OddsFn = (
@@ -71,7 +71,7 @@ export function drawFromBag(
   numTokensPulled: number,
   bag: Bag,
   outcomes?: TokenEffects
-): PullWithOdds[] {
+): { tokens: Token[]; odds: number }[] {
   let allPossibleCombinations: Token[][] = [];
   if (outcomes) {
     const tokensWithRedraw = bag
@@ -95,46 +95,56 @@ export function drawFromBag(
     allPossibleCombinations = combinations(numTokensPulled, bag.getTokens());
   }
 
-  const allCombinationsWithOdds = allPossibleCombinations.map(tokens => ({
-    odds: oddsOfCombination(
-      bag.getTokens().length,
-      tokens.length,
-      outcomes
-        ? tokens.filter(token => !outcomes.getEffect(token).isRedraw()).length
-        : tokens.length
-    ).valueOf(),
-    tokens: tokens.sort()
-  }));
-
-  return allCombinationsWithOdds.reduce(
-    (reducedCombinations, currentCombination) => {
-      if (reducedCombinations.length === 0) {
-        return [currentCombination];
-      } else {
-        // Find a combination with the same set of tokens
-        const matchingCombinationIndex = reducedCombinations.findIndex(
-          ({ tokens }) => arrayEquals(tokens, currentCombination.tokens)
-        );
-        if (matchingCombinationIndex > -1) {
-          // Update the existing combination by adding the odds
-          return [
-            ...reducedCombinations.slice(0, matchingCombinationIndex),
-            {
-              odds:
-                reducedCombinations[matchingCombinationIndex].odds +
-                currentCombination.odds,
-              tokens: reducedCombinations[matchingCombinationIndex].tokens
-            },
-            ...reducedCombinations.slice(matchingCombinationIndex + 1)
-          ];
-        } else {
-          // Add the combination
-          return [...reducedCombinations, currentCombination];
-        }
-      }
-    },
-    []
+  const allCombinationsWithOdds: PullWithOdds[] = allPossibleCombinations.map(
+    tokens => ({
+      odds: oddsOfCombination(
+        bag.getTokens().length,
+        tokens.length,
+        outcomes
+          ? tokens.filter(token => !outcomes.getEffect(token).isRedraw()).length
+          : tokens.length
+      ),
+      tokens: tokens.sort()
+    })
   );
+
+  return allCombinationsWithOdds
+    .reduce(
+      (
+        reducedCombinations: PullWithOdds[],
+        currentCombination: PullWithOdds
+      ) => {
+        if (reducedCombinations.length === 0) {
+          return [currentCombination];
+        } else {
+          // Find a combination with the same set of tokens
+          const matchingCombinationIndex = reducedCombinations.findIndex(
+            ({ tokens }) => arrayEquals(tokens, currentCombination.tokens)
+          );
+          if (matchingCombinationIndex > -1) {
+            // Update the existing combination by adding the odds
+            return [
+              ...reducedCombinations.slice(0, matchingCombinationIndex),
+              {
+                odds: reducedCombinations[matchingCombinationIndex].odds.add(
+                  currentCombination.odds
+                ),
+                tokens: reducedCombinations[matchingCombinationIndex].tokens
+              },
+              ...reducedCombinations.slice(matchingCombinationIndex + 1)
+            ];
+          } else {
+            // Add the combination
+            return [...reducedCombinations, currentCombination];
+          }
+        }
+      },
+      []
+    )
+    .map(pullWithOdds => ({
+      odds: pullWithOdds.odds.valueOf(),
+      tokens: pullWithOdds.tokens
+    }));
 }
 
 /**
