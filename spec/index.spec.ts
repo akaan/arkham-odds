@@ -20,7 +20,7 @@ const PRECISION = 0.0000000001;
 
 interface PullWithOdds {
   tokens: Token[];
-  proportion: number;
+  odds: number;
 }
 
 function expectSetsEqual(
@@ -45,9 +45,9 @@ function expectSetsEqual(
 
       if (expectedSets.length === 1) {
         expectFn(
-          actualSet.proportion,
-          `Set with tokens ${actualSet.tokens} does not have the same proportion`
-        ).to.be.closeTo(expectedSets[0].proportion, PRECISION);
+          actualSet.odds,
+          `Set with tokens ${actualSet.tokens} does not have the same odds`
+        ).to.be.closeTo(expectedSets[0].odds, PRECISION);
       }
     }
   }
@@ -64,18 +64,18 @@ describe("Odds functions", () => {
   });
 
   describe("drawFromBag", () => {
-    it("return all possible sets with their proportion when pulling only 1 token", () => {
+    it("return all possible sets with their odds when pulling only 1 token", () => {
       const bag = new Bag([Token.PLUS_ONE, Token.MINUS_ONE]);
       const sets = drawFromBag(1, bag);
       const expected = [
-        { tokens: [Token.PLUS_ONE], proportion: 0.5 },
-        { tokens: [Token.MINUS_ONE], proportion: 0.5 }
+        { tokens: [Token.PLUS_ONE], odds: 0.5 },
+        { tokens: [Token.MINUS_ONE], odds: 0.5 }
       ];
 
       expectSetsEqual(expect, expected, sets);
     });
 
-    it("return all possible sets with their proportion when pulling multiple tokens", () => {
+    it("return all possible sets with their odds when pulling multiple tokens", () => {
       const bag = new Bag([
         Token.PLUS_ONE,
         Token.MINUS_ONE,
@@ -85,11 +85,11 @@ describe("Odds functions", () => {
       ]);
       const sets = drawFromBag(2, bag);
       const expected = [
-        { tokens: [Token.PLUS_ONE, Token.MINUS_ONE], proportion: 0.2 },
-        { tokens: [Token.PLUS_ONE, Token.MINUS_TWO], proportion: 0.2 },
-        { tokens: [Token.MINUS_ONE, Token.MINUS_ONE], proportion: 0.1 },
-        { tokens: [Token.MINUS_ONE, Token.MINUS_TWO], proportion: 0.4 },
-        { tokens: [Token.MINUS_TWO, Token.MINUS_TWO], proportion: 0.1 }
+        { tokens: [Token.PLUS_ONE, Token.MINUS_ONE], odds: 0.2 },
+        { tokens: [Token.PLUS_ONE, Token.MINUS_TWO], odds: 0.2 },
+        { tokens: [Token.MINUS_ONE, Token.MINUS_ONE], odds: 0.1 },
+        { tokens: [Token.MINUS_ONE, Token.MINUS_TWO], odds: 0.4 },
+        { tokens: [Token.MINUS_TWO, Token.MINUS_TWO], odds: 0.1 }
       ];
 
       expectSetsEqual(expect, expected, sets);
@@ -104,23 +104,23 @@ describe("Odds functions", () => {
       ]);
       const sets = drawFromBag(1, bag, effects);
       const expected = [
-        { tokens: [Token.PLUS_ONE], proportion: 1 / 4 },
-        { tokens: [Token.MINUS_ONE], proportion: 1 / 4 },
+        { tokens: [Token.PLUS_ONE], odds: 1 / 4 },
+        { tokens: [Token.MINUS_ONE], odds: 1 / 4 },
         {
           tokens: [Token.CULTIST, Token.PLUS_ONE],
-          proportion: (1 / 2) * (1 / 3)
+          odds: (1 / 2) * (1 / 3)
         },
         {
           tokens: [Token.CULTIST, Token.MINUS_ONE],
-          proportion: (1 / 2) * (1 / 3)
+          odds: (1 / 2) * (1 / 3)
         },
         {
           tokens: [Token.CULTIST, Token.CULTIST, Token.PLUS_ONE],
-          proportion: (1 / 2) * (1 / 3) * (1 / 2)
+          odds: (1 / 2) * (1 / 3) * (1 / 2)
         },
         {
           tokens: [Token.CULTIST, Token.CULTIST, Token.MINUS_ONE],
-          proportion: (1 / 2) * (1 / 3) * (1 / 2)
+          odds: (1 / 2) * (1 / 3) * (1 / 2)
         }
       ];
 
