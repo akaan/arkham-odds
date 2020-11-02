@@ -4,11 +4,17 @@ import { OutcomeFunction } from "./OutcomeFunction";
 import { Token, TokenEffects } from "./tokens";
 import {
   allCombinations,
+  arrayEquals,
   cartesianProduct,
   combinations,
   factorial,
   flatten
 } from "./utils";
+
+interface PullWithOdds {
+  tokens: Token[];
+  proportion: number;
+}
 
 export type OddsFn = (
   numTokensPulled: number,
@@ -43,6 +49,93 @@ function oddsOfCombination(
       factorial(numberOfTokensInCombination - 1) *
       numberOfNonRedrawTokensInCombination,
     factorial(totalNumberOfTokens)
+  );
+}
+
+/**
+ * Return all possible sets of n tokens that can be pulled from the bag along
+ * with the proportion of this particular set among all possible sets.
+ * For exemple, if drawing only 1 token from a bag containing only a +1 token
+ * and 2 -1 token, the result will be:
+ *  * +1 with a 0.33 proportion
+ *  * -1 with a 0.66 proportion
+ *
+ * @param {number} numTokensPulled
+ *   The number of tokens simultaneously pulled from the bag.
+ * @param {Bag} bag
+ *   The bag from which the tokens are pulled.
+ * @param {TokenEffects} outcomes
+ *   The token effects if needed (which is true if some of them have redraw effects).
+ */
+export function drawFromBag(
+  numTokensPulled: number,
+  bag: Bag,
+  outcomes?: TokenEffects
+): PullWithOdds[] {
+  let allPossibleCombinations: Token[][] = [];
+  if (outcomes) {
+    const tokensWithRedraw = bag
+      .getTokens()
+      .filter(t => outcomes.getEffect(t).isRedraw());
+    const tokensWithoutRedraw = bag
+      .getTokens()
+      .filter(t => !outcomes.getEffect(t).isRedraw());
+
+    const combinationsOfRedrawTokens = allCombinations(tokensWithRedraw);
+    const combinationsOfNonRedrawTokens = combinations(
+      numTokensPulled,
+      tokensWithoutRedraw
+    );
+
+    allPossibleCombinations = cartesianProduct(
+      combinationsOfRedrawTokens,
+      combinationsOfNonRedrawTokens
+    ).map(c => flatten(c));
+  } else {
+    allPossibleCombinations = combinations(numTokensPulled, bag.getTokens());
+  }
+
+  const allCombinationsWithProportions = allPossibleCombinations.map(
+    tokens => ({
+      proportion: oddsOfCombination(
+        bag.getTokens().length,
+        tokens.length,
+        outcomes
+          ? tokens.filter(token => !outcomes.getEffect(token).isRedraw()).length
+          : tokens.length
+      ).valueOf(),
+      tokens: tokens.sort()
+    })
+  );
+
+  return allCombinationsWithProportions.reduce(
+    (reducedCombinations, currentCombination) => {
+      if (reducedCombinations.length === 0) {
+        return [currentCombination];
+      } else {
+        // Find a combination with the same set of tokens
+        const matchingCombinationIndex = reducedCombinations.findIndex(
+          ({ tokens }) => arrayEquals(tokens, currentCombination.tokens)
+        );
+        if (matchingCombinationIndex > -1) {
+          // Update the existing combination by adding the proporttion
+          return [
+            ...reducedCombinations.slice(0, matchingCombinationIndex),
+            {
+              proportion:
+                reducedCombinations[matchingCombinationIndex].proportion +
+                currentCombination.proportion,
+              tokens: reducedCombinations[matchingCombinationIndex].tokens
+            },
+            ...reducedCombinations.slice(matchingCombinationIndex + 1)
+          ];
+        } else {
+          // Add the combination
+          return [...reducedCombinations, currentCombination];
+        }
+      }
+    },
+    []
   );
 }
 

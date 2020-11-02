@@ -38,6 +38,28 @@ describe("utils", () => {
     });
   });
 
+  describe("arrayEquals", () => {
+    it("returns true if the arrays contain the same values in the same order", () => {
+      expect(utils.arrayEquals([1, 2, 3], [1, 2, 3])).to.be.true;
+    });
+
+    it("returns false if the arrays do not contain the same values", () => {
+      expect(utils.arrayEquals([1, 2, 3], [1, 2, 4])).to.be.false;
+    });
+
+    it("returns false if the arrays contain the same values but in a different order", () => {
+      expect(utils.arrayEquals([1, 2, 3], [3, 1, 2])).to.be.false;
+    });
+
+    it("can compare different primitives", () => {
+      expect(utils.arrayEquals(["a", "b"], ["a", "b"])).to.be.true;
+      expect(utils.arrayEquals([1.0, 2.5], [1.0, 2.5])).to.be.true;
+      expect(utils.arrayEquals([true, false], [true, false])).to.be.true;
+      expect(utils.arrayEquals([1, null, undefined], [1, null, undefined])).to
+        .be.true;
+    });
+  });
+
   describe("combinations", () => {
     it("should return an empty array if K > N", () => {
       const arr = [1, 2, 3];

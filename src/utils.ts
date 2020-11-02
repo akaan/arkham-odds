@@ -40,6 +40,34 @@ export function flatten<T>(elems: T[][]): T[] {
 }
 
 /**
+ * Compare 2 arrays using `===`. No deep comparaison.
+ *
+ * @param {T[]} a
+ *   First array
+ * @param {T[]} b
+ *   Second array
+ * @return {boolean}
+ *   True if `a` and `b` contains the same values in the same order.
+ */
+export function arrayEquals<T>(a: T[], b: T[]): boolean {
+  if (!(Array.isArray(a) && Array.isArray(b))) {
+    return false;
+  }
+
+  if (a.length !== b.length) {
+    return false;
+  }
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/**
  * Returns combinations of elements from an array.
  *
  * @param {number} k
