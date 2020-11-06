@@ -8,7 +8,8 @@ import {
   cartesianProduct,
   combinations,
   factorial,
-  flatten
+  flatten,
+  replace
 } from "./utils";
 
 interface PullWithOdds {
@@ -120,16 +121,18 @@ function getPossiblePullsWithOdds(
         );
         if (matchingCombinationIndex > -1) {
           // Update the existing combination by adding the odds
-          return [
-            ...reducedCombinations.slice(0, matchingCombinationIndex),
-            {
-              odds: reducedCombinations[matchingCombinationIndex].odds.add(
-                currentCombination.odds
-              ),
-              tokens: reducedCombinations[matchingCombinationIndex].tokens
-            },
-            ...reducedCombinations.slice(matchingCombinationIndex + 1)
-          ];
+          const updatedCombination = {
+            odds: reducedCombinations[matchingCombinationIndex].odds.add(
+              currentCombination.odds
+            ),
+            tokens: reducedCombinations[matchingCombinationIndex].tokens
+          };
+
+          return replace(
+            reducedCombinations,
+            matchingCombinationIndex,
+            updatedCombination
+          );
         } else {
           // Add the combination
           return [...reducedCombinations, currentCombination];

@@ -32,6 +32,38 @@ describe("utils", () => {
     });
   });
 
+  describe("replace", () => {
+    it("should replace at specified index", () => {
+      const arr = ["a", "b", "c"];
+      const replaced = utils.replace(arr, 1, "x");
+      expect(replaced).to.deep.equal(["a", "x", "c"]);
+    });
+
+    it("should be able to replace at first position", () => {
+      const arr = ["a", "b", "c"];
+      const replaced = utils.replace(arr, 0, "x");
+      expect(replaced).to.deep.equal(["x", "b", "c"]);
+    });
+
+    it("should be able to replace at last position", () => {
+      const arr = ["a", "b", "c"];
+      const replaced = utils.replace(arr, 2, "x");
+      expect(replaced).to.deep.equal(["a", "b", "x"]);
+    });
+
+    it("should return the same array if specified index is < 0", () => {
+      const arr = ["a", "b", "c"];
+      const replaced = utils.replace(arr, -1, "x");
+      expect(replaced).to.deep.equal(["a", "b", "c"]);
+    });
+
+    it("should return the same array if specified index is > array length", () => {
+      const arr = ["a", "b", "c"];
+      const replaced = utils.replace(arr, 3, "x");
+      expect(replaced).to.deep.equal(["a", "b", "c"]);
+    });
+  });
+
   describe("flatten", () => {
     it("flattens an array", () => {
       expect(utils.flatten([[], [1], [2]])).to.deep.equal([1, 2]);

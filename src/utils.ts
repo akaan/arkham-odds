@@ -25,6 +25,26 @@ export function removeFirst<T>(elems: T[], elem: T): T[] {
   });
 }
 
+/**
+ * Returns a new array with element at index `idx` replaced with `elem`.
+ *
+ * @param {T[]} elems
+ *   The original array.
+ * @param {number} idx
+ *   The index at which to replace.
+ * @param {T} elem
+ *   The element to place at the specified index.
+ * @return {T[]}
+ *   A new array with the element replaced.
+ */
+export function replace<T>(elems: T[], idx: number, elem: T): T[] {
+  if (idx >= 0 && idx < elems.length) {
+    return [...elems.slice(0, idx), elem, ...elems.slice(idx + 1)];
+  } else {
+    return [...elems];
+  }
+}
+
 function tails<T>(elems: T[]): T[][] {
   if (elems.length === 0) {
     return [[]];
