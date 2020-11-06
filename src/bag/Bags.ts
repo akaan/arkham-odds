@@ -174,6 +174,23 @@ export const Bags = {
     )
   },
   /**
+   * The Innsmouth Conspiracy
+   */
+  TheInnsmouthConspiracy: {
+    Easy: toTokens(
+      "+1, +1, 0, 0, 0, –1, –1, –1, –2, –2, Skull, Skull, Cultist, Cultist, Tablet, Tablet, Elder thing, Elder thing, Autofail, Elder sign"
+    ),
+    Standard: toTokens(
+      "+1, 0, 0, –1, –1, –1, –2, –2, –3, –4, Skull, Skull, Cultist, Cultist, Tablet, Tablet, Elder thing, Elder thing, Autofail, Elder sign"
+    ),
+    Hard: toTokens(
+      "0, 0, 0, –1, –1, –2, –2, –3, –3, –4, –5, Skull, Skull, Cultist, Cultist, Tablet, Tablet, Elder thing, Elder thing, Autofail, Elder sign"
+    ),
+    Expert: toTokens(
+      "0, –1, –1, –2, –2, –3, –3, –4, –4, –5, –6, –8, Skull, Skull, Cultist, Cultist, Tablet, Tablet, Elder thing, Elder thing, Autofail, Elder sign"
+    )
+  },
+  /**
    * Curse of the Rougarou
    */
   CurseOfTheRougarou: {
