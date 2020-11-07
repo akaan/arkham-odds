@@ -62,6 +62,12 @@ describe("utils", () => {
       const replaced = utils.replace(arr, 3, "x");
       expect(replaced).to.deep.equal(["a", "b", "c"]);
     });
+
+    it("should leave the original array untouched", () => {
+      const arr = ["a", "b", "c"];
+      utils.replace(arr, 1, "x");
+      expect(arr).to.deep.equal(["a", "b", "c"]);
+    });
   });
 
   describe("flatten", () => {
